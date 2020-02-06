@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DASHBOARD</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
+    <script src="interact.js"></script>
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <button onclick="closeSidebar()" id="close" style="float: right;">&times;</button>
+        <br><br>
+        <a href="dash.html"><button onclick="showFOMS(this.id)" class="largeBtn" id="bt0"><i class="fas fa-home fa-3x"></i>Home</button></a>
+        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn1"><i class="fas fa-syrange fa-3x"></i>Treatment</button></a>
+        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn2"><i class="fas fa-user-plus fa-3x"></i>New Patient</button></a>
+        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn3"><i class="fas fa-edit fa-3x"></i>Reviews/Appointment</button></a>
+        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn4"><i class="fas fa-book fa-3x"></i>Payment Record</button></a>
+        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i class="fas fa-question fa-3x"></i>Help</button></a>
+        <a href="clinicInfo.html"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i class="fas fa-cog fa-3x"></i>Settings</button></a>
+    </div>
+    
+    <header>
+        <div class="bars" id="menu" onclick="showSidebar()">
+            <i class="fas fa-bars fa-2x"></i>
+        </div>
+        <h1>
+           Dental CLINIC
+        </h1>
+    </header>
+    <main>
+        <a href="patient.html">
+            <div class="icons">
+                <P><i class="fas fa-user-plus fa-4x"></i>New Client</P>
+            </div>
+        </a>
+        <a href="patient.html">
+            <div class="icons">
+                <P><i class="fas fa-water fa-4x"></i>Treatment</P>
+            </div>
+        </a>  
+        <a href="patient.html">
+            <div class="icons">
+                <P><i class="fas fa-search fa-4x"></i>Search/update</P>
+            </div>
+        </a>
+        <a href="patient.html">
+            <div class="icons">
+                <P><i class="fas fa-edit fa-4x"></i>Appointments/Reviews</P>
+            </div>
+        </a> 
+        <a href="clinicInfo.html">
+            <div class="icons">
+                <P><i class="fas fa-cog fa-4x"></i>Settings</P>
+            </div>
+        </a>
+    </main>
+    <footer>
+        <div>
+            <span>@washy</span><br>
+            <span>0799623291</span><br>
+            <span>washingndi@gmail.com</span><br>
+            <span>©2020</span>
+        </div>
+    </footer>
+</body>
+
+</html>

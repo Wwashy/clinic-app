@@ -1,0 +1,121 @@
+*{
+    box-sizing: border-box;
+}
+html,body{
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/*haeder and footer styling*/
+header,footer
+{
+    width: 100%;
+    margin: 0px;
+    font-size: 16px;
+    padding: auto;
+    overflow-x: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+footer{
+    overflow-y: hidden;
+    height: 100px;
+    background-color:  rgb(26, 29, 29);
+    color: white;
+    bottom: 0;
+     margin: 0;
+     float: none;
+}
+header{
+    height: 100px;
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+       
+}
+
+/*sidebar stylings*/
+.sidebar{
+    display: none;
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    background-color: rgb(26, 29, 29);
+    padding: 10px;
+    float: left;
+    transition: 0.8s;
+}
+.largeBtn{
+    width: 100%;
+    background-color: transparent;
+    padding: 10px;
+    border: 1px solid  rgb(26, 29, 29);
+    color: white;
+    text-align: left;
+    transition: 0.2s;
+}
+.largeBtn:hover{
+    background-color: teal;
+    transform: scale(1.1);
+}
+
+
+/*main body*/
+main{
+    background-color: wheat;
+    padding: 20px;
+    float: left;
+    width: 100%;
+    height: 100%;
+    
+}
+main .icons{
+    width: 300px;
+    height: 200px;
+    border: 1px solid thistle;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px;
+    float: left;
+}
+.icons p{display: inline-block;line-height: 170px;}
+.icons:hover{
+    background-color: thistle;
+    transform:scale(1.1);
+}
+/*form and form containers*/
+.container{
+    display: none;
+}
+main #default{display: block;}
+.patient{
+    display: grid;
+    grid-template-columns: repeat(2);
+}
+span{margin-left: 10px;}
+form{   
+    padding: 20px;
+    text-align: left;
+    }
+form input,select{
+    font-size: 18px;
+    width: 400px;
+    border-radius: 5px;
+  }
+  /*buttons*/
+.btn{
+    width:100px;
+    height: 50px;
+    background-color: #00ff73;
+    border-radius: 3px;
+}
+/*Current updats*/
+.currents{
+    border: 1px solid black;
+    width: 300px;
+    text-align: center;
+}
