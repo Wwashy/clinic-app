@@ -40,7 +40,7 @@ header{
 
 /*sidebar stylings*/
 .sidebar{
-    display: none;
+    left: -200px;
     position: absolute;
     width: 200px;
     height: 100%;
@@ -57,6 +57,7 @@ header{
     color: white;
     text-align: left;
     transition: 0.2s;
+  
 }
 .largeBtn:hover{
     background-color: teal;
@@ -81,6 +82,10 @@ main .icons{
     text-align: center;
     margin: 10px;
     float: left;
+    font-size: larger;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    box-shadow: 0 4px 4px 2px grey;
 }
 .icons p{display: inline-block;line-height: 170px;}
 .icons:hover{
@@ -113,9 +118,26 @@ form input,select{
     background-color: #00ff73;
     border-radius: 3px;
 }
+#close{width: 40px;
+    height: 40px;
+background-color: transparent;
+color: white;
+font-size: larger;
+border-radius: 50%;
+border: none;
+transition: 0.2s;
+}
+#close:hover{background-color: teal;
+transform: scale(1.1);}
+
+
 /*Current updats*/
 .currents{
     border: 1px solid black;
     width: 300px;
     text-align: center;
+}
+
+main .patient{
+    grid-template-areas: "div" "form";
 }

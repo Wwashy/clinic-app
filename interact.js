@@ -1,10 +1,11 @@
 
 //sidebar events
 function showSidebar() {
-    document.getElementById("sidebar").style.display = "block";
+    document.getElementById("sidebar").style.left = "0px";
+    
 }
 function closeSidebar() {
-    document.getElementById("sidebar").style.display = "none";
+    document.getElementById("sidebar").style.left = "-200px";
 }
 document.getElementsByTagName("header").addEventListener("focus",
 function showbars(params) {
