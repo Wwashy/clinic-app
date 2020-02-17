@@ -9,49 +9,53 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     <script src="interact.js"></script>
+    <style>
+    body{background-image: url("iage/1.jfif");background-size: cover;}
+    </style>
 </head>
 
 <body>
     <div class="sidebar" id="sidebar">
-        <button onclick="closeSidebar()" id="close" style="float: right;">&times;</button>
+        <button onclick="closeSidebar()" id="close" class="close" style="float: right;">&times;</button>
         <br><br>
-        <a href="dash.html"><button onclick="showFOMS(this.id)" class="largeBtn" id="bt0"><i class="fas fa-home fa-3x"></i>Home</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn1"><i class="fas fa-syrange fa-3x"></i>Treatment</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn2"><i class="fas fa-user-plus fa-3x"></i>New Patient</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn3"><i class="fas fa-edit fa-3x"></i>Reviews/Appointment</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn4"><i class="fas fa-book fa-3x"></i>Payment Record</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i class="fas fa-question fa-3x"></i>Help</button></a>
-        <a href="clinicInfo.html"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i class="fas fa-cog fa-3x"></i>Settings</button></a>
+        <a href="dash.html"><button onclick="showFOMS(this.id)" class="largeBtn" id="bt0"><i class="fas fa-home fa-3x"></i> Home</button></a>
+        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn1"><i class="fas fa-stethoscope fa-3x"></i> Treatment</button></a>
+        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn2"><i class="fas fa-user-plus fa-3x"></i>   New Patient</button></a>
+        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn3"><i class="fas fa-edit fa-3x"></i>    Reviews/Appointment</button></a>
+        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn4"><i class="fas fa-book fa-3x"></i>    Payment Record</button></a>
+        <a href="contact.html"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i class="fas fa-question fa-3x"></i> Help</button></a>
+        <a href="clinicInfo.html"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn6"><i class="fas fa-cog fa-3x"></i>   Settings</button></a>
+        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn7"><i class="fas fa-power-off fa-3x"></i>   Quit</button></a>
     </div>
     
     <header>
         <div class="bars" id="menu" onclick="showSidebar()">
-            menu
+          
             <i class="fas fa-bars fa-2x"></i>
         </div>
-        <h1>
+        <h1 id="clinicName">
            Dental CLINIC
         </h1>
     </header>
-    <main>
+    <main class="dashboard">
         <a href="patient.html">
             <div class="icons">
                 <P><i class="fas fa-user-plus fa-4x"></i>New Client</P>
             </div>
         </a>
-        <a href="patient.html">
+        <a href="service.html">
             <div class="icons">
-                <P><i class="fas fa-water fa-4x"></i>Treatment</P>
+                <P><i class="fas fa-stethoscope fa-4x"></i>Treatment</P>
             </div>
         </a>  
-        <a href="patient.html">
+        <a href="search.html">
             <div class="icons">
-                <P><i class="fas fa-search fa-4x"></i>Search/update</P>
+                <P><i class="fas fa-search fa-4x"></i>Search</P>
             </div>
         </a>
-        <a href="patient.html">
+        <a href="schedules.html">
             <div class="icons">
-                <P><i class="fas fa-edit fa-4x"></i>Appointments/Reviews</P>
+                <P><i class="fas fa-edit fa-4x"></i>Reviews</P>
             </div>
         </a> 
         <a href="clinicInfo.html">
@@ -60,14 +64,6 @@
             </div>
         </a>
     </main>
-    <footer>
-        <div>
-            <span>@washy</span><br>
-            <span>0799623291</span><br>
-            <span>washingndi@gmail.com</span><br>
-            <span>©2020</span>
-        </div>
-    </footer>
-</body>
+    </body>
 
 </html>

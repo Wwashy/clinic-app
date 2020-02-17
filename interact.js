@@ -2,10 +2,11 @@
 //sidebar events
 function showSidebar() {
     document.getElementById("sidebar").style.left = "0px";
+    document.getElementById("close").innerHTML ="X";
     
 }
 function closeSidebar() {
-    document.getElementById("sidebar").style.left = "-200px";
+    document.getElementById("sidebar").style.left = "-300px";
 }
 document.getElementsByTagName("header").addEventListener("focus",
 function showbars(params) {
@@ -43,9 +44,7 @@ document.getElementById("menu").addEventListener('click',showSidebar);
 document.querySelectorAll(".largeBtn").addEventListener("click",showFOMS());*/
 
 //update the NAME
-var trig = document.getElementById("trig");
-  trig.addEventListener("click",function () {
-    var title = document.getElementsByName("h1");
-    var val = document.getElementById("trigname").Value;
-    title = val;    
-  });
+function changeClinic() {
+    var value=document.getElementById("trigname").value;
+    document.getElementsById("clinicName").innerHTML=value;
+    }
