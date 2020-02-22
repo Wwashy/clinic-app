@@ -26,17 +26,16 @@
     <button id="btn" onclick="run()">ANSWER</button>
 </body>
 <script>
-
-    var b1 = document.getElementById("b1").value;
-    var b2 = document.getElementById("b2").value;
-    var ans = document.getElementById("ans");
-    let operator = document.getElementById("operation").value;
     /*add();
     subtract();
     multply();
     divide();*/
 
-    function run() {
+    function run() {        
+    var b1 = document.getElementById("b1").value;
+    var b2 = document.getElementById("b2").value;
+    var ans = document.getElementById("ans");
+    let operator = document.getElementById("operation").value;
         var ANSWER;
         if (operator=="add") {
             ANSWER = add(b1,b2);
