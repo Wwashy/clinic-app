@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input{width: 200px;
+        height: 50px;
+        margin: 20px;
+        }
+    </style>
+  
+</head>
+<body>
+        <select id="operation">
+            <option value="subtract">subtract</option>
+            <option value="add">addition</option>
+            <option value="product">product</option>
+            <option value="divide">division</option>
+        </select><br>
+    b1:<input id ="b1" type="number"><br>
+    b2:<input id ="b2" type="number"><br>
+    <span id="ans">ANSWER comes here</span><br>
+    <button id="btn" onclick="run()">ANSWER</button>
+</body>
+<script>
+
+    var b1 = document.getElementById("b1").value;
+    var b2 = document.getElementById("b2").value;
+    var ans = document.getElementById("ans");
+    let operator = document.getElementById("operation").value;
+    /*add();
+    subtract();
+    multply();
+    divide();*/
+
+    function run() {
+        var ANSWER;
+        if (operator=="add") {
+            ANSWER = add(b1,b2);
+            ans.innerText = ANSWER;
+        } else if (operator =="subtract") {
+           ANSWER = subtract(b1,b2);
+           ans.innerHTML = ANSWER;
+        } else if (operator == "product") {
+            ANSWER = multply(b1,b2) ;
+            ans.innerHTML = ANSWER;
+        } else {
+            ANSWER =divide(b1,b2);
+            ans.innerHTML = ANSWER;
+            console.log(ANSWER);
+        }        
+        
+    }
+
+    //functions
+    function add(a,b) {
+     return a+b;            
+    }
+
+    function subtract(a,b) {
+        return a-b;            
+    }
+    function multply(a,b) {
+     return a*b;
+        
+    }
+    function divide(a,b) {
+      return  a/b;            
+    }
+
+      
+</script>
+</html>
