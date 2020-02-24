@@ -1,4 +1,4 @@
-
+window.onload.requestFullscreen();
 //sidebar events
 function showSidebar() {
     document.getElementById("sidebar").style.left = "0px";

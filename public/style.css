@@ -22,7 +22,7 @@ header,footer
 }
 
 footer{
-    position: absolute;
+    position: relative;
     bottom: 0;
     overflow-y: hidden;
     height: 100px;
@@ -101,7 +101,7 @@ main .icons{
     display: none;
 }
 main #default{display: block;}
-.patient{
+/*.patient{
     display: grid;
     grid-template-columns: repeat(2);
 }
@@ -109,19 +109,21 @@ span{margin-left: 10px;}
 form{   
     padding: 20px;
     text-align: left;
-    }
-input,select{
+    }*/
+input,select option{
     font-size: 18px;
-    width: 400px;
     border-radius: 5px;
   }
   /*buttons*/
+  
 .btn{
     width:100px;
-    height: 40px;
-    background-color: #12db6d;
+    height: 30px;
+    background-color: #3cbc8d;
     border-radius: 3px;
-    transition: 0.8s;
+    border-style: outset;
+    transition: 0.2s;
+    text-transform: lowercase;
 }
 .btn:hover{
     color:white;
@@ -142,6 +144,18 @@ input,select{
 .close:hover{background-color:red;
 transform: scale(1.2);
 }
+.big-transparent{
+    width: 200px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid red;
+    transition: 0.5s;
+}
+.big-transparent:hover{
+    background-color: thistle;
+    color: black;
+    transform: scaleX(1.1);
+}
 
 
 /*Current updats*/
@@ -157,11 +171,17 @@ main .patient{
 
 /*search/updates*/
 main .list{
-    width: 90%;
-    height: 400px;;
-    background-color: white;
-    border: 1px solid gray;
+    width: 100%;
+    height: 300px;
+    background-color:
+    white;
+    border: 1px solid
+    gray;
     border-radius: 2px;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 5;
 }
 /*wide containers*/
 .containers{
@@ -185,6 +205,17 @@ main .list{
 .containers h2{
     line-height: 100px;
     text-transform: capitalize;
+}
+.containers#c1 h2{
+    line-height: 300px;
+    text-transform: capitalize;
+    transition: 1s;
+    font-weight: bolder;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.containers#c1 h2:hover{
+    transform: scale(1.2);
 }
 .containers p{
     font-weight: bold;
@@ -210,6 +241,8 @@ main .list{
     position: sticky;
     top: 0;
     z-index: 1;
+    display: flex;
+    justify-content: space-around;
 }
 .nav ul {
     list-style: none;

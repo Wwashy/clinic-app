@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>New Patient</title>
+    <link rel="stylesheet" href="form.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     <script src="interact.js"></script>
 </head>
 
 <body>
-    
+
     <header>
         <a href="dash.html"><button onclick="closeSidebar()" class="close" style="float: left;">←back</button></a>
         <span>
@@ -22,17 +23,30 @@
         </span>
     </header>
     <main class="service">
-      
+        <form class="smart" action="submit" method="POST">
+            <div class="form-head">
+                <h2>services</h2>
+            </div>
+            <label for="">patient id</label><input type="text" placeholder="ID" required>
+            <label for="">DX: </label><select id="D2" required>
+                <option value="12X">X12</option>
+                <option value="12X">X12</option>
+                <option value="12X">X12</option>
+                <option value="12X">X12</option>
+            </select>
+            <label for="">RX: </label><select id="D2" required>
+                <option value="rootcanal">ROOT CANAL</option>
+                <option value="scaling">SCALING</option>
+                <option value="masking">MASKING</option>
+                <option value="filling">FILLING</option>
+                <option value="replacement">REPLACEMENT</option>
+                <option value="rootcanal">ROOT CANAL</option>
+            </select>
+            <label>review<input type="checkbox" value="true"></label>
+            <input type="text" placeholder="Cost">
+            <button class="btn" id="btn1" type="submit">save</button>
+        </form>
     </main>
-
-    <footer>
-        <div>
-            <span>@washy</span><br>
-            <span>0799623291</span><br>
-            <span>washingndi@gmail.com</span><br>
-            <span>©2020</span>
-        </div>
-    </footer>
 </body>
 
 </html>

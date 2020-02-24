@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>New Patient</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     <script src="interact.js"></script>
 </head>
 
 <body>
-    
+
     <header>
         <a href="dash.html"><button onclick="closeSidebar()" class="close" style="float: left;">←</button></a>
         <span>
@@ -22,39 +23,25 @@
         </span>
     </header>
     <main class="patient">
-        <h1>New Patient</h1> /////<a href="service.html"><button class="btn">Next</button></a>
-        <div class="fas fa-bars fa-4x">
+        <form class="smart" action="">
+            <div class="form-head"> <h1>add new patient details</h1></div>
+            <label for=""> name:</label> <input id="tb1" type="text" placeholder="Firstname" required>
+            <label for="">Sirname:</label><input id="tb2" type="text" placeholder="Lastname" required>
+            <label for="">Lastname:</label><input id="tb3" type="text" placeholder="Sirname" required>
+            <label for="">DOB:</label><input id="tb4" type="date" placeholder="date of birth" required>
+            <label for="">email:</label><input id="tb5" type="email" placeholder="example@gmail.com" required>
+            <label for="">Phone:</label><input id="tb6" type="text" placeholder="0712345678" required>
+            <label for="">Town/Estate/Village:</label> <input id="tb7" type="text" placeholder="City/Town/Village"
+                required>
+            <label for="">gender: </label><select id="D1" required>
 
-        </div>
-        <form action="POST">
-       <img src="" alt="avatar">
-        <label for="name">Patient's name</label><br>
-        <input type="text" name="name" placeholder="eg JOHN OMONDI"><br><br>
-        <label for="id">ID:</label><br>
-        <input type="text" name="id" placeholder="eg 36837700"><br><br>
-        <select name="SEX" placeholder="gender">
-            <option value="M">MALE</option>
-            <option value="F">FEMAL</option>
-        </select><br><br>
-        <label for="residence">Residence</label><br>
-        <input type="text" name="residence" placeholder="e.g Homabay"><br><br>
-        <label for="phone">Phone:</label><br>
-        <input type="text" name="phone" placeholder="e.g 0799623291"><br><br>
-        <label for="guadian">Guadian/Parent:</label><br>
-        <input type="text" name="guadian" placeholder="e.g wilis nyanduke"><br><br>
-        <input class="btn" type="submit">
+                <option value="male">MALE</option>
+                <option value="female">FEMALE</option>
+            </select>
+            <button class="btn" id="btn2">NEXT</button>
+            <button class="btn" id="btn1" type="submit">save</button>
         </form>
-        
     </main>
-
-    <footer>
-        <div>
-            <span>@washy</span><br>
-            <span>0799623291</span><br>
-            <span>washingndi@gmail.com</span><br>
-            <span>©2020</span>
-        </div>
-    </footer>
 </body>
 
 </html>

@@ -1,0 +1,89 @@
+.smart{
+    width: 100%;
+    border-radius: 5px;
+    border:2px solid grey;
+   display: grid;
+   grid-template-columns: 15% 30% 15% 30%;
+   grid-template-rows:50px 50px 50px 50px 50px 50px;
+   padding: 20px;
+   box-shadow: 3px 3px 2px grey;
+   grid-gap: 10px;
+   
+}
+input[type = "text"],[type = "email"]{
+    width: 100%;
+    height: 30px;
+    border-radius: 2px;
+    padding: 10px;
+}
+input[type = "date"]{
+    width: 200px;
+    height: 30px;
+    border-radius: 2px;
+    padding: 10px;
+}
+select{
+    box-sizing: border-box;
+border-radius: 2px;
+height: 30px;
+}
+.form-head{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-transform: capitalize;
+
+}
+/*
+#tb1{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+#tb2{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+#tb3{
+    grid-column-end: 5;
+    grid-column-start: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+#tb4{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+#tb5{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}*/
+#btn1{
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+label{
+    font-weight: bold;
+    padding: auto;
+    margin: 5px;
+    text-transform: capitalize;
+}
+.smart1{
+    width: 100%;
+    border-radius: 5px;
+    border:2px solid grey;
+   display: grid;
+   grid-template-rows:50px 50px auto;
+   padding: 20px;
+   box-shadow: 3px 3px 2px grey;
+   grid-gap: 10px;
+}
