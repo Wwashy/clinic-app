@@ -10,7 +10,7 @@ html,body{
     scroll-behavior: smooth;
 }
 
-/*haeder and footer styling*/   
+/*--------------------haeder and footer styling------------------------------------*/   
 header,footer
 {
     width: 100%;
@@ -40,7 +40,7 @@ header{
        
 }
 
-/*sidebar stylings*/
+/*----------------------------------sidebar stylings----------------------------*/
 .sidebar{
     left: -300px;
     position: absolute;
@@ -67,7 +67,7 @@ header{
 }
 
 
-/*main body*/
+/*--------------------------------------main body-------------------------------*/
 main{
     height:100% auto;
     padding: 20px;
@@ -101,20 +101,12 @@ main .icons{
     display: none;
 }
 main #default{display: block;}
-/*.patient{
-    display: grid;
-    grid-template-columns: repeat(2);
-}
-span{margin-left: 10px;}
-form{   
-    padding: 20px;
-    text-align: left;
-    }*/
+
 input,select option{
     font-size: 18px;
     border-radius: 5px;
   }
-  /*buttons*/
+  /*-------------------------buttons--------------------------------*/
   
 .btn{
     width:100px;
@@ -158,7 +150,7 @@ transform: scale(1.2);
 }
 
 
-/*Current updats*/
+/*--------------------------------Current updats---------------------------------------*/
 .currents{
     border: 1px solid black;
     width: 300px;
@@ -169,7 +161,7 @@ main .patient{
     grid-template-areas: "div" "form";
 }
 
-/*search/updates*/
+/*--------=================search/updates==================================*/
 main .list{
     width: 100%;
     height: 300px;
@@ -183,7 +175,7 @@ main .list{
     grid-column-start: 1;
     grid-column-end: 5;
 }
-/*wide containers*/
+/*===========================================wide containers used in welcome page========================*/
 .containers{
     width: 100%;
     height: 400px;
@@ -223,18 +215,18 @@ main .list{
 .containers#c1{
      display: flex;
     flex-direction: row;
-    overflow-x: hidden;
+    overflow-x:hidden;
     overflow-y: hidden;
     justify-content: space-between;
     opacity: 1.0;
-    padding-left: 0;
-    height: 400px;
+    padding: 0;
+    
 }
 .containers#c1 img{
     min-width:100%;
     margin-bottom: 20px;
     transition: 1s;
-    height: 380px;
+    height: 400px;
 }
 .containers p{
     font-weight: bold;
@@ -247,7 +239,7 @@ main .list{
     display: block;
     text-align: left;
 }
-/*navigation bar*/
+/*=====================================top navigation bar=====================*/
 .nav{
     
     background-color:black;

@@ -38,13 +38,6 @@ function showFOMS(btn) {
         document.getElementById("f3").style.display ="none";
     }
 }
+function changeImage(){
 
-/*document.getElementById("close").addEventListener('click',closeSidebar);
-document.getElementById("menu").addEventListener('click',showSidebar);
-document.querySelectorAll(".largeBtn").addEventListener("click",showFOMS());*/
-
-//update the NAME
-function changeClinic() {
-    var value=document.getElementById("trigname").value;
-    document.getElementsById("clinicName").innerHTML=value;
-    }
+}
