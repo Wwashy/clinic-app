@@ -33,7 +33,7 @@ footer{
      float: none;
 }
 header{
-    height: 150px;
+    height: 120px;
     background-color: teal;
     color: white;
     padding: 10px;
@@ -207,15 +207,34 @@ main .list{
     text-transform: capitalize;
 }
 .containers#c1 h2{
-    line-height: 300px;
     text-transform: capitalize;
     transition: 1s;
     font-weight: bolder;
     font-size: 40px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    z-index: 1;
+    position: absolute;
+    
+   
 }
-.containers#c1 h2:hover{
-    transform: scale(1.2);
+.containers#c1 img:hover{
+    transform: scale(1.-1);
+}
+.containers#c1{
+     display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    justify-content: space-between;
+    opacity: 1.0;
+    padding-left: 0;
+    height: 400px;
+}
+.containers#c1 img{
+    min-width:100%;
+    margin-bottom: 20px;
+    transition: 1s;
+    height: 380px;
 }
 .containers p{
     font-weight: bold;
