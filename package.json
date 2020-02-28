@@ -1,0 +1,33 @@
+{
+  "name": "clinicsystem",
+  "version": "1.0.0",
+  "description": "dental clinic system",
+  "main": "routing.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "json": "^9.0.6",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.2",
+    "tedious": "^8.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wwashy/clinic-app.git"
+  },
+  "keywords": [
+    "clinic",
+    "system"
+  ],
+  "author": "washington omondi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wwashy/clinic-app/issues"
+  },
+  "homepage": "https://github.com/Wwashy/clinic-app#readme"
+}
