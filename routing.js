@@ -36,28 +36,32 @@ route.get('/search', function (req, res) {
 route.get('/schedules', function (req, res) {
     res.sendFile(__dirname + '/schedules.html');
 });
+route.get('contact',function (req,res) {
+    res.sendFile(__dirname +'/contact.html')
+})
 
 
 
 
 //====================> creates connection to the database
 var connection = mysql.createPool({
-    connectionLimit:100,
+    connectionLimit: 100,
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'clinicsystem',
-    debug:false
+    debug: false
 });
 connection.getConnection(function (err) {
-    if (err) {throw err;
-    }else{
+    if (err) {
+        throw err;
+    } else {
         console.log('connected successfully');
         sendData();
-    }    
+    }
 });
 
-function sendData () {
+function sendData() {
 
 
     //sends the patient information to the database
@@ -71,9 +75,9 @@ function sendData () {
                 res.end("inserted successfully")
                 connection.end();
             }
-            
+
         })
-       
+
     });
 
     //sends the dentist information to the server
@@ -107,6 +111,19 @@ function sendData () {
 
     });
 
+    route.post('/submit_about', function (req, res) {
+        var sql = "INSERT INTO clinicinformation (name,category,location) VALUES('" + req.body.name + "','" + req.body.category + "','" + req.body.location + "');";
+        connection.query(sql, function (err) {
+            if (err) {
+                throw err
+            } else {
+                console.log('submitted successfullly');
+                connection.end();
+            }
+        })
+    })
+
 }
+
 
 route.listen(3000);

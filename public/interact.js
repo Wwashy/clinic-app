@@ -1,4 +1,4 @@
-window.onload.requestFullscreen();
+
 //sidebar events
 function showSidebar() {
     document.getElementById("sidebar").style.left = "0px";
@@ -14,30 +14,40 @@ function showbars(params) {
 })
 //toggle menu
 function showFOMS(btn) {
-    if (btn=="btn1") {
+    
+    if (btn=="btn0") {
+        document.getElementById("default").style.display ="block";
+        document.getElementById("f1").style.display ="none";
+        document.getElementById("f2").style.display ="none";
+        document.getElementById("f3").style.display ="none";   
+    } else if(btn=="btn1") {
+        document.getElementById("default").style.display ="none";
         document.getElementById("f1").style.display ="block";
         document.getElementById("f2").style.display ="none";
         document.getElementById("f3").style.display ="none";
-        document.getElementById("default").style.display ="none";
         
-    } else if(btn=="btn2") {
-        document.getElementById("f2").style.display ="block";
-        document.getElementById("f1").style.display ="none";
-        document.getElementById("f3").style.display ="none";
+    }else if(btn=="btn2"){
         document.getElementById("default").style.display ="none";
-    }else if(btn=="btn3"){
+        document.getElementById("f1").style.display ="none";
+        document.getElementById("f2").style.display ="block";
+        document.getElementById("f3").style.display ="none";     
+        
+    }
+    else if (btn=="btn3") {
+        
         document.getElementById("f3").style.display ="block";
         document.getElementById("f2").style.display ="none";
         document.getElementById("f1").style.display ="none";
         document.getElementById("default").style.display ="none";
-    }
-    else{
-        document.getElementById("default").style.display ="block";
+    } else {        
+        document.getElementById("default").style.display ="none";
         document.getElementById("f2").style.display ="none";
         document.getElementById("f1").style.display ="none";
         document.getElementById("f3").style.display ="none";
     }
 }
-function changeImage(){
-
-}
+//header properties
+setInterval(
+function getDate() {
+    document.getElementById("time-box").innerHTML = new Date(year);
+},1000);

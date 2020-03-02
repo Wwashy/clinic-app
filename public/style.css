@@ -41,6 +41,7 @@ header{
 }
 
 /*----------------------------------sidebar stylings----------------------------*/
+
 .sidebar{
     left: -300px;
     position: absolute;
@@ -51,6 +52,22 @@ header{
     float: left;
     transition: 0.8s;
 }
+.section-one .sidebar{
+    left: 0;
+    position: absolute;
+    width:25%;
+    height: 100%;
+    background-color: rgb(26, 29, 29);
+    padding: 10px;
+    float: left;
+    transition: 0.8s;
+    color: white;
+}
+.section-one .sidebar h1{
+    color: teal;
+    font-weight: bolder;
+    text-transform: capitalize;
+    font-size: 30px;}
 .largeBtn{
     width: 100%;
     background-color: transparent;
@@ -75,7 +92,7 @@ main{
     width: 100%;
     
 }
-main .icons{
+.container .icons{
     width: 300px;
     height: 200px;
     border: 1px solid teal;
@@ -100,7 +117,11 @@ main .icons{
 .container{
     display: none;
 }
-main #default{display: block;}
+#default{display:block;}
+.section-two .container .smart{
+    border: none;
+    box-shadow: none;
+}
 
 input,select option{
     font-size: 18px;

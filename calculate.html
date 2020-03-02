@@ -36,10 +36,10 @@
     var b2 = Number( document.getElementById("b2").value);
     var ans = document.getElementById("ans");
     let operator = document.getElementById("operation").value;
-        var ANSWER;
+    var ANSWER;
         if (operator=="add") {
-            ANSWER = add(b1,b2);
-            ans.innerText = ANSWER;
+            //ANSWER = add(b1,b2);
+            ans.innerText = add(b1,b2);
         } else if (operator =="subtract") {
            ANSWER = subtract(b1,b2);
            ans.innerHTML = ANSWER;
@@ -72,8 +72,7 @@
        }else{
       return  a/b;  
        }          
-    }
-
+    }  
       
 </script>
 </html>

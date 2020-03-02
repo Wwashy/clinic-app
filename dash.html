@@ -7,63 +7,136 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DASHBOARD</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="2col-layout.css">
+    <link rel="stylesheet" href="form.css">
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     <script src="interact.js"></script>
     <style>
-    body{background-image: url("iage/1.jfif");background-size: cover;}
+        body {
+            background-image: url("iage/1.jfif");
+            background-size: cover;
+        }
     </style>
 </head>
 
 <body>
-    <div class="sidebar" id="sidebar">
-        <button onclick="closeSidebar()" id="close" class="close" style="float: right;">&times;</button>
-        <br><br>
-        <a href="dash"><button onclick="showFOMS(this.id)" class="largeBtn" id="bt0"><i class="fas fa-home fa-3x"></i> Home</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn1"><i class="fas fa-stethoscope fa-3x"></i> Treatment</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn2"><i class="fas fa-user-plus fa-3x"></i>   New Patient</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn3"><i class="fas fa-edit fa-3x"></i>    Reviews/Appointment</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn4"><i class="fas fa-book fa-3x"></i>    Payment Record</button></a>
-        <a href="contact"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i class="fas fa-question fa-3x"></i> Help</button></a>
-        <a href="clinicInfo"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn6"><i class="fas fa-cog fa-3x"></i>   Settings</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn7"><i class="fas fa-power-off fa-3x"></i>   Quit</button></a>
-    </div>
-    
-    <header>
-        <div class="bars" id="menu" onclick="showSidebar()">
-            MENU
-            <i class="fas fa-bars fa-2x"></i>
+    <section class="section-one">
+        <div class="sidebar" id="sidebar">
+            <h1>jamii dental</h1>
+            <br>
+            <hr>
+            <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn0"><i
+                        class="fas fa-home fa-3x"></i> Dashboard</button></a>
+                        
+            <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn1"><i
+                        class="fas fa-stethoscope fa-3x"></i> Treatment</button></a>
+
+            <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn2"><i
+                        class="fas fa-user-plus fa-3x"></i> New Patient</button></a>
+
+            <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn3"><i class="fas fa-edit fa-3x"></i>
+                    Reviews/Appointment</button></a>
+
+            <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn4"><i class="fas fa-book fa-3x"></i>
+                    Clients Record</button></a>
+
+            <a href="contact"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i
+                        class="fas fa-question fa-3x"></i> Help</button></a>
+
+            <a href="clinicInfo"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn6"><i
+                        class="fas fa-cog fa-3x"></i> Settings</button></a>
+
+            <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn7"><i
+                        class="fas fa-power-off fa-3x"></i> Quit</button></a>
         </div>
-        <h1 id="clinicName">
-           Dental CLINIC
-        </h1>
-    </header>
-    <main class="dashboard">
-        <a href="patient">
-            <div class="icons">
-                <P><i class="fas fa-user-plus fa-4x"></i>New Client</P>
+    </section>
+
+    <section class="section-two">
+
+        <header style="background-color: transparent;">
+            <span id="time-box"></span>
+        </header>
+        <main class="dashboard">
+            
+            <div class="container" id="default">
+                <a href="patient">
+                    <div class="icons">
+                        <P><i class="fas fa-user-plus fa-4x"></i>New Client</P>
+                    </div>
+                </a>
+                <a href="service">
+                    <div class="icons">
+                        <P><i class="fas fa-stethoscope fa-4x"></i>Service</P>
+                    </div>
+                </a>
+                <a href="search">
+                    <div class="icons">
+                        <P><i class="fas fa-search fa-4x"></i>Search</P>
+                    </div>
+                </a>
+                <a href="schedules">
+                    <div class="icons">
+                        <P><i class="fas fa-edit fa-4x"></i>Reviews</P>
+                    </div>
+                </a>
+                <a href="clinicInfo">
+                    <div class="icons">
+                        <P><i class="fas fa-cog fa-4x"></i>Settings</P>
+                    </div>
+                </a>
             </div>
-        </a>
-        <a href="service">
-            <div class="icons">
-                <P><i class="fas fa-stethoscope fa-4x"></i>Service</P>
+
+            <!---service form-->
+            <div class="container" id="f1">
+            <form class="smart" action="submit" method="POST" >
+                <div class="form-head">
+                    <h2>services</h2>
+                </div>
+                <label for="">patient id</label><input type="text" placeholder="ID" required>
+                <label for="">DX: </label><select id="D2" required>
+                    <option value="12X">X12</option>
+                    <option value="12X">X12</option>
+                    <option value="12X">X12</option>
+                    <option value="12X">X12</option>
+                </select>
+                <label for="">RX: </label><select id="D2" required>
+                    <option value="rootcanal">ROOT CANAL</option>
+                    <option value="scaling">SCALING</option>
+                    <option value="masking">MASKING</option>
+                    <option value="filling">FILLING</option>
+                    <option value="replacement">REPLACEMENT</option>
+                    <option value="rootcanal">ROOT CANAL</option>
+                </select>
+                <label>review<input type="checkbox" value="true"></label>
+                <input type="text" placeholder="Cost">
+                <button class="btn" id="btn1" type="submit">save</button>
+            </form>
+        </div>
+            <!--patients form-->
+            <div class="container" id="f2">
+            <form class="smart" action="submit_patient" method="POST">
+                <div class="form-head">
+                    <h1>add new patient details</h1>
+                </div>
+                <label for=""> name:</label> <input id="tb1" type="text" name="firstname" placeholder="Firstname">
+                <label for="">Sirname:</label><input id="tb2" type="text" name="lastname" placeholder="Lastname">
+                <label for="">Lastname:</label><input id="tb3" type="text" name="sirname" placeholder="Sirname">
+                <label for="">DOB:</label><input id="tb4" type="date" name="date" placeholder="date of birth">
+                <label for="">email:</label><input id="tb5" type="email" name="email" placeholder="example@gmail.com">
+                <label for="">Phone:</label><input id="tb6" type="text" name="phone" placeholder="0712345678">
+                <label for="">Town/Estate/Village:</label> <input id="tb7" type="text" name="residence"
+                    placeholder="City/Town/Village">
+                <label for="">gender: </label><select id="D1" name="gender">
+
+                    <option value="male">MALE</option>
+                    <option value="female">FEMALE</option>
+                </select>
+
+                <input class="btn" id="btn1" type="submit" value="submit">
+            </form>
             </div>
-        </a>  
-        <a href="search">
-            <div class="icons">
-                <P><i class="fas fa-search fa-4x"></i>Search</P>
-            </div>
-        </a>
-        <a href="schedules">
-            <div class="icons">
-                <P><i class="fas fa-edit fa-4x"></i>Reviews</P>
-            </div>
-        </a> 
-        <a href="clinicInfo">
-            <div class="icons">
-                <P><i class="fas fa-cog fa-4x"></i>Settings</P>
-            </div>
-        </a>
-    </main>
-    </body>
+        </main>
+    </section>
+</body>
 
 </html>

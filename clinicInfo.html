@@ -106,24 +106,24 @@
 
         <!--Clinic Details-->
         <div class="container" id="f3">
-            <form class="smart" action="submit-clinInfo" method="POST">
+            <form class="smart" action="submit_about" method="POST">
                 <div class="form-head">
                     <h2>clinic details</h2>
                 </div>
-                <label for="">name</label><input type="text" placeholder="main/branch name" required>
-                <label for="">category</label><select id="category" placeholder="gender">
+                <label for="">name</label><input type="text" placeholder="main/branch name" name="name" required>
+                <label for="">category</label><select id="category" placeholder="gender" name="category">
                     <option value="MAIN">MAIN</option>
                     <option value="BRANCH">BRANCH</option>
                 </select>
 
-                <label for="">location: </label><select id="D3" required>
+                <label for="">location: </label><select id="D3" name="location" required>
                     <option value="NAIROBI">NAIROBI</option>
                     <option value="KISUMU">KISUMU</option>
                     <option value="KISII">KISII</option>
                     <option value="MIGORI">MIGORI</option>
                     <option value="RONGO">RONGO</option>>
                 </select>
-                <button class="btn" id="btn1" type="submit">save</button>
+                <button class="btn" id="btn1" type="submit" value="submit">save</button>
             </form>
         </div>
 
