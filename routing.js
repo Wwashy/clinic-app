@@ -36,8 +36,8 @@ route.get('/search', function (req, res) {
 route.get('/schedules', function (req, res) {
     res.sendFile(__dirname + '/schedules.html');
 });
-route.get('contact',function (req,res) {
-    res.sendFile(__dirname +'/contact.html')
+route.get('/contact', function (req, res) {
+    res.sendFile(__dirname + '/contact.html')
 })
 
 
@@ -73,7 +73,7 @@ function sendData() {
             } else {
                 console.log('data inserted successfully');
                 res.end("inserted successfully")
-                connection.end();
+                // connection.end();
             }
 
         })
@@ -89,7 +89,7 @@ function sendData() {
             } else {
                 console.log('data inserted successfully');
                 res.end("inserted successfully");
-                connection.end();
+                //connection.end();
             }
         })
 
@@ -98,14 +98,14 @@ function sendData() {
 
     //sends the assistants information to the server
     route.post('/submit_assistant', function (req, res) {
-        var sql = "INSERT INTO dentist (firstname,lastname,sirname,dob,email,phone,residence,account,gender,national_id) VALUES('" + req.body.firstname + "','" + req.body.lastname + "','" + req.body.sirname + "','" + req.body.dob + "','" + req.body.email + "','" + req.body.phone + "','" + req.body.residence + "','" + req.body.account + "','" + req.body.gender + "','" + req.body.national + "');";
+        var sql = "INSERT INTO assistant(firstname,lastname,sirname,dob,email,phone,residence,account,gender,national_id) VALUES('" + req.body.firstname + "','" + req.body.lastname + "','" + req.body.sirname + "','" + req.body.dob + "','" + req.body.email + "','" + req.body.phone + "','" + req.body.residence + "','" + req.body.account + "','" + req.body.gender + "','" + req.body.national + "');";
         connection.query(sql, function (err) {
             if (err) {
                 throw err;
             } else {
                 console.log('data inserted successfully');
                 res.end("inserted successfully");
-                connection.end()
+                //connection.end()
             }
         })
 
@@ -118,10 +118,38 @@ function sendData() {
                 throw err
             } else {
                 console.log('submitted successfullly');
-                connection.end();
+                //connection.end();
             }
         })
-    })
+    });
+
+    //===============retrieve====================>
+    route.get('/patient_record', function (req, res) {
+        var sql = "SELECT * FROM patient"
+        connection.query(sql, function (err, result) {
+            if (err) throw err;
+
+            res.render('service',
+                () => {
+                    res.write('<head><link rel="stylesheet" href="style.css"></head><header><h1>Dental clinic</h1></header><main><table>');
+                   for (var column in result[0]) {
+                        res.write('<tr>')                        
+                            res.write('<th style= "float:left"><label>' + column + '</label></th>');                      
+                        res.write('</tr>')
+                    }
+
+                    for (var row in result) {
+                        res.write('<tr>');
+                        for (var column in result[row]) {
+                            res.write('<td><label>' + result[row][column] + '</label></td>');
+                        }
+                        res.write('</tr>');
+                    }
+                    res.end('</table></main>');
+                }
+            );
+        })
+    });
 
 }
 

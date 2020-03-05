@@ -20,7 +20,7 @@ function showFOMS(btn) {
         document.getElementById("f1").style.display ="none";
         document.getElementById("f2").style.display ="none";
         document.getElementById("f3").style.display ="none";   
-    } else if(btn=="btn1") {
+    } else if(btn=="btn1" || btn=="next") {
         document.getElementById("default").style.display ="none";
         document.getElementById("f1").style.display ="block";
         document.getElementById("f2").style.display ="none";
@@ -51,3 +51,15 @@ setInterval(
 function getDate() {
     document.getElementById("time-box").innerHTML = new Date(year);
 },1000);
+
+// calculate price
+function getcharge(params) {
+   const treatment =document.getElementById("droplist3").value;
+   const cost =document.getElementById("cost").value;
+   if (treatment == "rootcanal") {
+       cost = 2000;
+   } else {
+       
+   }
+}
+window.onload = getcharge();

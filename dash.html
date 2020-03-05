@@ -37,7 +37,7 @@
             <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn3"><i class="fas fa-edit fa-3x"></i>
                     Reviews/Appointment</button></a>
 
-            <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn4"><i class="fas fa-book fa-3x"></i>
+            <a href="patient_record"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn4"><i class="fas fa-book fa-3x"></i>
                     Clients Record</button></a>
 
             <a href="contact"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i
@@ -56,7 +56,7 @@
         <header style="background-color: transparent;">
             <span id="time-box"></span>
         </header>
-        <main class="dashboard">
+        <main class="dashboard" id="D001">
             
             <div class="container" id="default">
                 <a href="patient">
@@ -93,13 +93,13 @@
                     <h2>services</h2>
                 </div>
                 <label for="">patient id</label><input type="text" placeholder="ID" required>
-                <label for="">DX: </label><select id="D2" required>
+                <label for="">DX: </label><select id="droplist2" required>
                     <option value="12X">X12</option>
                     <option value="12X">X12</option>
                     <option value="12X">X12</option>
                     <option value="12X">X12</option>
                 </select>
-                <label for="">RX: </label><select id="D2" required>
+                <label for="">RX: </label><select id="droplist3" required>
                     <option value="rootcanal">ROOT CANAL</option>
                     <option value="scaling">SCALING</option>
                     <option value="masking">MASKING</option>
@@ -108,7 +108,7 @@
                     <option value="rootcanal">ROOT CANAL</option>
                 </select>
                 <label>review<input type="checkbox" value="true"></label>
-                <input type="text" placeholder="Cost">
+                <input type="number" placeholder="Cost" id="cost" name="cost">
                 <button class="btn" id="btn1" type="submit">save</button>
             </form>
         </div>
@@ -134,6 +134,7 @@
 
                 <input class="btn" id="btn1" type="submit" value="submit">
             </form>
+            <a href="service"><button onclick="showFOMS(this.id)" class="btn" id="next">NEXT</button></a> 
             </div>
         </main>
     </section>

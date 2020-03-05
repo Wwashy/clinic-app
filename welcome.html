@@ -9,34 +9,63 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     <script src="interact.js"></script>
+    <script>
+    
+        function scroll(elmnt) {
+            var c1 = document.getElementById("c1");
+            var c2 = document.getElementById("c2");
+            var c3 = document.getElementById("c3");
+            if (elmnt == "l1") {
+                c1.style.display = "none";
+                //c1.style.top = "200px"
+                c2.style.display = "none"
+                c3.style.display = "none"
+            } else if (elmnt == "l2") {
+                c2.style.position = "absolute";
+                c2.style.top = "200px"
+                c1.style.display = "none"
+                c3.style.display = "none"
+            } else if(elmnt == "l3"){
+                c3.style.position = "absolute";
+                c3.style.top = "200px"
+                c1.style.display = "none"
+                c2.style.display = "none"
+            }
+            else{
+                c3.style.position = "absolute";
+                c3.style.top = "200px"
+                c1.style.display = "none"
+                c2.style.display = "none"
+            }
+        }
+    </script>
 </head>
 
 <body style="background-image: url('/image/1.jfif'); background-size: cover;text-align: center;">
 
     <header>
-        <div style="display: flex;justify-content: space-between;">
-            <h1>
-                JAMII Dental CLINIC
-            </h1>
-            <div>
-                <a href="dash"><button class="btn" style="background-color: transparent;">Login</button></a>
-                <button class="btn" style="background-color: transparent;">sign Up</button>
+        <h1>
+            JAMII Dental CLINIC
+        </h1>
+        <div style="float:right;">
+            <a href="dash"><button class="btn" id="login_btn">Login</button></a>
+            <button class="btn" id="signup_btn">sign Up</button>
 
-            </div>
         </div>
+
     </header>
     <div class="nav">
         <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>services</li>
-            <li>contact</li>
+            <li onclick="scroll(this.id)" id="l1" >Home</li>
+            <li onclick="scroll(this.id)" id="l2">About</li>
+            <li onclick="scroll(this.id)" id="l3">services</li>
+            <li onclick="scroll(this.id)" id="l4">contact</li>
         </ul>
         <button class="big-transparent">Book Appointment</button>
     </div>
     <main class="welcome">
         <div class="containers" id="c1">
-             <img src="/image/4.jfif" alt="avator">
+            <img src="/image/4.jfif" alt="avator">
             <img src="/image/3.jfif" alt="avator">
             <img src="/image/2.jfif" alt="avator">
             <img src="/image/5.jfif" alt="avator">
@@ -76,5 +105,4 @@
         </div>
     </footer>
 </body>
-
 </html>

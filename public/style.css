@@ -33,10 +33,13 @@ footer{
      float: none;
 }
 header{
-    height: 120px;
+    height: 120px auto;
     background-color: teal;
     color: white;
     padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
        
 }
 
@@ -111,6 +114,12 @@ main{
     background-color: thistle;
     transform:scale(1.1);
 }
+.messagebox{
+    width: 60%;
+    height: 200px;
+    border: 2px solid grey;
+    box-shadow: 3px 3px 2px grey;
+}
 
 
 /*form and form containers*/
@@ -141,6 +150,10 @@ input,select option{
 .btn:hover{
     color:white;
     transform: scale(1.1);
+}
+/*login and sign up btns*/
+.btn#login_btn, .btn#signup_btn{
+    align-self: flex-end;
 }
 
 /*back buttons*/
@@ -266,7 +279,6 @@ main .list{
     background-color:black;
     width: 100%;
     float: none;
-    height: 50px;
     margin: 0px;
     color: white;
     line-height: 20px;
@@ -275,13 +287,16 @@ main .list{
     z-index: 1;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+   
 }
 .nav ul {
     list-style: none;
     display: flex;
     align-content: center;
     margin: 0;  
-    
+    flex-wrap: wrap;
+
 }
 .nav ul li{
     margin: 0;
