@@ -132,11 +132,11 @@ function sendData() {
             res.render('service',
                 () => {
                     res.write('<head><link rel="stylesheet" href="style.css"></head><header><h1>Dental clinic</h1></header><main><table>');
-                   for (var column in result[0]) {
+                   /*for (var column in result[0]) {
                         res.write('<tr>')                        
                             res.write('<th style= "float:left"><label>' + column + '</label></th>');                      
                         res.write('</tr>')
-                    }
+                    }*/
 
                     for (var row in result) {
                         res.write('<tr>');
