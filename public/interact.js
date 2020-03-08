@@ -8,10 +8,11 @@ function showSidebar() {
 function closeSidebar() {
     document.getElementById("sidebar").style.left = "-300px";
 }
-document.getElementsByTagName("header").addEventListener("focus",
+
+/*document.getElementsByTagName("header").addEventListener("focus",
 function showbars(params) {
     document.getElementsByTagName("h1").style.display ="block";
-})
+})*/
 //toggle menu
 function showFOMS(btn) {
     
@@ -47,10 +48,21 @@ function showFOMS(btn) {
     }
 }
 //header properties
-setInterval(
-function getDate() {
-    document.getElementById("time-box").innerHTML = new Date(year);
+setInterval(()=> {
+    document.getElementById("time-box").innerHTML = Date();
+    setInterval(()=>{
+        document.getElementById("appointmentButton").style.transition = "2s";
+   document.getElementById("appointmentButton").style.transform = "rotateY(360deg)";
+    },1000); 
+   
+        
 },1000);
+function callAppointment() {
+    var appointmentPop= document.getElementById("f3");    
+    appointmentPop.style.left = "200px";
+    appointmentPop.style.transform ="scale(1.1)";
+    appointmentPop.style.transform ="rotateY(360deg)";
+}
 
 // calculate price
 function getcharge(params) {
@@ -62,4 +74,4 @@ function getcharge(params) {
        
    }
 }
-window.onload = getcharge();
+

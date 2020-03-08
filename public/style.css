@@ -35,7 +35,6 @@ footer{
 header{
     height: 120px auto;
     background-color: teal;
-    color: white;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -326,3 +325,19 @@ td, th {
 tr:nth-child(even) {
     background-color: #ddcddd;
   }
+/**=====================pop ups=========================*/
+.pops{
+    width: 70%;
+    position: absolute;
+    height: 500px;
+    border-radius: 20px;
+    border: 2px solid grey;
+    box-shadow: 5px 5px 4px grey;
+    z-index: 1;
+    background-color: teal;
+    left: -1000px;
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}

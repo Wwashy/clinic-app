@@ -123,20 +123,23 @@ function sendData() {
         })
     });
 
-    //===============retrieve====================>
+    //===============retrieve Record====================>
     route.get('/patient_record', function (req, res) {
-        var sql = "SELECT * FROM patient"
+        var sql = "SELECT id,firstname,lastname,email,phone,residence FROM patient"
         connection.query(sql, function (err, result) {
             if (err) throw err;
 
             res.render('service',
                 () => {
                     res.write('<head><link rel="stylesheet" href="style.css"></head><header><h1>Dental clinic</h1></header><main><table>');
-                   /*for (var column in result[0]) {
-                        res.write('<tr>')                        
-                            res.write('<th style= "float:left"><label>' + column + '</label></th>');                      
+                  //  for (var row in result[0]) {
+                        res.write('<tr>')
+                        for (var column in result[row =0]) {
+                            res.write('<th><label>' + column + '</label></th>');
+                        }
                         res.write('</tr>')
-                    }*/
+                 //   }
+
 
                     for (var row in result) {
                         res.write('<tr>');
@@ -150,6 +153,10 @@ function sendData() {
             );
         })
     });
+    route.get('', function (req, res) {
+        var sql = "SELECT * FROM patient WHERE firstname = '" + req.params + "'";
+
+    })
 
 }
 
