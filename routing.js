@@ -71,8 +71,9 @@ function sendData() {
             if (err) {
                 throw err;
             } else {
+                //document.getElementById("D001").innerHTML = "submitted succesfully";
                 console.log('data inserted successfully');
-                res.end("inserted successfully")
+                //res.end("inserted successfully")
                 // connection.end();
             }
 
@@ -112,11 +113,13 @@ function sendData() {
     });
 
     route.post('/submit_about', function (req, res) {
-        var sql = "INSERT INTO clinicinformation (name,category,location) VALUES('" + req.body.name + "','" + req.body.category + "','" + req.body.location + "');";
+        var sql = "INSERT INTO clinicinformation (name,category,location)\
+         VALUES('" + req.body.name + "','" + req.body.category + "','" + req.body.location + "');";
         connection.query(sql, function (err) {
             if (err) {
                 throw err
             } else {
+                document.getElementById("D001").innerHTML = "submitted succesfully";
                 console.log('submitted successfullly');
                 //connection.end();
             }
@@ -153,10 +156,30 @@ function sendData() {
             );
         })
     });
-    route.get('', function (req, res) {
-        var sql = "SELECT * FROM patient WHERE firstname = '" + req.params + "'";
+   
+//send appointments
+    route.post('/appointment',(req,res)=>{
+        var sql = "INSERT  INTO appointment (app_fullname,app_phone,app_date) VALUES('" + req.body.fullname +"','" + req.body.phone +"','" + req.body.day +"');";
+         connection.query(sql,(err)=>{
+             if (err) {
+                 throw err;
+             }else{
+                 console.log("submitted");
+                 res.write("submitted successfully");
+             }
+         });
+    });
 
-    })
+    route.get('appointment-view', function (req, res) {
+        var sql = "SELECT * FROM appointment ;";
+        connection.query(sql,(err,result)=>{
+            if (err) throw err;
+            res.write('<head><link rel="stylesheet" href="style.css"></head><header><h1>Dental clinic</h1></header><main>');
+            res.write(result);
+            res.write('</main>');
+        })
+
+    });
 
 }
 

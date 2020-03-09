@@ -94,6 +94,12 @@ main{
     width: 100%;
     
 }
+/*main.dashboard{
+    background-image: url("image/1.jfif") ;
+    background-size: cover;
+    filter: blur(8px);
+    z-index: 1;
+}*/
 .container .icons{
     width: 300px;
     height: 200px;

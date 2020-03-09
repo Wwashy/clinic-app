@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="form.css">
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     <script src="interact.js"></script>
+    <script src="routing.js"></script>
     <style>
         body {
-            background-image: url("iage/1.jfif");
-            background-size: cover;
+
         }
     </style>
 </head>
@@ -54,7 +54,7 @@
 
     <section class="section-two">
 
-        <header style="background-color: transparent;">
+        <header style="background-color: transparent;color: teal;">
             <div id="time-box">time</div>
             <div class="" id="appointmentButton" onclick="callAppointment()">Appointment</div>
         </header>
@@ -142,11 +142,19 @@
             <!--appointment pop ups-->
             <div class="pops" id="f3">
                 <div class="header" style="display: flex;justify-content: flex-end;">
-                    <span>X</span>
+                    <div onclick="closeModal()" class="far fa-window-close fa-2x" style="color: red;"></div>
                 </div>
+                <h1>Add your details</h1>
+                <hr>
                 <div class="inputContent">
-                    <form action="appointment" method="post"></form>
+                    <form action="appointment" method="post">
+                    <label for="">Name:</label><input type="text" name="fullname"><br>
+                    <label for="">Phone:</label><input type="text" name="phone"><br>
+                    <label for="">date:</label><input type="date" name="day">
+                    <input type="submit" class="btn" value="submit">
+                </form>
                 </div>
+                <hr>
             </div>
         </main>
     </section>

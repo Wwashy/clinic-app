@@ -1,4 +1,6 @@
+//elements
 
+ 
 //sidebar events
 function showSidebar() {
     document.getElementById("sidebar").style.left = "0px";
@@ -8,6 +10,9 @@ function showSidebar() {
 function closeSidebar() {
     document.getElementById("sidebar").style.left = "-300px";
 }
+function closeModal() {
+    document.getElementById("f3").style.left = "-1000px"
+}
 
 /*document.getElementsByTagName("header").addEventListener("focus",
 function showbars(params) {
@@ -15,36 +20,40 @@ function showbars(params) {
 })*/
 //toggle menu
 function showFOMS(btn) {
+    const container0 = document.getElementById("default");
+const container1=document.getElementById("f1");
+const container2=document.getElementById("f2");
+const container3=document.getElementById("f3");  
     
     if (btn=="btn0") {
-        document.getElementById("default").style.display ="block";
-        document.getElementById("f1").style.display ="none";
-        document.getElementById("f2").style.display ="none";
-        document.getElementById("f3").style.display ="none";   
+        container0.style.display ="block";
+        container1.style.display ="none";
+        container2.style.display ="none";
+        container3.style.display ="none";   
     } else if(btn=="btn1" || btn=="next") {
-        document.getElementById("default").style.display ="none";
-        document.getElementById("f1").style.display ="block";
-        document.getElementById("f2").style.display ="none";
-        document.getElementById("f3").style.display ="none";
+        container0.style.display ="none";
+        container1.style.display ="block";
+        container2.style.display ="none";
+        container3.style.display ="none";
         
     }else if(btn=="btn2"){
-        document.getElementById("default").style.display ="none";
-        document.getElementById("f1").style.display ="none";
-        document.getElementById("f2").style.display ="block";
-        document.getElementById("f3").style.display ="none";     
+        container0.style.display ="none";
+        container1.style.display ="none";
+        container2.style.display ="block";
+        container3.style.display ="none";     
         
     }
     else if (btn=="btn3") {
         
-        document.getElementById("f3").style.display ="block";
-        document.getElementById("f2").style.display ="none";
-        document.getElementById("f1").style.display ="none";
-        document.getElementById("default").style.display ="none";
+        container3.style.display ="block";
+        container2.style.display ="none";
+        container1.style.display ="none";
+        container0.style.display ="none";
     } else {        
-        document.getElementById("default").style.display ="none";
-        document.getElementById("f2").style.display ="none";
-        document.getElementById("f1").style.display ="none";
-        document.getElementById("f3").style.display ="none";
+        container0.style.display ="none";
+        container2.style.display ="none";
+        container1.style.display ="none";
+        container3.style.display ="none";
     }
 }
 //header properties

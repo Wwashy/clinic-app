@@ -87,3 +87,8 @@ label{
    box-shadow: 3px 3px 2px grey;
    grid-gap: 10px;
 }
+.pops input[type ="text"][type="date"]{
+    width: 80%;
+    border: 0 0 2px 0;
+    border-color: grey;
+}
