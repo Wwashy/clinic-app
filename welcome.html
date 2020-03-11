@@ -7,61 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>New Patient</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="form.css">
     <script src="interact.js"></script>
-    <script>
+    <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     
-        function scroll(elmnt) {
-            var c1 = document.getElementById("c1");
-            var c2 = document.getElementById("c2");
-            var c3 = document.getElementById("c3");
-            if (elmnt == "l1") {
-                c1.style.display = "none";
-                //c1.style.top = "200px"
-                c2.style.display = "none"
-                c3.style.display = "none"
-            } else if (elmnt == "l2") {
-                c2.style.position = "absolute";
-                c2.style.top = "200px"
-                c1.style.display = "none"
-                c3.style.display = "none"
-            } else if(elmnt == "l3"){
-                c3.style.position = "absolute";
-                c3.style.top = "200px"
-                c1.style.display = "none"
-                c2.style.display = "none"
-            }
-            else{
-                c3.style.position = "absolute";
-                c3.style.top = "200px"
-                c1.style.display = "none"
-                c2.style.display = "none"
-            }
-        }
-    </script>
 </head>
 
-<body style="background-image: url('/image/1.jfif'); background-size: cover;text-align: center;">
+<body style="background-image: url('/image/1.jfif'); background-size: cover;background-repeat: no-repeat;text-align: center;">
 
     <header>
         <h1>
             JAMII Dental CLINIC
         </h1>
-        <div style="float:right;">
-            <a href="dash"><button class="btn" id="login_btn">Login</button></a>
-            <button class="btn" id="signup_btn">sign Up</button>
-
-        </div>
-
-    </header>
+            </header>
     <div class="nav">
         <ul>
-            <li onclick="scroll(this.id)" id="l1" >Home</li>
-            <li onclick="scroll(this.id)" id="l2">About</li>
-            <li onclick="scroll(this.id)" id="l3">services</li>
-            <li onclick="scroll(this.id)" id="l4">contact</li>
+            <a href="welcome"><li id="l1">Home    </li></a>
+            <a href="#c2"><li id="l2">About   </li></a>
+            <a href="#c3"><li id="l3">services</li></a>
+            <a href="#c4"><li id="l4">contact </li></a>
         </ul>
-        <button class="big-transparent">Book Appointment</button>
+        <button class="big-transparent" onclick="callAppointment()">Book Appointment</button>
     </div>
     <main class="welcome">
         <div class="containers" id="c1">
@@ -84,23 +50,43 @@
                 <li>Tooth replacement (Permenet&Temporary)</li>
                 <li>scaling</li>
                 <li>Filling</li>
+                <li>Tooth Extraction</li>
+                <li>suturing</li>
                 <li>Oral educaion</li>
+                <p>For more services informantion it offeres please contact the clinic or visit</p>
             </ul>
         </div>
         <div class="containers" id="c4">
             <h2>contact</h2>
-            <p>Mail support: jamii@gmail.com</p>
+            <p>Mail support: jamii.clinic001@gmail.com</p>
             <!--to be updated by the infopage-->
-            <p>Tel: +254799623291 / +254790733811</p>
+            <p>Tel: +254724345158 || +254790733811</p>
             <!--to be updated by info page-->
+        </div>
+       
+        <!--modal box-->
+        <div class="pops" id="p1">
+            <div class="header" style="display: flex;justify-content: flex-end;">
+                <div onclick="closeModal()" class="far fa-window-close fa-2x" style="color: red;">close</div>
+            </div>
+            <h1>Add your details</h1>
+            <hr>
+            <div class="inputContent">
+                <form action="appointment" method="post">
+                <label for="">Name:</label><input type="text" name="fullname"><br>
+                <label for="">Phone:</label><input type="text" name="phone"><br>
+                <label for="">date:</label><input type="date" name="day">
+                <input type="submit" class="btn" value="submit">
+            </form>
+            </div>          
         </div>
 
     </main>
     <footer>
         <div>
-            <span>@washy</span><br>
+            <span>developer info</span> |
             <span>0799623291</span><br>
-            <span>washingndi@gmail.com</span><br>
+            <span><link rel="stylesheet" href="washingndi@gmail.com"> washingndi@gmail.com</span><br>
             <span>©2020</span>
         </div>
     </footer>

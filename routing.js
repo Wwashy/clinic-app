@@ -12,36 +12,40 @@ route.use(bodyparser.urlencoded({ extended: false }))
 route.set('view engine', 'ejs');
 
 //gets the routing
-route.get('/clinicInfo', function (req, res) {
-    res.sendFile(__dirname + '/clinicInfo.html');
-});
-route.get('/welcome', function (req, res) {
-    res.sendFile(__dirname + '/welcome.html');
-});
-route.get('/dash', function (req, res) {
-    res.sendFile(__dirname + '/dash.html');
-});
-route.get('/patient', function (req, res) {
-    res.sendFile(__dirname + '/patient.html');
-});
-route.get('/service', function (req, res) {
-    res.sendFile(__dirname + '/service.html');
-});
-route.get('/search', function (req, res) {
-    res.sendFile(__dirname + '/search.html');
-});
-route.get('/search', function (req, res) {
-    res.sendFile(__dirname + '/search.html');
-});
-route.get('/schedules', function (req, res) {
-    res.sendFile(__dirname + '/schedules.html');
-});
-route.get('/contact', function (req, res) {
-    res.sendFile(__dirname + '/contact.html')
-})
-
-
-
+getRoute(); 
+function getRoute(params) {
+    route.get('/clinicInfo', function (req, res) {
+        res.sendFile(__dirname + '/clinicInfo.html');
+    });
+    route.get('/welcome', function (req, res) {
+        res.sendFile(__dirname + '/welcome.html');
+    });
+    route.get('/dash', function (req, res) {
+        res.sendFile(__dirname + '/dash.html');
+    });
+    route.get('/patient', function (req, res) {
+        res.sendFile(__dirname + '/patient.html');
+    });
+    route.get('/service', function (req, res) {
+        res.sendFile(__dirname + '/service.html');
+    });
+    route.get('/search', function (req, res) {
+        res.sendFile(__dirname + '/search.html');
+    });
+    route.get('/search', function (req, res) {
+        res.sendFile(__dirname + '/search.html');
+    });
+    route.get('/schedules', function (req, res) {
+        res.sendFile(__dirname + '/schedules.html');
+    });
+    route.get('/contact', function (req, res) {
+        res.sendFile(__dirname + '/contact.html')
+    })
+    route.get('/login',(req,res)=>{
+        res.sendFile(__dirname + '/login.html')
+    });
+    
+}
 
 //====================> creates connection to the database
 var connection = mysql.createPool({
@@ -58,6 +62,7 @@ connection.getConnection(function (err) {
     } else {
         console.log('connected successfully');
         sendData();
+        getData();
     }
 });
 
@@ -111,7 +116,7 @@ function sendData() {
         })
 
     });
-
+    //sends the clinic informtaion
     route.post('/submit_about', function (req, res) {
         var sql = "INSERT INTO clinicinformation (name,category,location)\
          VALUES('" + req.body.name + "','" + req.body.category + "','" + req.body.location + "');";
@@ -126,8 +131,23 @@ function sendData() {
         })
     });
 
-    //===============retrieve Record====================>
-    route.get('/patient_record', function (req, res) {
+    //send appointments
+    route.post('/appointment', (req, res) => {
+        var sql = "INSERT  INTO appointment (app_fullname,app_phone,app_date) VALUES('" + req.body.fullname + "','" + req.body.phone + "','" + req.body.day + "');";
+        connection.query(sql, (err) => {
+            if (err) {
+                throw err;
+            } else {
+                console.log("submitted");
+                res.write("submitted successfully");
+            }
+        });
+    });
+ 
+}
+function getData() {
+       //===============retrieve Record====================>
+       route.get('/patient_record', function (req, res) {
         var sql = "SELECT id,firstname,lastname,email,phone,residence FROM patient"
         connection.query(sql, function (err, result) {
             if (err) throw err;
@@ -135,13 +155,13 @@ function sendData() {
             res.render('service',
                 () => {
                     res.write('<head><link rel="stylesheet" href="style.css"></head><header><h1>Dental clinic</h1></header><main><table>');
-                  //  for (var row in result[0]) {
-                        res.write('<tr>')
-                        for (var column in result[row =0]) {
-                            res.write('<th><label>' + column + '</label></th>');
-                        }
-                        res.write('</tr>')
-                 //   }
+                    //  for (var row in result[0]) {
+                    res.write('<tr>')
+                    for (var column in result[row = 0]) {
+                        res.write('<th><label>' + column + '</label></th>');
+                    }
+                    res.write('</tr>')
+                    //   }
 
 
                     for (var row in result) {
@@ -156,27 +176,34 @@ function sendData() {
             );
         })
     });
-   
-//send appointments
-    route.post('/appointment',(req,res)=>{
-        var sql = "INSERT  INTO appointment (app_fullname,app_phone,app_date) VALUES('" + req.body.fullname +"','" + req.body.phone +"','" + req.body.day +"');";
-         connection.query(sql,(err)=>{
-             if (err) {
-                 throw err;
-             }else{
-                 console.log("submitted");
-                 res.write("submitted successfully");
-             }
-         });
-    });
 
-    route.get('appointment-view', function (req, res) {
+    //render appointments of the employees
+    route.get('/appointment-view', function (req, res) {
         var sql = "SELECT * FROM appointment ;";
-        connection.query(sql,(err,result)=>{
-            if (err) throw err;
-            res.write('<head><link rel="stylesheet" href="style.css"></head><header><h1>Dental clinic</h1></header><main>');
-            res.write(result);
-            res.write('</main>');
+        connection.query(sql, (err, result) => {
+
+
+            if (err) { throw err; } else {
+                res.write('<head><link rel="stylesheet" href="style.css"></head><header><h1>Dental clinic</h1></header><main><table>');
+                //write the head of the table
+                res.write('<tr>')
+                for (var column in result[0]) {
+                      res.write('<th><label>' + column + '</label></th>');      
+                }
+                res.write('</tr>')
+
+                //populates the table cells with data
+                for(var row in result){
+                    res.write('<tr>');
+                    for( var column in result[row]){
+                        res.write('<td><label>'+result[row][column] + '</label></td>');
+                    }
+                    res.write('</tr>');
+                }
+                res.write('</tr>')
+              
+                res.write('</main>');
+            }
         })
 
     });

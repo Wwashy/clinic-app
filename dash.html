@@ -12,11 +12,7 @@
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     <script src="interact.js"></script>
     <script src="routing.js"></script>
-    <style>
-        body {
 
-        }
-    </style>
 </head>
 
 <body>
@@ -35,7 +31,7 @@
                         class="fas fa-user-plus fa-3x"></i> New Patient</button></a>
 
             <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn3"><i class="fas fa-edit fa-3x"></i>
-                    Reviews/Appointment</button></a>
+                    Reviews Appointment</button></a>
 
             <a href="patient_record"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn4"><i
                         class="fas fa-book fa-3x"></i>
@@ -44,14 +40,14 @@
             <a href="contact"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i
                         class="fas fa-question fa-3x"></i> Help</button></a>
 
-            <a href="clinicInfo"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn6"><i
+            <a href="login"><button onclick="login(this.id)" class="largeBtn" id="btn6"><i
                         class="fas fa-cog fa-3x"></i> Settings</button></a>
 
             <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn7"><i
                         class="fas fa-power-off fa-3x"></i> Quit</button></a>
         </div>
     </section>
-
+    <!--section two--->
     <section class="section-two">
 
         <header style="background-color: transparent;color: teal;">
@@ -110,7 +106,7 @@
                         <option value="rootcanal">ROOT CANAL</option>
                     </select>
                     <label>review<input type="checkbox" value="true"></label>
-                    <input type="number" placeholder="Cost" id="cost" name="cost">
+                    <input type="text" placeholder="Cost" id="cost" name="cost">
                     <button class="btn" id="btn1" type="submit">save</button>
                 </form>
             </div>
@@ -140,7 +136,7 @@
                 <a href="service"><button onclick="showFOMS(this.id)" class="btn" id="next">NEXT</button></a>
             </div>
             <!--appointment pop ups-->
-            <div class="pops" id="f3">
+            <div class="pops" id="p1">
                 <div class="header" style="display: flex;justify-content: flex-end;">
                     <div onclick="closeModal()" class="far fa-window-close fa-2x" style="color: red;"></div>
                 </div>
@@ -148,13 +144,13 @@
                 <hr>
                 <div class="inputContent">
                     <form action="appointment" method="post">
-                    <label for="">Name:</label><input type="text" name="fullname"><br>
-                    <label for="">Phone:</label><input type="text" name="phone"><br>
-                    <label for="">date:</label><input type="date" name="day">
-                    <input type="submit" class="btn" value="submit">
-                </form>
+                        <label for="">Name:</label><input type="text" name="fullname"><br>
+                        <label for="">Phone:</label><input type="text" name="phone"><br>
+                        <label for="">date:</label><input type="date" name="day"><br><br>
+                        <input type="submit" class="btn" value="submit">
+                    </form>
                 </div>
-                <hr>
+
             </div>
         </main>
     </section>
