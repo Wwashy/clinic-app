@@ -154,7 +154,7 @@ function getData() {
 
             res.render('service',
                 () => {
-                    res.write('<head><link rel="stylesheet" href="style.css"></head><header><h1>Dental clinic</h1></header><main><table>');
+                    res.write('<head><link rel="stylesheet" href="style.css"></head><header><a href="dash"><button class="close" style="float: left;">back</button></a><h1>Dental clinic</h1></header><main><table>');
                     //  for (var row in result[0]) {
                     res.write('<tr>')
                     for (var column in result[row = 0]) {
@@ -184,7 +184,7 @@ function getData() {
 
 
             if (err) { throw err; } else {
-                res.write('<head><link rel="stylesheet" href="style.css"></head><header><h1>Dental clinic</h1></header><main><table>');
+                res.write('<head><link rel="stylesheet" href="style.css"></head><header><a href="dash"><button class="close" style="float: left;">back</button></a><h1>Dental clinic</h1></header><main><table>');
                 //write the head of the table
                 res.write('<tr>')
                 for (var column in result[0]) {

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CLINICINFO</title>
+    <title>Admin-panel</title>
     <link rel="stylesheet" href="form.css">
     <link rel="stylesheet" href="style.css">
     <script src="interact.js"></script>
@@ -13,10 +13,11 @@
 </head>
 
 <body>
+    <!--The left side navigation side bar-->
     <div class="sidebar" id="sidebar">
         <button onclick="closeSidebar()" id="close" class="close" style="float: right;">&times;</button>
         <br><br>
-        <a href="dash"><button onclick="showFOMS(this.id)" class="largeBtn" id="bt0"><i
+        <a href="#"><button onclick="openquitBox('quitBox')" class="largeBtn" id="bt0"><i
                     class="fas fa-home fa-3x"></i>Home</button></a>
         <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn1"><i
                     class="fas fa-user-plus fa-3x"></i>Add Dentist</button></a>
@@ -26,10 +27,11 @@
                 System info</button></a>
         <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn4"><i
                     class="fas fa-book fa-3x"></i>Finances</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i
+        <a href="contact"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i
                     class="fas fa-question fa-3x"></i>Help</button></a>
-        <i class="fas fa-cloud" style="color: azure;"></i>
+
     </div>
+    <!--header of the page-->
     <header>
         <div class="bars" id="menu" onclick="showSidebar()">
             menu
@@ -39,8 +41,9 @@
             CLINIC MASTER
         </h1>
     </header>
-
-    <main class="settings">
+    <!--main content rapper of the page-->
+    <main class="settings" id="main">
+        <!--displays the current status of the personels-->
         <div class="smart container" id="default">
             <div class="form-head">
                 <h1>Current Attendants</h1>
@@ -50,8 +53,6 @@
             <label for="">Assistant</label>
             <div class="currents" id="cassistant">washy</div>
         </div>
-
-
         <!--dentists-->
         <div class="container" id="f1">
             <form class="smart" action="submit_dentist" method="POST">
@@ -59,14 +60,17 @@
                     <h2>add dentist details</h2>
                 </div>
                 <label for="">id</label><input type="text" placeholder="ID" name="national" required>
-                <label for=""> fisrtname:</label> <input id="tb1" type="text" name="firstname" placeholder="Firstname" required>
-                <label for="">lastname:</label><input id="tb2" type="text" name="lastname" placeholder="Lastname" required>
+                <label for=""> fisrtname:</label> <input id="tb1" type="text" name="firstname" placeholder="Firstname"
+                    required>
+                <label for="">lastname:</label><input id="tb2" type="text" name="lastname" placeholder="Lastname"
+                    required>
                 <label for="">Sirname:</label><input id="tb3" type="text" name="sirname" placeholder="Sirname" required>
                 <label for="">DOB:</label><input id="tb4" type="date" name="dob" placeholder="date of birth" required>
-                <label for="">email:</label><input id="tb5" type="email" name="email" placeholder="example@gmail.com" required>
-                <label for="">Phone:</label><input id="tb6" type="text" name="phone" placeholder="0712345678" required>
-                <label for="">Town/Estate/Village:</label> <input id="tb7" type="text" name="residence" placeholder="City/Town/Village"
+                <label for="">email:</label><input id="tb5" type="email" name="email" placeholder="example@gmail.com"
                     required>
+                <label for="">Phone:</label><input id="tb6" type="text" name="phone" placeholder="0712345678" required>
+                <label for="">Town/Estate/Village:</label> <input id="tb7" type="text" name="residence"
+                    placeholder="City/Town/Village" required>
                 <label for="">A/C NO:</label><input type="text" name="account" placeholder="bank A/C no.">
                 <label for="">gender: </label><select id="D1" name="gender" required>
 
@@ -77,8 +81,6 @@
                 <button class="btn" id="btn1" type="submit" value="submit">save</button>
             </form>
         </div>
-
-
         <!--assistant details-->
         <div class="container" id="f2">
             <form class="smart" action="submit-assitant">
@@ -103,7 +105,6 @@
                 <button class="btn" id="btn1" type="submit">save</button>
             </form>
         </div>
-
         <!--Clinic Details-->
         <div class="container" id="f3">
             <form class="smart" action="submit_about" method="POST">
@@ -126,7 +127,16 @@
                 <button class="btn" id="btn1" type="submit" value="submit">save</button>
             </form>
         </div>
-
+        <!--Alert box for confirming quit-->
+        <div class="confirm_quit" id="quitBox">
+            <h2>Alert!</h2>
+            <hr><br><br>
+            <p>Are you sure you want to exit?</p>
+            <div class="btn_group">
+                <button class="btn ok" onclick="redirect('dash','quitBox')">OK</button>
+                <button class="btn cancel" onclick="cancel('quitBox')">CANCEL</button>
+            </div>
+        </div>
     </main>
 </body>
 
