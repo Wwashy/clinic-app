@@ -24,18 +24,20 @@
         </span>
     </header>
     <main class="login" id="main_login">
-        <div>
-            <h1>Login as admin</h1>
+        <div class="login-container" id="login-container">
+            <div>
+                <h1>Login as admin</h1>
+            </div>
+            <hr><br>
+            <div>
+                <input type="text" id="textBox1_username" placeholder="username"><br>
+                <br>
+                <input type="password" id="textBox2_password" placeholder="password"><br><br>
+                <label for="">Show password</label><input type="checkbox" id="checkbox1" onclick="showPassword()"
+                    value="true">
+                <button class="btn" id="login_button" onclick="login()">Login</button>
+            </div>
         </div>
-        <hr><br>
-        <div>
-            <input type="text" id="textBox1_username" placeholder="username"><br>
-            <br>
-            <input type="password" id="textBox2_password" placeholder="password"><br><br>
-            <label for="">Show password</label><input type="checkbox" id="checkbox1" onclick="showPassword()" value="true">
-            <button class="btn" id="login_button" onclick="login()">Login</button>
-        </div>
-
     </main>
 </body>
 

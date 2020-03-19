@@ -99,7 +99,7 @@ function showPassword(){
 
 //login 
 function login() {
-    const main_login = document.getElementById("main_login");
+    const login_container= document.getElementById("login-container");
     const textBox1_username = document.getElementById("textBox1_username");
     const textBox2_password = document.getElementById("textBox2_password");
     //const login_button = document.getElementById("login_button");
@@ -109,12 +109,14 @@ function login() {
                 window.location.href = "clinicInfo"
             } else {
                 var mssg = document.createTextNode("wrong password or username");
-                var mssgbox = document.createElement("div");
-                mssgbox.appendChild(mssg);
+                var mssgbox = document.createElement("div"); 
+                mssgbox.appendChild(mssg)
                 //alert("Wrong password or username")
-                main_login.appendChild(mssgbox);
+                login_container.appendChild(mssgbox);
             }
-        } else {
+        } 
+        else
+         {
             alert("Please fill all the fields");
         }
    // });
@@ -135,6 +137,21 @@ function darken(element) {
     element.style.color ="white";
    // const children = element.children
    // children.style.color ="white"
+}
+//get the service
+function getService(params) {
+    let service = {
+        patientId: document.getElementsByName("patient_id").value,
+        Rx: document.getElementsByName("rx").value,
+        Dx: document.getElementsByName("dx").value,
+        review: document.getElementsByName("review").value,
+        cost: document.getElementsByName("cost").value
+    }
+    let confirm_service =document.createElement("div")
+    let service_details = document.createTextNode(service.patientId +" "+service.cost+""+service.Rx);
+    confirm_service.appendChild(service_details);
+    document.getElementById("f1").appendChild(confirm_service);
+    console.log(service.Rx);
 }
 
 

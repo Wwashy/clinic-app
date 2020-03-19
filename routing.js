@@ -78,7 +78,7 @@ function sendData() {
             } else {
                 //document.getElementById("D001").innerHTML = "submitted succesfully";
                 console.log('data inserted successfully');
-                //res.end("inserted successfully")
+                res.end("inserted successfully")
                 // connection.end();
             }
 
@@ -151,6 +151,7 @@ function getData() {
         var sql = "SELECT id,firstname,lastname,email,phone,residence FROM patient"
         connection.query(sql, function (err, result) {
             if (err) throw err;
+            exports.patient=result;
 
             res.render('service',
                 () => {

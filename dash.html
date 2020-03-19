@@ -31,7 +31,7 @@
                         class="fas fa-user-plus fa-2x"></i> New Patient</button></a>
 
             <a href="appointment-view"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn3"><i
-                        class="fas fa-edit fa-3x"></i>
+                        class="fas fa-edit fa-2x"></i>
                     Reviews Appointment</button></a>
 
             <a href="patient_record"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn4"><i
@@ -46,7 +46,15 @@
 
             <a href="contact"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i
                         class="fas fa-question fa-2x"></i> Help</button></a>
+                        <br>
+                        <br>
+            <hr>
+            <div>
+                <p style="color: white;">clinicsystems@webwalker</p>
+                <p>@2020</p>
+            </div>
         </div>
+
     </section>
     <!--section two--->
     <section class="section-two" id="section-two">
@@ -87,18 +95,18 @@
 
             <!---service form-->
             <div class="container" id="f1">
-                <form class="smart" action="submit" method="POST">
+                <form class="smart" action="" method="POST">
                     <div class="form-head">
                         <h2>services</h2>
                     </div>
-                    <label for="">patient id</label><input type="text" placeholder="ID" required>
-                    <label for="">DX: </label><select id="droplist2" required>
+                    <label for="">patient id</label><input type="text" name="patient_id" placeholder="ID" required>
+                    <label for="">DX: </label><select id="droplist2" name="dx" required>
                         <option value="12X">X12</option>
                         <option value="12X">X12</option>
                         <option value="12X">X12</option>
                         <option value="12X">X12</option>
                     </select>
-                    <label for="">RX: </label><select id="droplist3" required>
+                    <label for="">RX: </label><select id="droplist3" name="rx" required>
                         <option value="rootcanal">ROOT CANAL</option>
                         <option value="scaling">SCALING</option>
                         <option value="masking">MASKING</option>
@@ -106,10 +114,10 @@
                         <option value="replacement">REPLACEMENT</option>
                         <option value="rootcanal">ROOT CANAL</option>
                     </select>
-                    <label>review<input type="checkbox" value="true"></label>
+                    <label>review<input type="checkbox" value="true" name="review"></label>
                     <input type="text" placeholder="Cost" id="cost" name="cost">
-                    <button class="btn" id="btn1" type="submit">save</button>
                 </form>
+                <button class="btn" id="btn1" onclick="getService()">save</button>
             </div>
             <!--patients form-->
             <div class="container" id="f2">
