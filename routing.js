@@ -44,6 +44,9 @@ function getRoute(params) {
     route.get('/login',(req,res)=>{
         res.sendFile(__dirname + '/login.html')
     });
+    route.get('/routing',function(req,res) {
+        res.sendFile(__dirname + '/routing.js');
+    })
     
 }
 
@@ -151,8 +154,7 @@ function getData() {
         var sql = "SELECT id,firstname,lastname,email,phone,residence FROM patient"
         connection.query(sql, function (err, result) {
             if (err) throw err;
-            exports.patient=result;
-
+            var patients = result;
             res.render('service',
                 () => {
                     res.write('<head><link rel="stylesheet" href="style.css"></head><header><a href="dash"><button class="close" style="float: left;">back</button></a><h1>Dental clinic</h1></header><main><table>');

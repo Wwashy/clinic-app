@@ -179,6 +179,7 @@ select option{
     border-radius: 50%;
     border: none;
     transition: 0.2s;
+    padding: auto;
 }
 .close:hover{background-color:red;
 transform: scale(1.2);
@@ -225,7 +226,7 @@ main .list{
 /*===========================================wide containers used in welcome page========================*/
 .containers{
     width: 100%;
-    height: 600px;
+    height: 700px;
     border: 1px solid white;
     box-shadow: 4px 5px 3px grey;
     border-radius: 9px;
@@ -252,8 +253,7 @@ main .list{
     font-size: 40px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     z-index: 1;
-    position: absolute;
-    
+    position: absolute;   
    
 }
 .containers#c1 img:hover{
@@ -265,7 +265,7 @@ main .list{
      overflow-y: hidden;
     justify-content: space-between;
     opacity: 1.0;
-    padding: 30px;
+    padding: 100px 30px 30px 30px;
     
 }
 .containers#c1 img{

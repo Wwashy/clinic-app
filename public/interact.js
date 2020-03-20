@@ -59,10 +59,10 @@ function showFOMS(btn) {
 //header properties
 setInterval(() => {
     document.getElementById("time-box").innerHTML = Date();
-    setInterval(() => {
+    //setInterval(() => {
         document.getElementById("appointmentButton").style.transition = "2s";
         document.getElementById("appointmentButton").style.transform = "rotateY(360deg)";
-    }, 1000);
+    //}, 1000);
 
 
 }, 1000);
@@ -72,8 +72,7 @@ function callAppointment() {
     var appointmentPop = document.getElementById("p1");
     appointmentPop.style.left = "15%";
     appointmentPop.style.transform = "scale(1.1)";
-    appointmentPop.style.transform = "rotateY(360deg)";
-}
+    }
 function closeModal() {
     document.getElementById("p1").style.left = "-1000px"
 }
