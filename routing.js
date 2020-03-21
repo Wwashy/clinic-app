@@ -8,11 +8,11 @@ var route = express();
 
 
 route.use(express.static('public'));
-route.use(bodyparser.urlencoded({ extended: false }))
+route.use(bodyparser.urlencoded({ extended: true }))
 route.set('view engine', 'ejs');
 
 //gets the routing
-getRoute(); 
+getRoute();
 function getRoute(params) {
     route.get('/clinicInfo', function (req, res) {
         res.sendFile(__dirname + '/clinicInfo.html');
@@ -29,10 +29,7 @@ function getRoute(params) {
     route.get('/service', function (req, res) {
         res.sendFile(__dirname + '/service.html');
     });
-    route.get('/search', function (req, res) {
-        res.sendFile(__dirname + '/search.html');
-    });
-    route.get('/search', function (req, res) {
+      route.get('/search', function (req, res) {
         res.sendFile(__dirname + '/search.html');
     });
     route.get('/schedules', function (req, res) {
@@ -41,13 +38,10 @@ function getRoute(params) {
     route.get('/contact', function (req, res) {
         res.sendFile(__dirname + '/contact.html')
     })
-    route.get('/login',(req,res)=>{
+    route.get('/login', (req, res) => {
         res.sendFile(__dirname + '/login.html')
     });
-    route.get('/routing',function(req,res) {
-        res.sendFile(__dirname + '/routing.js');
-    })
-    
+
 }
 
 //====================> creates connection to the database
@@ -79,10 +73,8 @@ function sendData() {
             if (err) {
                 throw err;
             } else {
-                //document.getElementById("D001").innerHTML = "submitted succesfully";
                 console.log('data inserted successfully');
-                res.end("inserted successfully")
-                // connection.end();
+                res.redirect('/dash.html')
             }
 
         })
@@ -98,6 +90,7 @@ function sendData() {
             } else {
                 console.log('data inserted successfully');
                 res.end("inserted successfully");
+                res.redirect('/clinicInfo.html')
                 //connection.end();
             }
         })
@@ -114,7 +107,7 @@ function sendData() {
             } else {
                 console.log('data inserted successfully');
                 res.end("inserted successfully");
-                //connection.end()
+                res.redirect('/clinicInfo.html');
             }
         })
 
@@ -129,6 +122,7 @@ function sendData() {
             } else {
                 document.getElementById("D001").innerHTML = "submitted succesfully";
                 console.log('submitted successfullly');
+                res.redirect('/clinicInfo.html')
                 //connection.end();
             }
         })
@@ -146,11 +140,11 @@ function sendData() {
             }
         });
     });
- 
+
 }
 function getData() {
-       //===============retrieve Record====================>
-       route.get('/patient_record', function (req, res) {
+    //===============retrieve Record====================>
+    route.get('/patient_record', function (req, res) {
         var sql = "SELECT id,firstname,lastname,email,phone,residence FROM patient"
         connection.query(sql, function (err, result) {
             if (err) throw err;
@@ -181,32 +175,33 @@ function getData() {
     });
 
     //render appointments of the employees
-    route.get('/appointment-view', function (req, res) {
+    route.get('/appoint-view', function (req, res) {
         var sql = "SELECT * FROM appointment ;";
-        connection.query(sql, (err, result) => {
-
-
-            if (err) { throw err; } else {
-                res.write('<head><link rel="stylesheet" href="style.css"></head><header><a href="dash"><button class="close" style="float: left;">back</button></a><h1>Dental clinic</h1></header><main><table>');
-                //write the head of the table
-                res.write('<tr>')
-                for (var column in result[0]) {
-                      res.write('<th><label>' + column + '</label></th>');      
-                }
-                res.write('</tr>')
-
-                //populates the table cells with data
-                for(var row in result){
-                    res.write('<tr>');
-                    for( var column in result[row]){
-                        res.write('<td><label>'+result[row][column] + '</label></td>');
-                    }
-                    res.write('</tr>');
-                }
-                res.write('</tr>')
-              
-                res.write('</main>');
-            }
+        connection.query(sql, (err, result,fields) => {
+                 res.send(result);
+             //console.log(result);
+//the below code create
+            /* if (err) { throw err; } else {
+                 res.write('<head><link rel="stylesheet" href="style.css"></head><header><a href="dash"><button class="close" style="float: left;">back</button></a><h1>Dental clinic</h1></header><main><table>');
+                 //write the head of the table
+                 res.write('<tr>')
+                 for (var column in result[0]) {
+                       res.write('<th><label>' + column + '</label></th>');      
+                 }
+                 res.write('</tr>')
+ 
+                 //populates the table cells with data
+                 for(var row in result){
+                     res.write('<tr>');
+                     for( var column in result[row]){
+                         res.write('<td><label>'+result[row][column] + '</label></td>');
+                     }
+                     res.write('</tr>');
+                 }
+                 res.write('</tr>')
+               
+                 res.write('</main>');
+             }*/
         })
 
     });

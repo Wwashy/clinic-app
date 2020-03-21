@@ -12,6 +12,30 @@
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     <script src="interact.js"></script>
     <script src="routing.js"></script>
+    <script src="Ajax.js"></script>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            $('#btn3').click(() => {
+                $.ajax({
+                    url: 'appoint-view/',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: (data) => {
+                        $('#D001').html("APPOINTMENTS")
+                        var hr = document.createElement("hr");
+                        $('#D001').append(hr)
+                        for (let row in data) {
+                            var rapper = document.createElement("div");
+                            rapper.setAttribute('class','rappers')
+                            rapper.append(data[row].app_fullname + "    " + data[row].app_phone+"   "+ data[row].app_date);
+                            document.getElementById("D001").appendChild(rapper);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 
 </head>
 
@@ -30,8 +54,7 @@
             <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn2"><i
                         class="fas fa-user-plus fa-2x"></i> New Patient</button></a>
 
-            <a href="appointment-view"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn3"><i
-                        class="fas fa-edit fa-2x"></i>
+            <a href="#"><button class="largeBtn" id="btn3"><i class="fas fa-edit fa-2x"></i>
                     Reviews Appointment</button></a>
 
             <a href="patient_record"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn4"><i
@@ -46,13 +69,13 @@
 
             <a href="contact"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i
                         class="fas fa-question fa-2x"></i> Help</button></a>
-                        <br>
-                        <br>
-            <hr>
-            <div>
+            <br>
+            <br>
+
+            <!--div>
                 <p style="color: white;">clinicsystems@webwalker</p>
                 <p>@2020</p>
-            </div>
+            </div-->
         </div>
 
     </section>
@@ -100,7 +123,7 @@
                         <h2>services</h2>
                     </div>
                     <label for="">patient id</label><input type="text" name="patient_id" placeholder="ID" required>
-                    <label for="">DX: </label><select id="droplist2" name="dx" required>
+                    <label for="">DX: </label><select id="droplist2" name="" required>
                         <option value="12X">X12</option>
                         <option value="12X">X12</option>
                         <option value="12X">X12</option>
@@ -142,7 +165,7 @@
 
                     <input class="btn" id="btn1" type="submit" value="submit">
                 </form>
-                <a href="service"><button onclick="showFOMS(this.id)" class="btn" id="next">NEXT</button></a>
+                <a href="#"><button onclick="showFOMS(this.id)" class="btn" id="next">NEXT</button></a>
             </div>
             <!--appointment pop ups-->
             <div class="pops" id="p1">
