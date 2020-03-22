@@ -9,32 +9,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="2col-layout.css">
     <link rel="stylesheet" href="form.css">
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="Ajax.js"></script>
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     <script src="interact.js"></script>
-    <script src="routing.js"></script>
-    <script src="Ajax.js"></script>
-    <script src="jquery-3.4.1.min.js"></script>
+    <script src="routing.js"></script>   
+ 
     <script>
-        $(document).ready(() => {
-            $('#btn3').click(() => {
-                $.ajax({
-                    url: 'appoint-view/',
-                    type: 'GET',
-                    dataType: 'json',
-                    success: (data) => {
-                        $('#D001').html("APPOINTMENTS")
-                        var hr = document.createElement("hr");
-                        $('#D001').append(hr)
-                        for (let row in data) {
-                            var rapper = document.createElement("div");
-                            rapper.setAttribute('class','rappers')
-                            rapper.append(data[row].app_fullname + "    " + data[row].app_phone+"   "+ data[row].app_date);
-                            document.getElementById("D001").appendChild(rapper);
-                        }
-                    }
-                });
-            });
-        });
+
     </script>
 
 </head>
@@ -122,25 +104,41 @@
                     <div class="form-head">
                         <h2>services</h2>
                     </div>
-                    <label for="">patient id</label><input type="text" name="patient_id" placeholder="ID" required>
-                    <label for="">DX: </label><select id="droplist2" name="" required>
-                        <option value="12X">X12</option>
-                        <option value="12X">X12</option>
-                        <option value="12X">X12</option>
-                        <option value="12X">X12</option>
+                    <label for="">patient id</label><input type="text" id="patient_id" name="patient_id" placeholder="ID">
+                    <label for="">position</label><select  name="tooth_position" id="tooth_position">
+                        <option value="upper_right">upper_right</option>
+                        <option value="upper_left">upper_left</option>
+                        <option value="lower_right">lower_right</option>
+                        <option value="lower_left">lower_left</option>
+                        <option value="totoUpper_right">totoUpper_right</option>
+                        <option value="totoLower_right">totoLower_right</option>
+                        <option value="totoUpper_left">totoUpper_left</option>
+                        <option value="totoLower_left">totoLower_left</option>
+
                     </select>
                     <label for="">RX: </label><select id="droplist3" name="rx" required>
-                        <option value="rootcanal">ROOT CANAL</option>
-                        <option value="scaling">SCALING</option>
-                        <option value="masking">MASKING</option>
-                        <option value="filling">FILLING</option>
-                        <option value="replacement">REPLACEMENT</option>
-                        <option value="rootcanal">ROOT CANAL</option>
+                        <option value="rootcanal"    >rootcanal     </option>
+                        <option value="scaling"      >scaling      </option>
+                        <option value="masking"      >masking      </option>
+                        <option value="filling"      >filling      </option>
+                        <option value="replacement"  >replacement  </option>
+                        <option value="splinting"    >splinting    </option>
+                        <option value="I&D"          >I&D          </option>
+                        <option value="disimpaction" >disimpaction </option>
+                        <option value="toothbuilding">toothbuilding</option>
+                        <option value="drysocket"    >drysocket    </option>
                     </select>
+
+                    <label for="">DX: </label><select id="droplist2" name="" required>
+                    </select>
+
+                    <label for="">Selected teeth:</label><input type="text" id="teeth_selected">
+                   
                     <label>review<input type="checkbox" value="true" name="review"></label>
-                    <input type="text" placeholder="Cost" id="cost" name="cost">
+
+                    <input type="text"id="cost" name="cost"  placeholder="Cost" >
                 </form>
-                <button class="btn" id="btn1" onclick="getService()">save</button>
+                <button class="btn" id="btn_save">save</button>
             </div>
             <!--patients form-->
             <div class="container" id="f2">
@@ -165,7 +163,7 @@
 
                     <input class="btn" id="btn1" type="submit" value="submit">
                 </form>
-                <a href="#"><button onclick="showFOMS(this.id)" class="btn" id="next">NEXT</button></a>
+                <a href="#f1"><button onclick="showFOMS(this.id)" class="btn" id="next">NEXT</button></a>
             </div>
             <!--appointment pop ups-->
             <div class="pops" id="p1">

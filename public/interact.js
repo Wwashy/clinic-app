@@ -8,13 +8,13 @@ function closeSidebar() {
 }
 //pop up boxes
 function openquitBox(element) {
-    document.getElementById(element).style.display = "block";  
-    closeSidebar();  
+    document.getElementById(element).style.display = "block";
+    closeSidebar();
 }
 function cancel(element) {
-    document.getElementById(element).style.display = "none"    
+    document.getElementById(element).style.display = "none"
 }
-function redirect(url,element) {
+function redirect(url, element) {
     document.getElementById(element).style.display = "none"
     window.location.href = url;
 }
@@ -23,7 +23,7 @@ function showFOMS(btn) {
     const container1 = document.getElementById("f1");
     const container2 = document.getElementById("f2");
     const container3 = document.getElementById("f3");
-    
+
 
     if (btn == "btn0") {
         container0.style.display = "block";
@@ -60,8 +60,8 @@ function showFOMS(btn) {
 setInterval(() => {
     document.getElementById("time-box").innerHTML = Date();
     //setInterval(() => {
-        document.getElementById("appointmentButton").style.transition = "2s";
-        document.getElementById("appointmentButton").style.transform = "rotateY(360deg)";
+    document.getElementById("appointmentButton").style.transition = "2s";
+    document.getElementById("appointmentButton").style.transform = "rotateY(360deg)";
     //}, 1000);
 
 
@@ -72,7 +72,7 @@ function callAppointment() {
     var appointmentPop = document.getElementById("p1");
     appointmentPop.style.left = "15%";
     appointmentPop.style.transform = "scale(1.1)";
-    }
+}
 function closeModal() {
     document.getElementById("p1").style.left = "-1000px"
 }
@@ -87,38 +87,37 @@ function getcharge(params) {
 }
 
 //shows the password
-function showPassword(){
+function showPassword() {
     const checkbox1 = document.getElementById("checkbox1").value;
     if (checkbox1 == "true") {
-        textBox2_password.setAttribute("type","text")
-    }else{
-        textBox2_password.setAttribute("type","password")
+        textBox2_password.setAttribute("type", "text")
+    } else {
+        textBox2_password.setAttribute("type", "password")
     }
 }
 
 //login 
 function login() {
-    const login_container= document.getElementById("login-container");
+    const login_container = document.getElementById("login-container");
     const textBox1_username = document.getElementById("textBox1_username");
     const textBox2_password = document.getElementById("textBox2_password");
     //const login_button = document.getElementById("login_button");
     //login_button.addEventlistener('click', () => {
-        if (textBox1_username != "" & textBox2_password != "") {
-            if (textBox1_username.value == "washy" && textBox2_password.value == "1234") {
-                window.location.href = "clinicInfo"
-            } else {
-                var mssg = document.createTextNode("wrong password or username");
-                var mssgbox = document.createElement("div"); 
-                mssgbox.appendChild(mssg)
-                //alert("Wrong password or username")
-                login_container.appendChild(mssgbox);
-            }
-        } 
-        else
-         {
-            alert("Please fill all the fields");
+    if (textBox1_username != "" & textBox2_password != "") {
+        if (textBox1_username.value == "washy" && textBox2_password.value == "1234") {
+            window.location.href = "clinicInfo"
+        } else {
+            var mssg = document.createTextNode("wrong password or username");
+            var mssgbox = document.createElement("div");
+            mssgbox.appendChild(mssg)
+            //alert("Wrong password or username")
+            login_container.appendChild(mssgbox);
         }
-   // });
+    }
+    else {
+        alert("Please fill all the fields");
+    }
+    // });
 }
 //dark them
 
@@ -126,31 +125,17 @@ function switchDarkmode() {
     //let all = ;
     darken(document.getElementById("section-two"));
     darken(document.getElementsByClassName("largeBtn"));
-   //darken(document.getElementById("main"));
-   // darken(document.getElementById("main"));
-   // darken(document.getElementById("main"));
-    
+    //darken(document.getElementById("main"));
+    // darken(document.getElementById("main"));
+    // darken(document.getElementById("main"));
+
 }
 function darken(element) {
-    element.style.backgroundColor = "#363434" ;
-    element.style.color ="white";
-   // const children = element.children
-   // children.style.color ="white"
+    element.style.backgroundColor = "#363434";
+    element.style.color = "white";
+    // const children = element.children
+    // children.style.color ="white"
 }
-//get the service
-function getService(params) {
-    let service = {
-        patientId: document.getElementsByName("patient_id").value,
-        Rx: document.getElementsByName("rx").value,
-        Dx: document.getElementsByName("dx").value,
-        review: document.getElementsByName("review").value,
-        cost: document.getElementsByName("cost").value
-    }
-    let confirm_service =document.createElement("div")
-    let service_details = document.createTextNode(service.patientId +" "+service.cost+""+service.Rx);
-    confirm_service.appendChild(service_details);
-    document.getElementById("f1").appendChild(confirm_service);
-    console.log(service.Rx);
-}
+
 
 
