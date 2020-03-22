@@ -1,13 +1,17 @@
 $(document).ready(() => {
+    //getting the data from the server
     $('#btn3').click(() => {
         $.ajax({
             url: 'appoint-view/',
             type: 'GET',
             dataType: 'json',
             success: (data) => {
-                $('#D001').html("APPOINTMENTS")
-                var hr = document.createElement("hr");
-                $('#D001').append(hr)
+                $('#default').css("display", "none");
+                $('#f1').css("display", "none");
+                $('#f2').css("display", "none");
+                //$('#D001').html("APPOINTMENTS")
+                //var hr = document.createElement("hr");
+                //$('#D001').append(hr)
                 for (let row in data) {
                     var rapper = document.createElement("div");
                     rapper.setAttribute('class', 'rappers')
@@ -17,6 +21,25 @@ $(document).ready(() => {
             }
         });
     });
+    $('#btn4').click(()=>{
+        $.ajax({
+            url:'patient-record/',
+            type:'GET',
+            dataType:'json',
+            success:(data)=>{
+                $('#default').css("display", "none");
+                $('#f1').css("display", "none");
+                $('#f2').css("display", "none");
+
+                for(row in data){
+                    var rapper = document.createElement("div");
+                    rapper.setAttribute('class','rappers');
+                    rapper.append(data[row].id + "  " + data[row].firstname + " " + data[row].lastname +" "+data[row].phone);
+                    document.getElementById("D001").appendChild(rapper);
+                }
+            }
+        });
+    })
     //changes the tooth position
     var tooth_position = document.getElementById("tooth_position");
     var toUpdate = document.getElementById("droplist2");
@@ -55,14 +78,14 @@ $(document).ready(() => {
     }
     // lower right tooth positions
     var lower_right = {
-       Ca41: 'ca 41',
-       Ca42: 'ca 42',
-       Ca43: 'ca 43',
-       Ca44: 'ca 44',
-       Ca45: 'ca 45',
-       Ca46: 'ca 46',
-       Ca47: 'ca 47',
-       Ca48: 'ca 48'
+        Ca41: 'ca 41',
+        Ca42: 'ca 42',
+        Ca43: 'ca 43',
+        Ca44: 'ca 44',
+        Ca45: 'ca 45',
+        Ca46: 'ca 46',
+        Ca47: 'ca 47',
+        Ca48: 'ca 48'
     }
     var totoUpper_right = {
         Ca51: 'ca 51',
@@ -141,18 +164,43 @@ $(document).ready(() => {
             }
         }
     });
-    $(toUpdate).change(()=>{
+    $(toUpdate).change(() => {
         var currentValue = $('#teeth_selected').val() + $('#droplist3').val()
-        $('#teeth_selected').val(currentValue+" "+toUpdate.value)
+        $('#teeth_selected').val(currentValue + " " + toUpdate.value)
     });
     //$('#teeth_selected').change(()=>{
     //    var teeth_selected = $('#teeth_selected').val().split(' ');
     //    alert(teeth_selected.length);
     //});
-    $('#btn_save').click(()=>{
+    $('#btn_save').click(() => {
         var P_id = $('#patient_id').val();
         var P_rx = $('#teeth_selected').val();
-        $('#cost').val("PatientID:"+P_id+"<br>"+"Rx:"+ P_rx);
+        $('#cost').val("PatientID:" + P_id + "<br>" + "Rx:" + P_rx);
     });
+    //hide and show forms
+    $('#btn0').click(() => {
+        $('#default').css("display", "block");
+        $('#f1').css("display", "none");
+        $('#f2').css("display", "none");
+        $('.rappers').css("display", "none");
+
+    })
+    $('#btn1').click(() => {
+        $('.rappers').css("display", "none");
+        $('#default').css("display", "none");
+        $('#f1').css("display", "block");
+        $('#f2').css("display", "none");
+    })
+    $('#btn2').click(() => {
+        $('.rappers').css("display", "none");
+        $('#default').css("display", "none");
+        $('#f1').css("display", "none");
+        $('#f2').css("display", "block");
+
+    })
+    $('#btn7').click(() => {
+        $('#section-two').css("background-color", "#282c34")
+    })
+
 });
 

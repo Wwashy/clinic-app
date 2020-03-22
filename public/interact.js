@@ -18,44 +18,7 @@ function redirect(url, element) {
     document.getElementById(element).style.display = "none"
     window.location.href = url;
 }
-function showFOMS(btn) {
-    const container0 = document.getElementById("default");
-    const container1 = document.getElementById("f1");
-    const container2 = document.getElementById("f2");
-    const container3 = document.getElementById("f3");
 
-
-    if (btn == "btn0") {
-        container0.style.display = "block";
-        container1.style.display = "none";
-        container2.style.display = "none";
-        container3.style.display = "none";
-    } else if (btn == "btn1" || btn == "next") {
-        container0.style.display = "none";
-        container1.style.display = "block";
-        container2.style.display = "none";
-        container3.style.display = "none";
-
-    } else if (btn == "btn2") {
-        container0.style.display = "none";
-        container1.style.display = "none";
-        container2.style.display = "block";
-        container3.style.display = "none";
-
-    }
-    else if (btn == "btn3") {
-
-        container3.style.display = "block";
-        container2.style.display = "none";
-        container1.style.display = "none";
-        container0.style.display = "none";
-    } else {
-        container0.style.display = "none";
-        container2.style.display = "none";
-        container1.style.display = "none";
-        container3.style.display = "none";
-    }
-}
 //header properties
 setInterval(() => {
     document.getElementById("time-box").innerHTML = Date();
@@ -75,15 +38,6 @@ function callAppointment() {
 }
 function closeModal() {
     document.getElementById("p1").style.left = "-1000px"
-}
-// calculate price
-function getcharge(params) {
-    let treatment = String(document.getElementById("droplist3").value);
-    if (treatment == "rootcanal") {
-        document.getElementById("cost").innerText = 2000;
-    } else {
-        ///
-    }
 }
 
 //shows the password

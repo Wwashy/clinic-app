@@ -43,7 +43,6 @@ function getRoute(params) {
     });
 
 }
-
 //====================> creates connection to the database
 var connection = mysql.createPool({
     connectionLimit: 100,
@@ -144,12 +143,13 @@ function sendData() {
 }
 function getData() {
     //===============retrieve Record====================>
-    route.get('/patient_record', function (req, res) {
+    route.get('/patient-record', function (req, res) {
         var sql = "SELECT id,firstname,lastname,email,phone,residence FROM patient"
         connection.query(sql, function (err, result) {
             if (err) throw err;
-            var patients = result;
-            res.render('service',
+            res.send(result);
+
+ /*           res.render('service',
                 () => {
                     res.write('<head><link rel="stylesheet" href="style.css"></head><header><a href="dash"><button class="close" style="float: left;">back</button></a><h1>Dental clinic</h1></header><main><table>');
                     //  for (var row in result[0]) {
@@ -170,7 +170,7 @@ function getData() {
                     }
                     res.end('</table></main>');
                 }
-            );
+            );*/
         })
     });
 
@@ -179,7 +179,7 @@ function getData() {
         var sql = "SELECT * FROM appointment ;";
         connection.query(sql, (err, result,fields) => {
                  res.send(result);
-             //console.log(result);
+             
 //the below code create
             /* if (err) { throw err; } else {
                  res.write('<head><link rel="stylesheet" href="style.css"></head><header><a href="dash"><button class="close" style="float: left;">back</button></a><h1>Dental clinic</h1></header><main><table>');
