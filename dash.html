@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="2col-layout.css">
     <link rel="stylesheet" href="form.css">
     <script src="jquery-3.4.1.min.js"></script>
-    <script src="Ajax.js"></script>
+    <script src="dash.js"></script>
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     <script src="interact.js"></script>
-    <script src="routing.js"></script>   
- 
+    <script src="routing.js"></script>
+
     <script>
 
     </script>
@@ -28,20 +28,13 @@
             <br>
             <hr>
             <button class="largeBtn" id="btn0"><i class="fas fa-home fa-2x"></i>Dashboard</button>
-
+            <button class="largeBtn" id="search"><i class="fas fa-search fa-2x"></i>search</button>
             <button class="largeBtn" id="btn1"><i class="fas fa-stethoscope fa-2x"></i> Treatment</button>
-
             <button class="largeBtn" id="btn2"><i class="fas fa-user-plus fa-2x"></i> New Patient</button>
-
             <button class="largeBtn" id="btn3"><i class="fas fa-edit fa-2x"></i>Reviews Appointment</button>
-
             <button class="largeBtn" id="btn4"><i class="fas fa-book fa-2x"></i>Clients Record</button>
-
-            <a href="login"><button onclick="login(this.id)" class="largeBtn" id="btn6"><i class="fas fa-cog fa-2x"></i>
-                    Advanced</button></a>
-
-            <button  class="largeBtn" id="btn7"><iclass="fas fa-moon fa-2x"></i>Dark theme</button>
-
+            <button class="largeBtn" id="btn6"><i class="fas fa-cog fa-2x"></i>Advanced</button>
+            <button class="largeBtn" id="btn7"><i class="fas fa-moon fa-2x"></i>Dark theme</button>
             <a href="contact"><button class="largeBtn" id="btn5"><i class="fas fa-question fa-2x"></i> Help</button></a>
             <!--div>
                 <p style="color: white;">clinicsystems@webwalker</p>
@@ -52,49 +45,39 @@
     </section>
     <!--section two--->
     <section class="section-two" id="section-two">
-
-        <header style="background-color: transparent;color: teal;">
+        <header id="main_header" style="background-color: transparent;color: teal;">
             <div id="time-box">time</div>
             <div class="" id="appointmentButton" onclick="callAppointment()">Appointment</div>
         </header>
         <main class="dashboard" id="D001">
-
             <div class="container" id="default">
-                <a href="patient">
-                    <div class="icons">
-                        <P><i class="fas fa-user-plus fa-4x"></i>New Client</P>
-                    </div>
-                </a>
-                <a href="service">
-                    <div class="icons">
-                        <P><i class="fas fa-stethoscope fa-4x"></i>Service</P>
-                    </div>
-                </a>
-                <a href="search">
-                    <div class="icons">
-                        <P><i class="fas fa-search fa-4x"></i>Search</P>
-                    </div>
-                </a>
-                <a href="schedules">
-                    <div class="icons">
-                        <P><i class="fas fa-edit fa-4x"></i>Reviews</P>
-                    </div>
-                </a>
-                <a href="clinicInfo">
-                    <div class="icons">
-                        <P><i class="fas fa-cog fa-4x"></i>Settings</P>
-                    </div>
-                </a>
+                <div class="icons" id="clients_served">
+                    <P><i class="fas fa-user-plus fa-4x"></i>Served_client</P>
+                </div>
+                <div class="icons" id="pending_appointment">
+                    <P><i class="fas fa-stethoscope fa-4x"></i>Appointments</P>
+                </div>
+                <div class="icons">
+                    <P><i class="fas fa-search fa-4x"></i>other</P>
+                </div>
+                <div class="icons">
+                    <P><i class="fas fa-edit fa-4x"></i>other</P>
+                </div>
+                <div class="icons">
+                    <P><i class="fas fa-cog fa-4x"></i>other</P>
+                </div>
+
             </div>
 
             <!---service form-->
             <div class="container" id="f1">
-                <form class="smart" action="" method="POST">
+                <form class="smart" action="submit_service " method="POST">
                     <div class="form-head">
                         <h2>services</h2>
                     </div>
-                    <label for="">patient id</label><input type="text" id="patient_id" name="patient_id" placeholder="ID">
-                    <label for="">position</label><select  name="tooth_position" id="tooth_position">
+                    <label for="">patient id</label><input type="text" id="last_patient" name="patient_id"
+                        placeholder="ID">
+                    <label for="">position</label><select name="tooth_position" id="tooth_position">
                         <option value="upper_right">upper_right</option>
                         <option value="upper_left">upper_left</option>
                         <option value="lower_right">lower_right</option>
@@ -105,29 +88,32 @@
                         <option value="totoLower_left">totoLower_left</option>
 
                     </select>
-                    <label for="">RX: </label><select id="droplist3" name="rx" required>
-                        <option value="rootcanal"    >rootcanal     </option>
-                        <option value="scaling"      >scaling      </option>
-                        <option value="masking"      >masking      </option>
-                        <option value="filling"      >filling      </option>
-                        <option value="replacement"  >replacement  </option>
-                        <option value="splinting"    >splinting    </option>
-                        <option value="I&D"          >I&D          </option>
-                        <option value="disimpaction" >disimpaction </option>
+                    <label for="">service: </label><select id="droplist3" name="service" required>
+                        <option value="extraction">extraction </option>
+                        <option value="rootcanal">rootcanal </option>
+                        <option value="scaling">scaling </option>
+                        <option value="masking">masking </option>
+                        <option value="filling">filling </option>
+                        <option value="replacement">replacement </option>
+                        <option value="splinting">splinting </option>
+                        <option value="I&D">I&D </option>
+                        <option value="disimpaction">disimpaction </option>
                         <option value="toothbuilding">toothbuilding</option>
-                        <option value="drysocket"    >drysocket    </option>
+                        <option value="drysocket">drysocket </option>
                     </select>
-
-                    <label for="">DX: </label><select id="droplist2" name="" required>
+                    <label for="">DX: </label><select id="droplist2" name="tooth_name" required>
                     </select>
-
-                    <label for="">Selected teeth:</label><input type="text" id="teeth_selected">
-                   
-                    <label>review<input type="checkbox" value="true" name="review"></label>
-
-                    <input type="text"id="cost" name="cost"  placeholder="Cost" >
+                    <label>Description</label>
+                    <input type="text" id="service_description" name="service_description"
+                        placeholder="service description">
+                    <label for="">Total cost</label><input type="text" id="cost" name="cost" placeholder="Cost">
+                    <label for="">dentist:</label><select id="Cdentist" name="cdentist"></select>
+                    <label for="">assistant:</label><select id="Cassistant" name="cassistant"></select>
+                    <div id="add_service" class="btn">add service</div>
+                    <button class="btn" value="submit">Submit</button>
                 </form>
-                <button class="btn" id="btn_save">save</button>
+                <!--button class="btn" id="btn_save">save</button-->
+                <div id="teeth_selected" class="selected_items"></div>
             </div>
             <!--patients form-->
             <div class="container" id="f2">
@@ -149,7 +135,6 @@
                         <option value="male">MALE</option>
                         <option value="female">FEMALE</option>
                     </select>
-
                     <input class="btn" id="btn1" type="submit" value="submit">
                 </form>
                 <a href="#f1"><button onclick="showFOMS(this.id)" class="btn" id="next">NEXT</button></a>
@@ -158,19 +143,37 @@
             <div class="pops" id="p1">
                 <div class="header" style="display: flex;justify-content: flex-end;">
                     <div onclick="closeModal()" class="far fa-window-close fa-2x"
-                        style="color: white; font-size: 20px;">close</div>
+                        style="color: rebeccapurple; font-size: 20px;">close</div>
                 </div>
-                <h1 style="color: white;align-self: center;">Add your details</h1>
+                <h1>Add your details</h1>
                 <hr>
                 <div class="inputContent">
                     <form action="appointment" method="post">
-                        <label for="">Name:</label><input type="text" name="fullname"><br>
-                        <label for="">Phone:</label><input type="text" name="phone"><br>
-                        <label for="">date:</label><input type="date" name="day"><br><br>
-                        <input type="submit" class="btn" value="submit">
+                        <label for="">Name:</label><input type="text" id="n1" name="fullname" required><br>
+                        <label for="">Phone:</label><input type="text" id="n2" name="phone" required><br>
+                        <label for="">date:</label><input type="date" id="n3" name="day" required><br><br>
+                        <label for="">description</label><input type="text" id="n4" name="description" required>
+                        <input type="submit" id="closeModal" class="btn" value="submit" required>
                     </form>
                 </div>
 
+            </div>
+            <!--search display area-->
+            <div class="container" id="f3">
+                <div class="smart1">
+                    <div class="form-head">
+                        <h1>search</h1>
+                    </div>
+                    <select name="" id="">
+                        <option value="patient">patient</option>
+                        <option value="dentist">dentist</option>
+                        <option value="assistant">assistant</option>
+                    </select>
+
+                    <input type="text" placeholder="id/name/phone">
+                    <button class="btn" id="search_btn">search</button>
+                    <div class="list">results dhould come here</div>
+                </div>
             </div>
         </main>
     </section>

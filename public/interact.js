@@ -20,15 +20,15 @@ function redirect(url, element) {
 }
 
 //header properties
-setInterval(() => {
-    document.getElementById("time-box").innerHTML = Date();
-    //setInterval(() => {
-    document.getElementById("appointmentButton").style.transition = "2s";
-    document.getElementById("appointmentButton").style.transform = "rotateY(360deg)";
-    //}, 1000);
-
-
-}, 1000);
+//setInterval(() => {
+//    document.getElementById("time-box").innerText= Date();
+//    //setInterval(() => {
+//    document.getElementById("appointmentButton").style.transition = "2s";
+//    document.getElementById("appointmentButton").style.transform = "rotateY(360deg)";
+//    //}, 1000);
+//
+//
+//}, 1000);
 //pops the appointment box
 function callAppointment() {
 
@@ -72,23 +72,6 @@ function login() {
         alert("Please fill all the fields");
     }
     // });
-}
-//dark them
-
-function switchDarkmode() {
-    //let all = ;
-    darken(document.getElementById("section-two"));
-    darken(document.getElementsByClassName("largeBtn"));
-    //darken(document.getElementById("main"));
-    // darken(document.getElementById("main"));
-    // darken(document.getElementById("main"));
-
-}
-function darken(element) {
-    element.style.backgroundColor = "#363434";
-    element.style.color = "white";
-    // const children = element.children
-    // children.style.color ="white"
 }
 
 

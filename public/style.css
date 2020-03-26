@@ -96,18 +96,22 @@ main{
     scroll-behavior: smooth;
         
 }
-main .rappers{
+main .rappers,main .rappers2{
     width: 100%;
-    height: 70px;
-    padding: 10px;
-    margin: 20px 0;
+    padding: 10px;    
     font-size: 20px;
-    border: 2px solid teal;
-    border-radius: 10px;
-    text-transform: initial;
-    font-weight: bolder;
-    background-color: teal;
+    border: 1px solid teal;    
+   }
+   main .rappers:nth-child(even){
+       background-color: #ddcddd;
+   }
+   main .rappers .sub_rapper{
+    width: 100%;
+    
 }
+
+
+
 /*main.dashboard{
     background-image: url("image/1.jfif") ;
     background-size: cover;
@@ -155,12 +159,9 @@ textarea{
 .section-two .container .smart{
     border: none;
     box-shadow: none;
+
 }
 
-select option{
-    font-size: 18px;
-    border-radius: 5px;
-  }
   /*-------------------------buttons--------------------------------*/
   
 .btn{
@@ -224,7 +225,6 @@ main .patient{
 /*--------=================search/updates==================================*/
 main .list{
     width: 100%;
-    height: 300px;
     background-color:
     white;
     border: 1px solid
@@ -234,6 +234,7 @@ main .list{
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 5;
+    padding: 20px;
 }
 /*===========================================wide containers used in welcome page========================*/
 .containers{
@@ -358,17 +359,18 @@ tr:nth-child(even) {
     position: absolute;
     height: 500px;
     border-radius: 20px;
-    border: 2px solid grey;
-    box-shadow: 5px 5px 4px grey;
+    border: 1px solid grey;
+    box-shadow: 2px 1px 1px grey;
     z-index: 1;
-    background-color: teal;
+    background-color: white;
     left: -1000px;
-    transition: 2s;
+    transition: 0.8s;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 20px;
     top: 100px;
     text-align: left;
+    color: black;
    }
   

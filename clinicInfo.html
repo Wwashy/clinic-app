@@ -8,6 +8,8 @@
     <title>Admin-panel</title>
     <link rel="stylesheet" href="form.css">
     <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="clinicinfo.js"></script>
     <script src="interact.js"></script>
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
 </head>
@@ -17,18 +19,12 @@
     <div class="sidebar" id="sidebar">
         <button onclick="closeSidebar()" id="close" class="close" style="float: right;">&times;</button>
         <br><br>
-        <a href="#"><button onclick="openquitBox('quitBox')" class="largeBtn" id="bt0"><i
-                    class="fas fa-home fa-3x"></i>Home</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn1"><i
-                    class="fas fa-user-plus fa-3x"></i>Add Dentist</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn2"><i
-                    class="fas fa-user-plus fa-3x"></i>Add Attendants</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn3"><i class="fas fa-edit fa-3x"></i>Edit
-                System info</button></a>
-        <a href="#"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn4"><i
-                    class="fas fa-book fa-3x"></i>Finances</button></a>
-        <a href="contact"><button onclick="showFOMS(this.id)" class="largeBtn" id="btn5"><i
-                    class="fas fa-question fa-3x"></i>Help</button></a>
+        <button onclick="openquitBox('quitBox')" class="largeBtn" id="btn8"><i class="fas fa-home fa-3x"></i>Home</button>
+        <button class="largeBtn" id="btn9"><i class="fas fa-user-plus fa-3x"></i>Add Dentist</button>
+        <button class="largeBtn" id="btn10"><i class="fas fa-user-plus fa-3x"></i>Add Attendants</button>
+        <button  class="largeBtn" id="btn11"><i class="fas fa-edit fa-3x"></i>Edit System info</button>
+        <button class="largeBtn" id="btn12"><i class="fas fa-book fa-3x"></i>Finances</button>
+        <a href="contact"><button class="largeBtn" id="btn14"><i class="fas fa-question fa-3x"></i>Help</button></a>
 
     </div>
     <!--header of the page-->
@@ -49,12 +45,12 @@
                 <h1>Current Attendants</h1>
             </div>
             <label for="">dentist</label>
-            <div class="currents" id="cdentdist">washy</div>
+            <div class="currents" id="dentist_availbale">washy</div>
             <label for="">Assistant</label>
-            <div class="currents" id="cassistant">washy</div>
+            <div class="currents" id="assistant_availbale">washy</div>
         </div>
         <!--dentists-->
-        <div class="container" id="f1">
+        <div class="container" id="f5">
             <form class="smart" action="submit_dentist" method="POST">
                 <div class="form-head">
                     <h2>add dentist details</h2>
@@ -64,7 +60,7 @@
                     required>
                 <label for="">lastname:</label><input id="tb2" type="text" name="lastname" placeholder="Lastname"
                     required>
-                <label for="">Sirname:</label><input id="tb3" type="text" name="sirname" placeholder="Sirname" required>
+                <label for="">Sirname:</label><input id="tb3" type="text" name="sirname" placeholder="Sirname">
                 <label for="">DOB:</label><input id="tb4" type="date" name="dob" placeholder="date of birth" required>
                 <label for="">email:</label><input id="tb5" type="email" name="email" placeholder="example@gmail.com"
                     required>
@@ -82,7 +78,7 @@
             </form>
         </div>
         <!--assistant details-->
-        <div class="container" id="f2">
+        <div class="container" id="f6">
             <form class="smart" action="submit-assitant">
                 <div class="form-head">
                     <h2>Assistant details</h2>
@@ -106,7 +102,7 @@
             </form>
         </div>
         <!--Clinic Details-->
-        <div class="container" id="f3">
+        <div class="container" id="f7">
             <form class="smart" action="submit_about" method="POST">
                 <div class="form-head">
                     <h2>clinic details</h2>

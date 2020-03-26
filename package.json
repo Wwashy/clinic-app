@@ -5,12 +5,10 @@
   "main": "routing.js",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "ejs": "^3.0.1",
     "express": "^4.17.1",
     "json": "^9.0.6",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.2",
-    "tedious": "^8.0.1"
+    "nodemon": "^2.0.2"
   },
   "devDependencies": {},
   "scripts": {

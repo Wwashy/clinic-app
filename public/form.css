@@ -11,17 +11,21 @@
    grid-gap: 10px;
    
 }
+
 input[type = "text"],[type = "email"],[type = "password"],[type = "date"]{
     width: 100%;
     border-radius: 2px;
     padding: 10px;
-    font-size: 16px;
+    font-size: 18px;
+    height: 30px;
 }
+
 
 select{
 box-sizing: border-box;
 border-radius: 2px;
 height: 30px;
+font-size: 18px;
 }
 .form-head{
     grid-column-start: 1;
@@ -77,12 +81,10 @@ label{
 .smart1{
     width: 100%;
     border-radius: 5px;
-    border:2px solid grey;
-   display: grid;
+    display: grid;
    grid-template-rows:50px 50px auto;
    padding: 20px;
-   box-shadow: 3px 3px 2px grey;
-   grid-gap: 10px;
+    grid-gap: 10px;
 }
 .confirm_quit{
     display: none;
@@ -101,4 +103,12 @@ label{
     margin-top: 50px;
     display: flex;
     justify-content: space-evenly;
+}
+.selected_items{
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+ }
+.selected_items:nth-child(even){
+    background-color: #ddcddd;
 }
