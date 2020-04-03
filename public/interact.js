@@ -9,7 +9,6 @@ function closeSidebar() {
 //pop up boxes
 function openquitBox(element) {
     document.getElementById(element).style.display = "block";
-    closeSidebar();
 }
 function cancel(element) {
     document.getElementById(element).style.display = "none"
@@ -35,6 +34,8 @@ function callAppointment() {
     var appointmentPop = document.getElementById("p1");
     appointmentPop.style.left = "15%";
     appointmentPop.style.transform = "scale(1.1)";
+    document.getElementById("section-one").style.opacity = "1"
+
 }
 function closeModal() {
     document.getElementById("p1").style.left = "-1000px"
@@ -58,9 +59,11 @@ function login() {
     //const login_button = document.getElementById("login_button");
     //login_button.addEventlistener('click', () => {
     if (textBox1_username != "" & textBox2_password != "") {
-        if (textBox1_username.value == "washy" && textBox2_password.value == "1234") {
-            window.location.href = "clinicInfo"
-        } else {
+        if ((textBox1_username.value == "washy") && (textBox2_password.value == "1234")) {
+            window.location.href = "dash";
+        } else if(textBox1_username.value == "admin" && textBox2_password.value == "0000"){
+            window.location.href ="clinicInfo";
+        }else{
             var mssg = document.createTextNode("wrong password or username");
             var mssgbox = document.createElement("div");
             mssgbox.appendChild(mssg)

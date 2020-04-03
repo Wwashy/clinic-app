@@ -1,11 +1,43 @@
 $(document).ready(() => {
+
+    $.ajax({
+        url: 'title/',
+        type: 'GET',
+        dataType: 'json',
+        success: (data) => {
+            $('#title').html(data[0].name);
+        }
+
+    });
+
+
+    //search button hit
+    $('#search_btn').click(() => {
+        $.ajax({
+            url: 'searching/',
+            type: 'POST',
+            data: {
+                searched: $('#searched').val(),
+                wh0: $('who').val()
+            },
+            success: (data) => {
+                $('#search_results').empty();
+                for (row in data) {
+                    let newDiv = document.createElement("div");
+                    newDiv.append(data[row].firstname)
+                    $('#search_results').append(newDiv);
+                }
+            }
+        });
+    });
+
     //appintment form valiadation
-    $('#closeModal').click(()=>{
-        if($('#n1').val()!="" && $('#n2').val()!="" && $('#n3').val()!="" && $('#n4').val()!=""){ 
-        $('#p1').css("left","-1000px");
+    $('#closeModal').click(() => {
+        if ($('#n1').val() != "" && $('#n2').val() != "" && $('#n3').val() != "" && $('#n4').val() != "") {
+            $('#p1').css("left", "-1000px");
         }
     });
-    
+
     //getting the data from the server for the appointments
     $('#btn3').click(() => {
         $('#default').css("display", "none");
@@ -29,6 +61,7 @@ $(document).ready(() => {
         });
     });
 
+
     //getting the patient record
     $('#btn4').click(() => {
         $('#default').css("display", "none");
@@ -41,46 +74,52 @@ $(document).ready(() => {
             type: 'GET',
             dataType: 'json',
             success: (data) => {
-                let Total =0;
-                let clients_served =0;
-                   // for(i=0;i<data.length;i++){
-                   //     clients_served = clients_served + i;
-                   // }     
+                if (data == "") {
+                    $('#D001').append("No patient served !!");
+                }
+                let Total = 0;
+                let clients_served = 0;
 
                 for (row in data) {
                     Total = Total + data[row].cost;
-                    clients_served++;                         
-                    
+                    clients_served++;
+
                     let rapper1 = document.createElement("div");
-                    rapper1.setAttribute('class', 'rappers rappers2');                  
+                    rapper1.setAttribute('class', 'rappers rappers2');
                     let div1 = document.createElement("div");
                     let div2 = document.createElement("div");
                     let div3 = document.createElement("div");
                     let div4 = document.createElement("div");
-                    let div5 =document.createElement("div");
+                    let div5 = document.createElement("div");
+                    let div6 = document.createElement("div");
 
-                    div1.setAttribute("class","sub_rapper sub_rapper1")
-                    div2.setAttribute("class","sub_rapper sub_rapper2")
-                    div3.setAttribute("class","sub_rapper sub_rapper3")
-                    div4.setAttribute("class","sub_rapper sub_rapper4")
-                    div5.setAttribute("class","sub_rapper sub_rapper5")
+                    div1.setAttribute("class", "sub_rapper sub_patient_id")
+                    div2.setAttribute("class", "sub_rapper sub_service_description")
+                    div3.setAttribute("class", "sub_rapper sub_cost")
+                    div4.setAttribute("class", "sub_rapper sub_service_date")
+                    div5.setAttribute("class", "sub_rapper sub_service_time")
+                    div6.setAttribute("class", "sub_rapper sub_patient_name")
 
-                    div1.append("PatientId:"+" "+ data[row].patient_id) ;
+
+                    div1.append("PatientId:" + " " + data[row].patient_id + " " + "serviceID:" + data[row].service_id);
                     div2.append("Description:" + data[row].service_description);
                     div3.append("Charge:" + data[row].cost);
                     div4.append("date:" + data[row].service_date);
-                    div5.append("time:"+ data[row].service_time);
+                    div5.append("time:" + data[row].service_time);
+                    div6.append("PatientName:" + " " + data[row].firstname + " " + data[row].lastname);
 
+                    rapper1.appendChild(div6)
                     rapper1.appendChild(div1)
                     rapper1.appendChild(div2)
                     rapper1.appendChild(div3)
                     rapper1.appendChild(div4)
                     rapper1.appendChild(div5)
-                    
+
                     document.getElementById("D001").appendChild(rapper1);
                 }
-                $('#main_header').append("Total:"+"Ksh"+Total);
-               
+
+                $('#main_header').append("Total:" + "Ksh" + Total);
+
             }
         });
     });

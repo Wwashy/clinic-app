@@ -79,14 +79,14 @@
         </div>
         <!--assistant details-->
         <div class="container" id="f6">
-            <form class="smart" action="submit-assitant">
+            <form class="smart" action="submit_assistant" method="POST">
                 <div class="form-head">
                     <h2>Assistant details</h2>
                 </div>
                 <label for="">id</label><input type="text" placeholder="ID" required>
                 <label for=""> Firstname:</label> <input id="tb1" type="text" placeholder="Firstname" required>
                 <label for="">Lastname:</label><input id="tb3" type="text" placeholder="Lastname" required>
-                <label for="">Sirname:</label><input id="tb2" type="text" placeholder="Sirtname">
+                <label for="">Sirname:</label><input id="tb2" type="text" placeholder="Sirname">
                 <label for="">DOB:</label><input id="tb4" type="date" placeholder="date of birth" required>
                 <label for="">email:</label><input id="tb5" type="email" placeholder="example@gmail.com">
                 <label for="">Phone:</label><input id="tb6" type="text" placeholder="0712345678" required>
@@ -129,7 +129,7 @@
             <hr><br><br>
             <p>Are you sure you want to exit?</p>
             <div class="btn_group">
-                <button class="btn ok" onclick="redirect('dash','quitBox')">OK</button>
+                <button class="btn ok" onclick="redirect('login','quitBox')">OK</button>
                 <button class="btn cancel" onclick="cancel('quitBox')">CANCEL</button>
             </div>
         </div>

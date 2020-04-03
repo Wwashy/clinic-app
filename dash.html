@@ -24,7 +24,7 @@
 <body>
     <section class="section-one">
         <div class="sidebar" id="sidebar">
-            <h1>jamii dental</h1>
+            <h1 id="title">jamii dental</h1>
             <br>
             <hr>
             <button class="largeBtn" id="btn0"><i class="fas fa-home fa-2x"></i>Dashboard</button>
@@ -32,10 +32,11 @@
             <button class="largeBtn" id="btn1"><i class="fas fa-stethoscope fa-2x"></i> Treatment</button>
             <button class="largeBtn" id="btn2"><i class="fas fa-user-plus fa-2x"></i> New Patient</button>
             <button class="largeBtn" id="btn3"><i class="fas fa-edit fa-2x"></i>Reviews Appointment</button>
-            <button class="largeBtn" id="btn4"><i class="fas fa-book fa-2x"></i>Clients Record</button>
+            <button class="largeBtn" id="btn4"><i class="fas fa-book fa-2x"></i>Today Client Records</button>
             <button class="largeBtn" id="btn6"><i class="fas fa-cog fa-2x"></i>Advanced</button>
             <button class="largeBtn" id="btn7"><i class="fas fa-moon fa-2x"></i>Dark theme</button>
             <a href="contact"><button class="largeBtn" id="btn5"><i class="fas fa-question fa-2x"></i> Help</button></a>
+            <button onclick="openquitBox('quitBox')" class="largeBtn" id="logout_btn" class="fas fa-sign-out fa-2x">Log out</button>
             <!--div>
                 <p style="color: white;">clinicsystems@webwalker</p>
                 <p>@2020</p>
@@ -164,17 +165,27 @@
                     <div class="form-head">
                         <h1>search</h1>
                     </div>
-                    <select name="" id="">
+                    <select name="who" id="">
                         <option value="patient">patient</option>
                         <option value="dentist">dentist</option>
                         <option value="assistant">assistant</option>
                     </select>
 
-                    <input type="text" placeholder="id/name/phone">
-                    <button class="btn" id="search_btn">search</button>
-                    <div class="list">results dhould come here</div>
+                    <input type="text" placeholder="id/name/phone" name="searched">
+                    <button class="btn" id="search_btn" value="sub">search</button>
+                    <div class="list" id="search_results">results should come here</div>
                 </div>
             </div>
+        <!--Alert box for confirming quit-->
+        <div class="confirm_quit" id="quitBox">
+            <h2>Alert!</h2>
+            <hr><br><br>
+            <p>Are you sure you want to exit?</p>
+            <div class="btn_group">
+                <button class="btn ok" onclick="redirect('login','quitBox')">OK</button>
+                <button class="btn cancel" onclick="cancel('quitBox')">CANCEL</button>
+            </div>
+        </div>
         </main>
     </section>
 </body>
