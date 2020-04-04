@@ -8,27 +8,30 @@
     <title>New Patient</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="form.css">
+    <script src="jquery-3.4.1.min.js"></script>
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     <script src="interact.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $('#save').click(()=>{
+                $('.contact').html("Thank you");
+            });
+        });
+    </script>
 </head>
 
 <body>
 
     <header>
-        <a href="dash"><button onclick="closeSidebar()" class="close" style="float: left;">←</button></a>
-        <span>
+         <span>
             <h1>
                 Welcom to my contact page
             </h1>
         </span>
     </header>
     <main class="contact">
-        <h4>Tel: 0799623291 || 0790733811</h4>
-        <p><a href="#">Facebook</a></p>
-        <p><a href="#">Twitter</a></p>
-        <p><a href="#">Telegram</a></p>
-        <br>
-        <form action="/client/message" method="POST">
+
+        <form action="/message" method="POST">
         <label for="">name:</label><input type="text" name="client_name">
         <label for="">Email:</label><input type ="email" name = "client_email">
         <label for="">leave me a message :</label>
@@ -37,6 +40,11 @@
         <br>
         <button class="btn">SEND</button>
     </form>
+    <h4>Tel: 0799623291 || 0790733811</h4>
+    <p><a href="#">Facebook</a></p>
+    <p><a href="#">Twitter</a></p>
+    <p><a href="#">Telegram</a></p>
+    <br>
 
     </main>
 

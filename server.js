@@ -14,20 +14,24 @@ route.use(bodyparser.urlencoded({ extended: true }))
 getRoute();
 function getRoute(params) {
     route.get('/', function (req, res) {
+        //loads login page for directions
         res.sendFile(__dirname + '/login.html');
     });
-    route.get('/dash',(req,res)=>{
-        res.sendFile(__dirname+'/dash.html')
+    //gets the login details of the user and authenticate
+    route.post('/login', (req, res) => {
+        if (req.body.user == "washy" && req.body.password == "1234") {
+            res.sendFile(__dirname + '/dash.html')
+        } else if (req.body.user == "admin" && req.body.password == "admin") {
+            res.sendFile(__dirname + '/clinicInfo.html');
+        } else {
+            res.sendFile(__dirname + '/login.html');
+        }
     });
-    route.get('/clinicInfo', function (req, res) {
-        res.sendFile(__dirname + '/clinicInfo.html');
-    });
+
+
     route.get('/welcome', function (req, res) {
         res.sendFile(__dirname + '/welcome.html');
     });
-    route.get('/patient', function (req, res) {
-        res.sendFile(__dirname + '/patient.html');
-    });   
     route.get('/contact', function (req, res) {
         res.sendFile(__dirname + '/contact.html')
     })
@@ -43,7 +47,7 @@ let connection = mysql.createPool({
     user: 'webwalkeR',
     password: 'Hellen@1999',
     database: 'clinic',
-    debug:false
+    debug: false
 });
 connection.getConnection(function (err) {
     if (err) {
@@ -57,12 +61,20 @@ connection.getConnection(function (err) {
 
 
 function sendData() {
+    //messages
+    route.post('/message', (req, res) => {
+        let sql = "INSERT INTO feed(feed_name,feed_mail,feed_text) VALUES('" + req.body.client_name + "','" + req.body.client_email + "','" + req.body.message + "')";
+        connection.query(sql, (err) => {
+            if (err) throw erro;
+            res.sendFile(__dirname+'/contact.html');
+        });
+    });
 
-//sends the service data and the patient id
-    route.post('/submit_service',(req,res)=>{
+    //sends the service data and the patient id
+    route.post('/submit_service', (req, res) => {
         let today = new Date();
-        let date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
-        let time = today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
+        let date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
+        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         let sql = "INSERT INTO service \
         (patient_id,\
         service,\
@@ -75,21 +87,21 @@ function sendData() {
         service_date,\
         service_time)\
         VALUES(\
-        '"+ req.body.patient_id +"',\
-        '"+ req.body.service +"',\
-        '"+ req.body.tooth_position +"',\
-        '"+ req.body.tooth_name +"',\
-        '"+ req.body.service_description +"',\
-        '"+ req.body.cost +"',\
-        '"+req.body.cdentist+"',\
-        '"+req.body.cassistant+"',\
-        '"+date+"',\
-        '"+time+"');";
+        '"+ req.body.patient_id + "',\
+        '"+ req.body.service + "',\
+        '"+ req.body.tooth_position + "',\
+        '"+ req.body.tooth_name + "',\
+        '"+ req.body.service_description + "',\
+        '"+ req.body.cost + "',\
+        '"+ req.body.cdentist + "',\
+        '"+ req.body.cassistant + "',\
+        '"+ date + "',\
+        '"+ time + "');";
 
-        connection.query(sql,(err)=>{
+        connection.query(sql, (err) => {
             if (err) throw err;
             console.log('sent!');
-            res.sendFile(__dirname+'/dash.html');
+            res.sendFile(__dirname + '/dash.html');
         });
     });
     //sends the patient information to the database
@@ -115,7 +127,7 @@ function sendData() {
                 throw err;
             } else {
                 console.log('data inserted successfully');
-                res.sendFile(__dirname+'/clinicInfo.html')
+                res.sendFile(__dirname + '/clinicInfo.html')
                 //connection.end();
             }
         })
@@ -125,13 +137,13 @@ function sendData() {
 
     //sends the assistants information to the server
     route.post('/submit_assistant', function (req, res) {
-        let sql = "INSERT INTO assistant(firstname,lastname,sirname,dob,email,phone,residence,account,gender,national_id) VALUES('"+ req.body.firstname + "','" + req.body.lastname + "','" + req.body.sirname + "','" + req.body.dob + "','" + req.body.email + "','" + req.body.phone + "','" + req.body.residence + "','" + req.body.account + "','" + req.body.gender + "','" + req.body.national + "');";
+        let sql = "INSERT INTO assistant (firstname,lastname,sirname,dob,email,phone,residence,account,gender,national_id) VALUES('" + req.body.firstname + "','" + req.body.lastname + "','" + req.body.sirname + "','" + req.body.dob + "','" + req.body.email + "','" + req.body.phone + "','" + req.body.residence + "','" + req.body.account + "','" + req.body.gender + "','" + req.body.national + "');";
         connection.query(sql, function (err) {
             if (err) {
                 throw err;
             } else {
-                console.log('data inserted successfully');                
-                res.sendFile(__dirname +'/clinicInfo.html');
+                console.log('data inserted successfully');
+                res.sendFile(__dirname + '/clinicInfo.html');
             }
         })
 
@@ -160,11 +172,11 @@ function sendData() {
                 throw err;
             } else {
                 console.log("submitted");
-                res.sendFile(__dirname+ '/dash.html');
+                res.sendFile(__dirname + '/dash.html');
             }
         });
     });
-    
+
 
 }
 function getData() {
@@ -196,55 +208,56 @@ function getData() {
     //get the assistants available
     route.get('/assistant-view', (req, res) => {
         let sql = "SELECT * FROM assistant;"
-        connection.query(sql, (err, result,fields) => {
+        connection.query(sql, (err, result, fields) => {
             res.send(result);
         });
     });
     //get the daily transaction
-    route.get('/patient/transaction/today-record',(req,res)=>{
+    route.get('/patient/transaction/today-record', (req, res) => {
         //let sql ="joint sql query from to tables"
         let today = new Date();
-        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();           
+        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         let sql = "SELECT patient.firstname,patient.lastname,patient_id,service.service_id,\
         service.service_description,service.cost,service.service_date,service.service_time\
-         FROM patient,service WHERE service.service_date ='"+date+"' AND patient.id = service.patient_id ";
-        connection.query(sql,(err,result,fields)=>{
+         FROM patient,service WHERE service.service_date ='"+ date + "' AND patient.id = service.patient_id ";
+        connection.query(sql, (err, result, fields) => {
             res.send(result);
             console.log(result);
         });
     })
     //gets the last patient in table patient
-    route.get('/last-patient',(req,res)=>{
+    route.get('/last-patient', (req, res) => {
         let sql = "SELECT id FROM patient where id =(SELECT MAX(id) FROM patient);"
-        connection.query(sql,(err,result)=>{
+        connection.query(sql, (err, result) => {
             res.send(result);
         })
     });
     //searchingt the individual
-    route.post('/searching',(req,res)=>{
-        if (req.body.who == "patient"){
-        let sql ="SELECT * FROM patient WHERE firstname LIKE '%'"+req.body.searched+"'%' ;"
-        }else if(req.body.who =="dentist"){
-        let sql ="SELECT * FROM dentist WHERE firstname LIKE '%'"+req.body.searched+"'%' ;"
-        }else{
-            let sql ="SELECT * FROM assistant WHERE firstname LIKE '%'"+req.body.searched+"'%' ;"
+    route.post('/searching', (req, res) => {
+        if (req.body.who == "patient") {
+            let sql = "SELECT * FROM patient WHERE firstname LIKE '%'" + req.body.searched + "'%' ;"
+        } else if (req.body.who == "dentist") {
+            let sql = "SELECT * FROM dentist WHERE firstname LIKE '%'" + req.body.searched + "'%' ;"
+        } else {
+            let sql = "SELECT * FROM assistant WHERE firstname LIKE '%'" + req.body.searched + "'%' ;"
         }
         //let sql ="SELECT * FROM patient WHERE firstname LIKE '%willian%' ;"
-        connection.query(sql,(err,result)=>{
+        connection.query(sql, (err, result) => {
             res.send(result);
         });
     })
     //updates all the title depending on the clinic
-    route.get('/title',(req,res)=>{
+    route.get('/title', (req, res) => {
         let sql = "SELECT * FROM clinicinformation;"
-        connection.query(sql,(err,result)=>{
+        connection.query(sql, (err, result) => {
             res.send(result);
         });
     });
 }
-route.on('listening',()=>{
+
+route.on('listening', () => {
     console.log('listening');
 });
-route.listen(4000,(err)=>{
-    if(err) throw err;
+route.listen(4000, (err) => {
+    if (err) throw err;
 });

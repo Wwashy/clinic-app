@@ -391,7 +391,7 @@ $(document).ready(() => {
     });
 
     $('#btn6').click(() => {
-        window.location.href = 'login';
+        window.location.href = '/';
     });
 
     $('#btn7').click(() => {

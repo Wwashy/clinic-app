@@ -19,19 +19,24 @@
     <div class="sidebar" id="sidebar">
         <button onclick="closeSidebar()" id="close" class="close" style="float: right;">&times;</button>
         <br><br>
-        <button onclick="openquitBox('quitBox')" class="largeBtn" id="btn8"><i class="fas fa-home fa-3x"></i>Home</button>
+        <button onclick="openquitBox('quitBox')" class="largeBtn" id="btn8"><i class="fas fa-home fa-3x"></i>
+            home
+        </button>
+        <button class="largeBtn">Inspect</button>
         <button class="largeBtn" id="btn9"><i class="fas fa-user-plus fa-3x"></i>Add Dentist</button>
         <button class="largeBtn" id="btn10"><i class="fas fa-user-plus fa-3x"></i>Add Attendants</button>
         <button  class="largeBtn" id="btn11"><i class="fas fa-edit fa-3x"></i>Edit System info</button>
         <button class="largeBtn" id="btn12"><i class="fas fa-book fa-3x"></i>Finances</button>
+        <button class="largeBtn" id="romove_dentist">remove personel</button>
         <a href="contact"><button class="largeBtn" id="btn14"><i class="fas fa-question fa-3x"></i>Help</button></a>
 
     </div>
     <!--header of the page-->
     <header>
         <div class="bars" id="menu" onclick="showSidebar()">
-            menu
-            <i class="fas fa-bars fa-1x"></i>
+            <div class="strokes"></div>
+            <div class="strokes"></div>
+            <div class="strokes"></div>   
         </div>
         <h1>
             CLINIC MASTER
@@ -83,18 +88,17 @@
                 <div class="form-head">
                     <h2>Assistant details</h2>
                 </div>
-                <label for="">id</label><input type="text" placeholder="ID" required>
-                <label for=""> Firstname:</label> <input id="tb1" type="text" placeholder="Firstname" required>
-                <label for="">Lastname:</label><input id="tb3" type="text" placeholder="Lastname" required>
-                <label for="">Sirname:</label><input id="tb2" type="text" placeholder="Sirname">
-                <label for="">DOB:</label><input id="tb4" type="date" placeholder="date of birth" required>
-                <label for="">email:</label><input id="tb5" type="email" placeholder="example@gmail.com">
-                <label for="">Phone:</label><input id="tb6" type="text" placeholder="0712345678" required>
-                <label for="">Town/Estate/Village:</label> <input id="tb7" type="text" placeholder="City/Town/Village"
+                <label for="">id</label><input type="text" placeholder="ID" name="national" required>
+                <label for=""> Firstname:</label> <input id="tb1" type="text" placeholder="Firstname" name="firstname" required>
+                <label for="">Lastname:</label><input id="tb3" type="text" placeholder="Lastname" name="lastname" required>
+                <label for="">Sirname:</label><input id="tb2" type="text"  placeholder="Sirname"  name="sirname">
+                <label for="">DOB:</label><input id="tb4" type="date" placeholder="date of birth" name="dob" required>
+                <label for="">email:</label><input id="tb5" type="email" placeholder="example@gmail.com" name="email">
+                <label for="">Phone:</label><input id="tb6" type="text" placeholder="0712345678" name="phone" required>
+                <label for="">Town/Estate/Village:</label> <input id="tb7" type="text" placeholder="City/Town/Village" name="residence"
                     required>
-                <label for="">A/C NO:</label><input type="text" placeholder="bank A/C no.">
-                <label for="">gender: </label><select id="D2" required>
-
+                <label for="">A/C NO:</label><input type="text" placeholder="bank A/C no." name="account">
+                <label for="">gender: </label><select id="D2" name="gender" required>
                     <option value="male">MALE</option>
                     <option value="female">FEMALE</option>
                 </select>
@@ -123,6 +127,7 @@
                 <button class="btn" id="btn1" type="submit" value="submit">save</button>
             </form>
         </div>
+
         <!--Alert box for confirming quit-->
         <div class="confirm_quit" id="quitBox">
             <h2>Alert!</h2>

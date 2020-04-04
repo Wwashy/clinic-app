@@ -16,8 +16,7 @@
 <body>
 
     <header>
-        <a href="dash"><button class="close" style="float: left;">←back</button></a>
-        <span>
+           <span>
             <h1>
                 Dental CLINIC
             </h1>
@@ -26,16 +25,18 @@
     <main class="login" id="main_login">
         <div class="login-container" id="login-container">
             <div>
-                <h1>Login as admin</h1>
+                <h1>Login</h1>
             </div>
             <hr><br>
             <div>
-                <input type="text" id="textBox1_username" placeholder="username"><br>
+                <form action="/login" method="POST">
+                <input type="text" id="textBox1_username" placeholder="username" name="user"><br>
                 <br>
-                <input type="password" id="textBox2_password" placeholder="password"><br><br>
+                <input type="password" id="textBox2_password" placeholder="password" name="password"><br><br>
                 <label for="">Show password</label><input type="checkbox" id="checkbox1" onclick="showPassword()"
                     value="true">
-                <button class="btn" id="login_button" onclick="login()">Login</button>
+                <button type = "submit" class="btn" id="login_button" value="submit">Login</button>
+            </form>
             </div>
         </div>
     </main>

@@ -373,4 +373,12 @@ tr:nth-child(even) {
     text-align: left;
     color: black;
    }
+   /*icons styls*/
+   .strokes{
+       width: 30px;
+       height: 3px;
+       background-color: wheat;
+       border-radius: 10px;
+       margin: 5px;
+    }
   
