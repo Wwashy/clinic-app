@@ -48,6 +48,14 @@ $(document).ready(() => {
                 }
             }
         });
+        $.ajax({
+            url:'romove/',
+            type: 'POST',
+            dataType:'json',
+            success:(data)=>{
+                
+            }
+        });
     
 
 });

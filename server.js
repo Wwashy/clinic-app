@@ -10,36 +10,6 @@ let route = express();
 route.use(express.static('public'));
 route.use(bodyparser.urlencoded({ extended: true }))
 
-//gets the routing
-getRoute();
-function getRoute(params) {
-    route.get('/', function (req, res) {
-        //loads login page for directions
-        res.sendFile(__dirname + '/login.html');
-    });
-    //gets the login details of the user and authenticate
-    route.post('/login', (req, res) => {
-        if (req.body.user == "washy" && req.body.password == "1234") {
-            res.sendFile(__dirname + '/dash.html')
-        } else if (req.body.user == "admin" && req.body.password == "admin") {
-            res.sendFile(__dirname + '/clinicInfo.html');
-        } else {
-            res.sendFile(__dirname + '/login.html');
-        }
-    });
-
-
-    route.get('/welcome', function (req, res) {
-        res.sendFile(__dirname + '/welcome.html');
-    });
-    route.get('/contact', function (req, res) {
-        res.sendFile(__dirname + '/contact.html')
-    })
-    route.get('/login', (req, res) => {
-        res.sendFile(__dirname + '/login.html')
-    });
-
-}
 //====================> creates connection to the database
 let connection = mysql.createPool({
     connectionLimit: 100,
@@ -47,7 +17,8 @@ let connection = mysql.createPool({
     user: 'webwalkeR',
     password: 'Hellen@1999',
     database: 'clinic',
-    debug: false
+    debug: false,
+    multipleStatements:true
 });
 connection.getConnection(function (err) {
     if (err) {
@@ -59,14 +30,74 @@ connection.getConnection(function (err) {
     }
 });
 
+//gets the routing
+getRoute();
+function getRoute(params) {
+    route.get('/', function (req, res) {
+        //loads login page for directions
+        res.sendFile(__dirname + '/login.html');
+    });
+    //gets the login details of the user and authenticate
+    route.post('/login', (req, res) => {
+        if (req.body.user != "" && req.body.password != "") {
+            if (req.body.user == "washy" && req.body.password == "1234") {
+                res.sendFile(__dirname + '/dash.html')
+            } else if (req.body.user == "admin" && req.body.password == "admin") {
+                res.sendFile(__dirname + '/clinicInfo.html');
+            } else {
+                res.sendFile(__dirname + '/login.html');
+            }
+        } else {
+            res.send("Authentication failed:EMPTY");
+        }
+    });
+    route.get('/welcome', function (req, res) {
+        res.sendFile(__dirname + '/welcome.html');
+    });
+    route.get('/contact', function (req, res) {
+        res.sendFile(__dirname + '/contact.html')
+    })
+    route.get('/login', (req, res) => {
+        res.sendFile(__dirname + '/login.html')
+    });
 
+}
 function sendData() {
+    //searchingt the individual
+    route.get('/searching', (req, res) => {
+        if (req.query.searched == '') {
+            res.send([{ message: "empty" }]);
+            console.log("type something to search");
+        } else {
+            if (req.query.who == "patient") {
+                var sql = "SELECT * FROM patient WHERE firstname LIKE '%" + req.query.searched + "%' OR phone LIKE '%" + req.query.searched + "%';"
+            }
+            if (req.query.who == "dentist") {
+                var sql = "SELECT * FROM dentist WHERE firstname LIKE '%" + req.query.searched + "%';"
+            }
+            if (req.query.who == 'assistant') {
+                var sql = "SELECT * FROM assistant WHERE firstname LIKE '%" + req.query.searched + "%';"
+            }
+            connection.query(sql, (err, result) => {
+                if (err) throw err;
+                res.send(result);
+            });
+        }
+    })
+
+    //updates all the title depending on the clinic
+    route.post('/title', (req, res) => {
+        let sql = "SELECT * FROM clinicinformation;"
+        connection.query(sql, (err, result) => {
+            res.send(result);
+        });
+    });
     //messages
     route.post('/message', (req, res) => {
         let sql = "INSERT INTO feed(feed_name,feed_mail,feed_text) VALUES('" + req.body.client_name + "','" + req.body.client_email + "','" + req.body.message + "')";
         connection.query(sql, (err) => {
             if (err) throw erro;
-            res.sendFile(__dirname+'/contact.html');
+            res.sendFile(__dirname + '/contact.html');
         });
     });
 
@@ -156,9 +187,8 @@ function sendData() {
             if (err) {
                 throw err
             } else {
-                document.getElementById("D001").innerHTML = "submitted succesfully";
                 console.log('submitted successfullly');
-                res.redirect('/clinicInfo.html')
+                res.sendFile(__dirname + '/clinicInfo.html')
                 //connection.end();
             }
         })
@@ -180,6 +210,30 @@ function sendData() {
 
 }
 function getData() {
+    //counts all personnel
+    route.get('/numbers', (req, res) => {
+        let sql = "SELECT COUNT(*) AS NumberOfpatient FROM patient;\
+        SELECT COUNT(*) AS NumberOfservice FROM service;\
+        SELECT COUNT(*) AS NumberOfdentist FROM dentist;\
+        SELECT COUNT(*) AS NumberOfassistant FROM assistant;\
+        SELECT COUNT(*) AS NumberOfappointment FROM appointment;"
+        connection.query(sql, (err, result) => {
+            if (err) throw err;
+            console.log(result[0][0].NumberOfpatient);
+            console.log(result[1][0].NumberOfservice);
+            console.log(result[2][0].NumberOfdentist);
+            console.log(result[3][0].NumberOfassistant);
+            console.log(result[4][0].NumberOfappointment);
+            let data ={
+                patient:result[0][0].NumberOfpatient,
+                service:result[1][0].NumberOfservice,
+                dentist:result[2][0].NumberOfdentist,
+                assistant:result[3][0].NumberOfassistant,
+                appointment:result[4][0].NumberOfappointment
+            }
+            res.send(data);
+        });
+    });
     //===============retrieve Record====================>
     route.get('/patient-record', function (req, res) {
         let sql = "SELECT id,firstname,lastname,email,phone,residence FROM patient"
@@ -191,7 +245,9 @@ function getData() {
 
     //render appointments of the employees
     route.get('/appoint-view', function (req, res) {
-        let sql = "SELECT * FROM appointment ;";
+        let today = new Date();
+        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        let sql = "SELECT * FROM appointment WHERE app_date = '" + date + "' ;";
         connection.query(sql, (err, result, fields) => {
             res.send(result);
         })
@@ -231,27 +287,6 @@ function getData() {
         connection.query(sql, (err, result) => {
             res.send(result);
         })
-    });
-    //searchingt the individual
-    route.post('/searching', (req, res) => {
-        if (req.body.who == "patient") {
-            let sql = "SELECT * FROM patient WHERE firstname LIKE '%'" + req.body.searched + "'%' ;"
-        } else if (req.body.who == "dentist") {
-            let sql = "SELECT * FROM dentist WHERE firstname LIKE '%'" + req.body.searched + "'%' ;"
-        } else {
-            let sql = "SELECT * FROM assistant WHERE firstname LIKE '%'" + req.body.searched + "'%' ;"
-        }
-        //let sql ="SELECT * FROM patient WHERE firstname LIKE '%willian%' ;"
-        connection.query(sql, (err, result) => {
-            res.send(result);
-        });
-    })
-    //updates all the title depending on the clinic
-    route.get('/title', (req, res) => {
-        let sql = "SELECT * FROM clinicinformation;"
-        connection.query(sql, (err, result) => {
-            res.send(result);
-        });
     });
 }
 

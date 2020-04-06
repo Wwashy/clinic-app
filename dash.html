@@ -24,7 +24,7 @@
 <body>
     <section class="section-one">
         <div class="sidebar" id="sidebar">
-            <h1 id="title">jamii dental</h1>
+            <div><h1 id="title">title</h1></div>
             <br>
             <hr>
             <button class="largeBtn" id="btn0"><i class="fas fa-home fa-2x"></i>Dashboard</button>
@@ -49,24 +49,15 @@
         <header id="main_header" style="background-color: transparent;color: teal;">
             <div id="time-box">time</div>
             <div class="" id="appointmentButton" onclick="callAppointment()">Appointment</div>
+            <div class="" id ="total">OvTotal</div>
         </header>
         <main class="dashboard" id="D001">
-            <div class="container" id="default">
-                <div class="icons" id="clients_served">
-                    <P><i class="fas fa-user-plus fa-4x"></i>Served_client</P>
-                </div>
-                <div class="icons" id="pending_appointment">
-                    <P><i class="fas fa-stethoscope fa-4x"></i>Appointments</P>
-                </div>
-                <div class="icons">
-                    <P><i class="fas fa-search fa-4x"></i>other</P>
-                </div>
-                <div class="icons">
-                    <P><i class="fas fa-edit fa-4x"></i>other</P>
-                </div>
-                <div class="icons">
-                    <P><i class="fas fa-cog fa-4x"></i>other</P>
-                </div>
+                <div class="container" id="default">
+                <div class="icons" id="clients_served"></div>
+                <div class="icons" id="all_appointment"></div>
+                <div class="icons" id="all_client"></div>
+                <div class="icons" id="av_dentist"></div>
+                <div class="icons" id="av_assistant"></div>
 
             </div>
 
@@ -165,13 +156,13 @@
                     <div class="form-head">
                         <h1>search</h1>
                     </div>
-                    <select name="who" id="">
+                    <select name="" id="who">
                         <option value="patient">patient</option>
                         <option value="dentist">dentist</option>
                         <option value="assistant">assistant</option>
                     </select>
 
-                    <input type="text" placeholder="id/name/phone" name="searched">
+                    <input type="text" placeholder="id/name/phone" name="" id="searched">
                     <button class="btn" id="search_btn" value="sub">search</button>
                     <div class="list" id="search_results">results should come here</div>
                 </div>

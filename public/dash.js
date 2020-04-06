@@ -1,37 +1,59 @@
 $(document).ready(() => {
-
     $.ajax({
-        url: 'title/',
+        url: 'numbers/',
         type: 'GET',
         dataType: 'json',
         success: (data) => {
-            $('#title').html(data[0].name);
+                $('#clients_served').html("Patient Served:"+" "+data.service);
+                $('#all_appointment').html("appointments:"+" "+data.appointment);
+                $('#all_client').html("patinet:"+" "+data.patient);
+                $('#av_dentist').html("dentist:"+" "+data.dentist);
+                $('#av_assistant').html("assistant:"+" "+data.assistant);
+        }
+    });
+    //updates the CLINIC title
+    $.ajax({
+        url: 'title/',
+        type: 'POST',
+        dataType: 'json',
+        success: (data) => {
+            let location = data[0].location.toLowerCase();
+            let name = data[0].name.toLowerCase();
+            let level = data[0].category.toLowerCase();
+            $('#title').html(location + " " + name + " " + "Dental Clinic" + " " + level);
         }
 
     });
 
 
     //search button hit
-    $('#search_btn').click(() => {
+    $('#searched').keyup(() => {
+        let data = {};
+        data.searched = $('#searched').val();
+        data.who = $('#who').val();
+        console.log(data.searched);
         $.ajax({
-            url: 'searching/',
-            type: 'POST',
-            data: {
-                searched: $('#searched').val(),
-                wh0: $('who').val()
-            },
-            success: (data) => {
+            url: '/searching',
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'text',
+            data: data,
+            success: (result) => {
                 $('#search_results').empty();
-                for (row in data) {
+                for (row in result) {
                     let newDiv = document.createElement("div");
-                    newDiv.append(data[row].firstname)
+                    if (result[row].message == "empty") {
+                        newDiv.append("type something to search");
+                    } else {
+                        newDiv.append(result[row].firstname);
+                    }
                     $('#search_results').append(newDiv);
                 }
             }
         });
     });
 
-    //appintment form valiadation
+    //appointment form valiadation
     $('#closeModal').click(() => {
         if ($('#n1').val() != "" && $('#n2').val() != "" && $('#n3').val() != "" && $('#n4').val() != "") {
             $('#p1').css("left", "-1000px");
@@ -54,7 +76,8 @@ $(document).ready(() => {
                 for (let row in data) {
                     let rapper = document.createElement("div");
                     rapper.setAttribute('class', 'rappers rappers1')
-                    rapper.append(data[row].app_fullname + "    " + data[row].app_phone + "   " + data[row].app_date);
+                    let date = data[row].app_date;
+                    rapper.append(data[row].app_fullname + "    " + data[row].app_phone + "   " + date);
                     document.getElementById("D001").appendChild(rapper);
                 }
             }
@@ -75,6 +98,7 @@ $(document).ready(() => {
             dataType: 'json',
             success: (data) => {
                 if (data == "") {
+
                     $('#D001').append("No patient served !!");
                 }
                 let Total = 0;
@@ -118,7 +142,7 @@ $(document).ready(() => {
                     document.getElementById("D001").appendChild(rapper1);
                 }
 
-                $('#main_header').append("Total:" + "Ksh" + Total);
+                $('#total').html("Total:" + "Ksh" + Total);
 
             }
         });

@@ -25,6 +25,7 @@ setInterval(() => {
     let time = today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
     document.getElementById("time-box").innerText= "Date:["+day+"]"+" "+"Time:["+time+"]";
 }, 1000);
+
 //pops the appointment box
 function callAppointment() {
 
@@ -38,15 +39,6 @@ function closeModal() {
     document.getElementById("p1").style.left = "-1000px"
 }
 
-//shows the password
-function showPassword() {
-    const checkbox1 = document.getElementById("checkbox1").value;
-    if (checkbox1 == "true") {
-        textBox2_password.setAttribute("type", "text")
-    } else {
-        textBox2_password.setAttribute("type", "password")
-    }
-}
 
 
 

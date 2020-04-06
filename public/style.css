@@ -40,6 +40,7 @@ header{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    font-weight: bold;
        
 }
 
@@ -93,8 +94,7 @@ main{
     padding: 20px;
     float: left;
     width: 100%;
-    scroll-behavior: smooth;
-        
+    scroll-behavior: smooth;  
 }
 main .rappers,main .rappers2{
     width: 100%;
@@ -108,34 +108,6 @@ main .rappers,main .rappers2{
    main .rappers .sub_rapper{
     width: 100%;
     
-}
-
-
-
-/*main.dashboard{
-    background-image: url("image/1.jfif") ;
-    background-size: cover;
-    filter: blur(8px);
-    z-index: 1;
-}*/
-.container .icons{
-    width: 300px;
-    height: 200px;
-    border: 1px solid teal;
-    border-radius: 10px;
-    text-align: center;
-    margin: 10px;
-    float: left;
-    font-size: larger;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bolder;
-    box-shadow: 0 4px 4px 2px grey;
-    transition: 0.5s;
-}
-.icons p{display: inline-block;line-height: 170px;}
-.icons:hover{
-    background-color: thistle;
-    transform:scale(1.1);
 }
 .messagebox{
     width: 60%;
@@ -151,10 +123,30 @@ textarea{
     margin: auto;
 }
 
-/*form and form containers*/
+/*main containers*/
 .container{
     display: none;
 }
+.container .icons{
+    width: 300px;
+    height: 200px;
+    border: 1px solid teal;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px;
+    float: left;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    box-shadow: 0 4px 4px 2px grey;
+    transition: 0.5s;
+    line-height: 170px;
+    color: teal;
+    text-transform: capitalize;
+}
+.icons:hover{
+    background-color: thistle;
+    transform:scale(1.1);}
 #default{display:block;}
 .section-two .container .smart{
     border: none;
