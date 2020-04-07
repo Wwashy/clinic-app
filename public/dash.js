@@ -1,4 +1,5 @@
 $(document).ready(() => {
+    setInterval(()=>{
     $.ajax({
         url: 'numbers/',
         type: 'GET',
@@ -11,6 +12,7 @@ $(document).ready(() => {
                 $('#av_assistant').html("assistant:"+" "+data.assistant);
         }
     });
+},5000);
     //updates the CLINIC title
     $.ajax({
         url: 'title/',
@@ -255,7 +257,7 @@ $(document).ready(() => {
     for (index in upper_right) {
         toUpdate.options[toUpdate.options.length] = new Option(upper_right[index], index);
     }
-    //change toot types with tooth position
+    //change tooth types with tooth position
     $('#tooth_position').change(() => {
         if (tooth_position.value == "upper_right") {
             toUpdate.options.length = 0;
