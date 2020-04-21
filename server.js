@@ -4,7 +4,7 @@ let mysql = require('mysql');
 
 let route = express();
 
-app.set('port',(process.env.PORT || 4000));
+route.set('port',(process.env.PORT || 4000));
 
 
 route.use(express.static('public'));
@@ -321,7 +321,7 @@ function getData() {
 route.on('listening', () => {
     console.log('listening');
 });
-route.listen(app.get('port'), (err) => {
+route.listen(route.get('port'), (err) => {
     if (err) throw err;
-    console.log('listenning to port 4000',app.get('port'));
+    console.log('listenning to port 4000',route.get('port'));
 });
