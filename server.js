@@ -49,7 +49,7 @@ function getRoute(params) {
                 user = true;
                 passcode = true;
                 res.redirect('/dash');
-            } else if (req.body.user == "admin" && req.body.password == "admin") {
+            } else if (req.body.user == "admin" && req.body.password == "0000") {
                 user = true;
                 passcode = true;
                 res.redirect('/admin');
@@ -63,14 +63,14 @@ function getRoute(params) {
 
 
     route.get('/dash', (req, res) => {
-        if (user == true && passcode === true) {
+        if (user == true && passcode == true) {
             res.sendFile(__dirname + '/dash.html')
         } else {
             res.send("error");
         }
     });
     route.get('/admin', (req, res) => {
-        if (user == true && passcode === true) {
+        if (user == true && passcode == true) {
             res.sendFile(__dirname + '/clinicinfo.html');
         } else {
             res.send("error");
