@@ -7,7 +7,7 @@ $(document).ready(() => {
         success: (data) => {
                 $('#clients_served').html("Patient Served:"+" "+data.service);
                 $('#all_appointment').html("appointments:"+" "+data.appointment);
-                $('#all_client').html("patinet:"+" "+data.patient);
+                $('#all_client').html("patients:"+" "+data.patient);
                 $('#av_dentist').html("dentist:"+" "+data.dentist);
                 $('#av_assistant').html("assistant:"+" "+data.assistant);
         }

@@ -50,6 +50,7 @@ function getRoute(params) {
                 passcode = true;
                 res.redirect('/dash');
             } else if (req.body.user == "admin" && req.body.password == "0000") {
+                //serves the admin
                 user = true;
                 passcode = true;
                 res.redirect('/admin');
@@ -57,7 +58,7 @@ function getRoute(params) {
                 res.sendFile(__dirname + '/login.html');
             }
         } else {
-            res.send("Authentication failed:EMPTY");
+            res.send("Authentication failed:EMPTY make sure you type the correct usernames and password");
         }
     });
 
@@ -71,7 +72,7 @@ function getRoute(params) {
     });
     route.get('/admin', (req, res) => {
         if (user == true && passcode == true) {
-            res.sendFile(__dirname + '/clinicinfo.html');
+            res.sendFile(__dirname + '/clinicInfo.html');
         } else {
             res.send("error");
         }
