@@ -9,12 +9,13 @@ route.use(express.static('public'));
 route.use(bodyparser.urlencoded({ extended: true }))
 
 //====================> creates connection to the database
+//mysql://b06a5a9cc3bfb2:3a7c6e6c@us-cdbr-iron-east-01.cleardb.net/heroku_7185d4f190fa775?reconnect=true
 let connection = mysql.createPool({
     connectionLimit: 100,
-    host: 'localhost',
-    user: 'webwalkeR',
-    password: 'Hellen@1999',
-    database: 'clinic',
+    host: 'us-cdbr-iron-east-01.cleardb.net' ,//'localhost',
+    user: 'b06a5a9cc3bfb2',//'webwalkeR',
+    password: '3a7c6e6c',//'Hellen@1999',
+    database: 'heroku_7185d4f190fa775' ,//'clinic',
     debug: false,
     multipleStatements: true
 });
