@@ -16,7 +16,9 @@
     <script src="routing.js"></script>
 
     <script>
-
+ if (window.history.replaceState){
+     window.history.replaceState(null,null,window.location.href);
+ }
     </script>
 
 </head>
@@ -46,7 +48,7 @@
     </section>
     <!--section two--->
     <section class="section-two" id="section-two">
-        <header id="main_header" style="background-color: transparent;color: teal;">
+        <header id="main_header">
             <div id="time-box">time</div>
             <div class="" id="appointmentButton" onclick="callAppointment()">Appointment</div>
             <div class="" id ="total">OvTotal</div>

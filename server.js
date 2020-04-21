@@ -1,8 +1,6 @@
 let express = require('express')
 let bodyparser = require('body-parser');
 let mysql = require('mysql');
-//let todatabase = require('./todatabase.js');
-//let path = require('./routes')
 
 let route = express();
 
@@ -18,7 +16,7 @@ let connection = mysql.createPool({
     password: 'Hellen@1999',
     database: 'clinic',
     debug: false,
-    multipleStatements:true
+    multipleStatements: true
 });
 connection.getConnection(function (err) {
     if (err) {
@@ -38,12 +36,20 @@ function getRoute(params) {
         res.sendFile(__dirname + '/login.html');
     });
     //gets the login details of the user and authenticate
+    var user = false;
+    var passcode = false;
+
     route.post('/login', (req, res) => {
         if (req.body.user != "" && req.body.password != "") {
-            if (req.body.user == "washy" && req.body.password == "1234") {
-                res.sendFile(__dirname + '/dash.html')
+            if (req.body.user == "admin" && req.body.password == "1234") {
+                //serves the dashboard
+                user = true;
+                passcode = true;
+                res.redirect('/dash');
             } else if (req.body.user == "admin" && req.body.password == "admin") {
-                res.sendFile(__dirname + '/clinicInfo.html');
+                user = true;
+                passcode = true;
+                res.redirect('/admin');
             } else {
                 res.sendFile(__dirname + '/login.html');
             }
@@ -51,6 +57,25 @@ function getRoute(params) {
             res.send("Authentication failed:EMPTY");
         }
     });
+
+
+    route.get('/dash', (req, res) => {
+        if (user == true && passcode === true) {
+            res.sendFile(__dirname + '/dash.html')
+        } else {
+            res.send("error");
+        }
+    });
+    route.get('/admin', (req, res) => {
+        if (user == true && passcode === true) {
+            res.sendFile(__dirname + '/clinicinfo.html');
+        } else {
+            res.send("error");
+        }
+    });
+
+
+
     route.get('/welcome', function (req, res) {
         res.sendFile(__dirname + '/welcome.html');
     });
@@ -224,12 +249,12 @@ function getData() {
             console.log(result[2][0].NumberOfdentist);
             console.log(result[3][0].NumberOfassistant);
             console.log(result[4][0].NumberOfappointment);
-            let data ={
-                patient:result[0][0].NumberOfpatient,
-                service:result[1][0].NumberOfservice,
-                dentist:result[2][0].NumberOfdentist,
-                assistant:result[3][0].NumberOfassistant,
-                appointment:result[4][0].NumberOfappointment
+            let data = {
+                patient: result[0][0].NumberOfpatient,
+                service: result[1][0].NumberOfservice,
+                dentist: result[2][0].NumberOfdentist,
+                assistant: result[3][0].NumberOfassistant,
+                appointment: result[4][0].NumberOfappointment
             }
             res.send(data);
         });

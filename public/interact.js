@@ -36,7 +36,7 @@ function callAppointment() {
 
 }
 function closeModal() {
-    document.getElementById("p1").style.left = "-1000px"
+    document.getElementById("p1").style.left = "-10000px"
 }
 
 

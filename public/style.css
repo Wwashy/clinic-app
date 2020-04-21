@@ -356,7 +356,7 @@ tr:nth-child(even) {
     box-shadow: 2px 1px 1px grey;
     z-index: 1;
     background-color: white;
-    left: -1000px;
+    left: -10000px;
     transition: 0.8s;
     display: flex;
     flex-direction: column;

@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    setInterval(()=>{
+    //updates dashboard
     $.ajax({
         url: 'numbers/',
         type: 'GET',
@@ -12,7 +12,7 @@ $(document).ready(() => {
                 $('#av_assistant').html("assistant:"+" "+data.assistant);
         }
     });
-},5000);
+
     //updates the CLINIC title
     $.ajax({
         url: 'title/',
@@ -28,8 +28,8 @@ $(document).ready(() => {
     });
 
 
-    //search button hit
-    $('#searched').keyup(() => {
+    //search box change 
+        $('#searched').keyup(() => {
         let data = {};
         data.searched = $('#searched').val();
         data.who = $('#who').val();
@@ -150,6 +150,7 @@ $(document).ready(() => {
         });
     });
     $('#clients_served').append(clients_served);
+
     //udate dentists and assistant fields
     $.ajax({
         url: 'dentist-view/',
