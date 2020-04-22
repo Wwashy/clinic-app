@@ -143,11 +143,13 @@ textarea{
     transition: 0.5s;
     line-height: 170px;
     color: teal;
+    display: block;
     text-transform: capitalize;
 }
 .icons:hover{
     background-color: thistle;
     transform:scale(1.1);}
+.icons i.fas{ color: teal;}
 #default{display:block;}
 .section-two .container .smart{
     border: none;

@@ -5,11 +5,11 @@ $(document).ready(() => {
         type: 'GET',
         dataType: 'json',
         success: (data) => {
-                $('#clients_served').html("Patient Served:"+" "+data.service);
-                $('#all_appointment').html("appointments:"+" "+data.appointment);
-                $('#all_client').html("patients:"+" "+data.patient);
-                $('#av_dentist').html("dentist:"+" "+data.dentist);
-                $('#av_assistant').html("assistant:"+" "+data.assistant);
+                $('#clients_served').append("Patient Served:"+" "+data.service);
+                $('#all_appointment').append("appointments:"+" "+data.appointment);
+                $('#all_client').append("patients:"+" "+data.patient);
+                $('#av_dentist').append("dentist:"+" "+data.dentist);
+                $('#av_assistant').append("assistant:"+" "+data.assistant);
         }
     });
 
