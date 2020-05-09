@@ -412,5 +412,8 @@ tr:nth-child(even) {
             width: 90%;
             height: 400px;
         }
+        .login-container{
+            width: 100%;
+        }
         
     }
