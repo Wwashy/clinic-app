@@ -24,9 +24,11 @@
 </head>
 
 <body>
-    <section class="section-one">
-        <div class="sidebar" id="sidebar">
-            <div><i class="fas fa-tooth fa-4x" style="float: left; color: teal;"></i><h1 id="title">title</h1></div>
+    <section class="section-one" id="dash_section1">
+        <div class="sidebar" id="dash_sidebar">
+            <button onclick="closeSidebar('dash_section1')" id="close" class="close">x</button>
+            <br>
+            <div id="title1"><i class="fas fa-tooth fa-4x" style="float: left; color: teal;"></i><h1 id="title" style="color: teal;">title</h1></div>
             <hr>
             <button class="largeBtn" id="btn0"><i class="fas fa-home fa-2x"></i>Dashboard</button>
             <button class="largeBtn" id="search"><i class="fas fa-search fa-2x"></i>search</button>
@@ -48,6 +50,16 @@
     <!--section two--->
     <section class="section-two" id="section-two">
         <header id="main_header">
+
+            <div class="bars" id="menu" onclick="showSidebar('dash_section1')">
+                <div class="strokes"></div>
+                <div class="strokes"></div>
+                <div class="strokes"></div>   
+            </div>
+            <br>
+            <div id="title2"><i class="fas fa-tooth fa-4x" style="float: left;"></i><h1 id="Header_title">title</h1></div>
+            <br>
+
             <div id="time-box">time</div>
             <div class="" id="appointmentButton" onclick="callAppointment()">Appointment</div>
             <div class="" id ="total">OvTotal</div>

@@ -1,10 +1,10 @@
 //sidebar events
-function showSidebar() {
-    document.getElementById("sidebar").style.left = "0px";
+function showSidebar(elem) {
+    document.getElementById(elem).style.left = "0px";
     document.getElementById("close").innerHTML = "X";
 }
-function closeSidebar() {
-    document.getElementById("sidebar").style.left = "-300px";
+function closeSidebar(elem) {
+    document.getElementById(elem).style.left = "-10000px";
 }
 //pop up boxes
 function openquitBox(element) {

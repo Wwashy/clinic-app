@@ -40,26 +40,25 @@ header{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    font-weight: bold;
-       
+    font-weight: bold;     
 }
-
+.bars{
+    display: none;
+}
 /*----------------------------------sidebar stylings----------------------------*/
-
-.sidebar{
-    left: -300px;
+.section-one{position: absolute;height: 100%;width:25%;transition: 0.3s;}
+.sidebar#admin_sidebar{
+    left: -10000px;
     position: absolute;
     width: 300px;
-    height: 100%;
     background-color: rgb(26, 29, 29);
     padding: 10px;
     float: left;
     transition: 0.8s;
 }
-.section-one .sidebar{
-    left: 0;
+.section-one .sidebar#dash_sidebar{
     position: absolute;
-    width:25%;
+    width:100%;
     height: 100%;
     background-color: rgb(26, 29, 29);
     padding: 10px;
@@ -67,9 +66,8 @@ header{
     transition: 0.8s;
     color: white;
 }
-.section-one .sidebar h1{
-    color: teal;
-    font-weight: bolder;
+.section-one .sidebar h1,header h1{
+        font-weight: bolder;
     text-transform: capitalize;
     font-size: 30px;}
 .largeBtn{
@@ -179,6 +177,7 @@ textarea{
 
 /*back buttons*/
 .close{
+    display: none;
     width: 40px;
     height: 40px;
     background-color: transparent;
@@ -188,6 +187,7 @@ textarea{
     border: none;
     transition: 0.2s;
     padding: auto;
+    font-weight: 900;
 }
 .close:hover{background-color:red;
 transform: scale(1.2);
@@ -372,9 +372,41 @@ tr:nth-child(even) {
    .strokes{
        width: 30px;
        height: 3px;
-       background-color: wheat;
+       background-color:white;
        border-radius: 10px;
        margin: 5px;
     }
     i{margin-right: 10px;}
-  
+    #title2{
+        display: none;
+    }
+
+    @media screen and (max-width:480px){
+        .section-one{
+            left:-10000px;
+            width: 50%;
+        }
+        #title1{
+            display: none;
+        }
+        #title2{
+            display: block;
+            text-align: left;
+            float: left;
+        }
+        #title2 .fa-tooth{
+            color: white;
+            margin-top: 30px;
+        }
+        .bars,.close{
+            display: block;
+        }
+        .container .icons{
+            width:90%;
+            height: 150px;
+            line-height: 150px;
+
+        }
+        .icons i.fas{font-size: 25px;}
+        
+    }

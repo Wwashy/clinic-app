@@ -112,3 +112,15 @@ label{
 .selected_items:nth-child(even){
     background-color: #ddcddd;
 }
+/*responsiveness*/
+@media screen and  (max-width:480px){
+
+    .smart{
+        display: unset;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    select{
+        width: 100%;
+    }
+}

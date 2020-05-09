@@ -5,8 +5,14 @@ body{
 .section-one{
     grid-column-start: 1;
     grid-column-end: 2;
+    background-color: rgb(26, 29, 29);
 }
 .section-two{
     grid-column-start: 2;
     grid-column-end: 3;
+}
+@media screen and (max-width:480px){
+    body{
+        display: block;
+    }
 }

@@ -16,8 +16,8 @@
 
 <body>
     <!--The left side navigation side bar-->
-    <div class="sidebar" id="sidebar">
-        <button onclick="closeSidebar()" id="close" class="close" style="float: right;">&times;</button>
+    <div class="sidebar" id="admin_sidebar">
+        <button onclick="closeSidebar('admin_sidebar')" id="close" class="close" style="float: right;">&times;</button>
         <br><br>
 
         <button class="largeBtn"><i class="fas fa-home fa-2x"></i>home</button>
@@ -34,7 +34,7 @@
     </div>
     <!--header of the page-->
     <header>
-        <div class="bars" id="menu" onclick="showSidebar()">
+        <div class="bars" id="menu" onclick="showSidebar('admin_sidebar')">
             <div class="strokes"></div>
             <div class="strokes"></div>
             <div class="strokes"></div>   

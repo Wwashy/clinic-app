@@ -14,10 +14,10 @@ route.use(bodyparser.urlencoded({ extended: true }))
 //mysql://b06a5a9cc3bfb2:3a7c6e6c@us-cdbr-iron-east-01.cleardb.net/heroku_7185d4f190fa775?reconnect=true
 let connection = mysql.createPool({
     connectionLimit: 100,
-    host: 'us-cdbr-iron-east-01.cleardb.net' ,//'localhost',
-    user: 'b06a5a9cc3bfb2',//'webwalkeR',
-    password: '3a7c6e6c',//'Hellen@1999',
-    database: 'heroku_7185d4f190fa775' ,//'clinic',
+    host: 'us-cdbr-iron-east-01.cleardb.net' ,
+    user: 'b06a5a9cc3bfb2',
+    password: '3a7c6e6c',
+    database: 'heroku_7185d4f190fa775' ,
     debug: false,
     multipleStatements: true
 });

@@ -23,6 +23,8 @@ $(document).ready(() => {
             let name = data[0].name.toLowerCase();
             let level = data[0].category.toLowerCase();
             $('#title').html(location + " " + name + " " + "Dental Clinic" + " " + level);
+            $('#Header_title').html(location + " " + name + " " + "Dental Clinic" + " " + level);
+
         }
 
     });
