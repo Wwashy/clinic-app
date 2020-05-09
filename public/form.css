@@ -116,7 +116,7 @@ label{
 @media screen and  (max-width:480px){
 
     .smart{
-        display: unset;
+        display: block;
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
