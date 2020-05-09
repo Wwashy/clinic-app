@@ -38,6 +38,7 @@ function callAppointment() {
 function closeModal() {
     document.getElementById("p1").style.left = "-10000px"
 }
+//still not working
 function closeBar() {
     var allButtons = document.querySelectorAll('.largeBtn');
     let mq =window.matchMedia("max-width:480px");

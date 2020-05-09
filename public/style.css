@@ -45,6 +45,9 @@ header{
 .bars{
     display: none;
 }
+.bars#admin_bars, .close#admin_close{
+    display: block;
+}
 /*----------------------------------sidebar stylings----------------------------*/
 .section-one{position: absolute;height: 100%;width:25%;transition: 0.3s;}
 .sidebar#admin_sidebar{

@@ -12,12 +12,17 @@
     <script src="clinicinfo.js"></script>
     <script src="interact.js"></script>
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
+    <script>
+        if (window.history.replaceState){
+            window.history.replaceState(null,null,window.location.href);
+        }
+           </script>
 </head>
 
 <body>
     <!--The left side navigation side bar-->
     <div class="sidebar" id="admin_sidebar">
-        <button onclick="closeSidebar('admin_sidebar')" id="close" class="close" style="float: right;">&times;</button>
+        <button onclick="closeSidebar('admin_sidebar')" id="admin_close" class="close" style="float: right;">&times;</button>
         <br><br>
 
         <button class="largeBtn"><i class="fas fa-home fa-2x"></i>home</button>
@@ -26,6 +31,8 @@
         <button  class="largeBtn" id="btn11"><i class="fas fa-edit fa-2x"></i>Edit System info</button>
         <button class="largeBtn" id="btn12"><i class="fas fa-book fa-2x"></i> Finances</button>
         <button class="largeBtn" id="romove_dentist"><i class="fas fa-user-times fa-2x"></i> remove</button>
+        <button class="largeBtn" id="romove_dentist"><i class="fas fa-user-shield fa-2x"></i> security</button>
+
         <button onclick="openquitBox('quitBox')" class="largeBtn" id="btn8"><i class="fas fa-sign-out-alt fa-2x"></i>
             exit
             </button>
@@ -34,7 +41,7 @@
     </div>
     <!--header of the page-->
     <header>
-        <div class="bars" id="menu" onclick="showSidebar('admin_sidebar')">
+        <div class="bars" id="admin_bars" onclick="showSidebar('admin_sidebar')">
             <div class="strokes"></div>
             <div class="strokes"></div>
             <div class="strokes"></div>   
@@ -123,7 +130,8 @@
                     <option value="KISUMU">KISUMU</option>
                     <option value="KISII">KISII</option>
                     <option value="MIGORI">MIGORI</option>
-                    <option value="RONGO">RONGO</option>>
+                    <option value="RONGO">RONGO</option>
+                    <option value="HOMABAY">HOMABAY</option>
                 </select>
                 <button class="btn" id="btn1" type="submit" value="submit">save</button>
             </form>
