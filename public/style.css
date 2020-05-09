@@ -408,5 +408,9 @@ tr:nth-child(even) {
 
         }
         .icons i.fas{font-size: 25px;}
+        .pops#p1{
+            width: 90%;
+            height: 400px;
+        }
         
     }

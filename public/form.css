@@ -123,4 +123,10 @@ label{
     select{
         width: 100%;
     }
+    .confirm_quit{
+        width: 90%;
+        left: 5%;
+        height: 300px;
+        top: 10%;
+    }
 }

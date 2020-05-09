@@ -30,7 +30,7 @@ setInterval(() => {
 function callAppointment() {
 
     var appointmentPop = document.getElementById("p1");
-    appointmentPop.style.left = "15%";
+    appointmentPop.style.left = "5%";
     appointmentPop.style.transform = "scale(1.1)";
     document.getElementById("section-one").style.opacity = "1"
 
