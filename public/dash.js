@@ -49,7 +49,7 @@ $(document).ready(() => {
                     if (result[row].message == "empty") {
                         newDiv.append("type something to search");
                     } else {
-                        newDiv.append(result[row].firstname);
+                        newDiv.append(result[row].id+" "+result[row].firstname+" "+result[row].lastname+"----"+result[row].phone);
                     }
                     $('#search_results').append(newDiv);
                 }

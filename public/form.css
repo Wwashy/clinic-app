@@ -11,6 +11,12 @@
    grid-gap: 10px;
    
 }
+.smart2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    justify-content: space-evenly;    
+}
 
 input[type = "text"],[type = "email"],[type = "password"],[type = "date"]{
     width: 100%;
