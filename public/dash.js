@@ -66,12 +66,6 @@ $(document).ready(() => {
 
     //getting the data from the server for the appointments
     $('#btn3').click(() => {
-        $('#default').css("display", "none");
-        $('#f1').css("display", "none");
-        $('#f2').css("display", "none");
-        $('#f3').css("display", "none");
-        $('.rappers').css("display", "none");
-
         $.ajax({
             url: 'appoint-view/',
             type: 'GET',
@@ -91,11 +85,6 @@ $(document).ready(() => {
 
     //getting the patient record
     $('#btn4').click(() => {
-        $('#default').css("display", "none");
-        $('#f1').css("display", "none");
-        $('#f2').css("display", "none");
-        $('#f3').css("display", "none");
-        $('.rappers').css("display", "none");
         $.ajax({
             url: 'patient/transaction/today-record/',
             type: 'GET',
@@ -104,6 +93,8 @@ $(document).ready(() => {
                 if (data == "") {
 
                     $('#D001').append("No patient served !!");
+                }else{
+                    //$('all').css("display","block");
                 }
                 let Total = 0;
                 let clients_served = 0;
@@ -185,6 +176,8 @@ $(document).ready(() => {
     let toUpdate = document.getElementById("droplist2");
     //upper right tooth positions
     let upper_right = {
+        none:'none',
+        all:'all',
         Ca11: 'ca 11',
         Ca12: 'ca 12',
         Ca13: 'ca 13',
@@ -196,6 +189,8 @@ $(document).ready(() => {
     }
     //upper_left tooth_positions
     let upper_left = {
+        none:'none',
+        all:'all',
         Ca21: 'ca 21',
         Ca22: 'ca 22',
         Ca23: 'ca 23',
@@ -207,6 +202,8 @@ $(document).ready(() => {
     }
     //lower left tooth th positions
     let lower_left = {
+        none:'none',
+        all:'all',
         Ca31: 'ca 31',
         Ca32: 'ca 32',
         Ca33: 'ca 33',
@@ -218,6 +215,8 @@ $(document).ready(() => {
     }
     // lower right tooth positions
     let lower_right = {
+        none:'none',
+        all:'all',
         Ca41: 'ca 41',
         Ca42: 'ca 42',
         Ca43: 'ca 43',
@@ -228,6 +227,8 @@ $(document).ready(() => {
         Ca48: 'ca 48'
     }
     let totoUpper_right = {
+        none:'none',
+        all:'all',
         Ca51: 'ca 51',
         Ca52: 'ca 52',
         Ca53: 'ca 53',
@@ -235,6 +236,8 @@ $(document).ready(() => {
         Ca55: 'ca 55'
     }
     let totoUpper_left = {
+        none:'none',
+        all:'all',
         Ca61: 'ca 61',
         Ca62: 'ca 62',
         Ca63: 'ca 63',
@@ -242,6 +245,8 @@ $(document).ready(() => {
         Ca65: 'ca 65'
     }
     let totoLower_left = {
+        none:'none',
+        all:'all',
         Ca71: 'ca 71',
         Ca72: 'ca 72',
         Ca73: 'ca 73',
@@ -249,6 +254,8 @@ $(document).ready(() => {
         Ca75: 'ca 75'
     }
     let totoLower_right = {
+        none:'none',
+        all:'all',
         Ca81: 'ca 81',
         Ca82: 'ca 82',
         Ca83: 'ca 83',
@@ -295,12 +302,12 @@ $(document).ready(() => {
         } else if (tooth_position.value == "totoLower_left") {
             toUpdate.options.length = 0;
             for (index in totoLower_left) {
-                toUpdate.options[toUpdate.options.length] = new Option(totoUpper_left[index], index);
+                toUpdate.options[toUpdate.options.length] = new Option(totoLower_left[index], index);
             }
         } else {
             toUpdate.options.length = 0;
             for (index in totoLower_right) {
-                toUpdate.options[toUpdate.options.length] = new Option(totoUpper_left[index], index);
+                toUpdate.options[toUpdate.options.length] = new Option(totoLower_right[index], index);
             }
         }
     });
@@ -310,59 +317,61 @@ $(document).ready(() => {
         let currentValue = $('#teeth_selected').val() + $('#droplist3').val()
         let cost = 0;
         let service = $('#droplist3').val();
+        let initialCost = Number($('#cost').val());
+
         if (service == "extraction") {
-            cost = 700.00;
-            let fcost = Number($('#cost').val()) + cost;
+            cost = 500.00;
+            let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
         if (service == "rootcanal") {
-            cost = 2000.00;
-            let fcost = Number($('#cost').val()) + cost;
+            cost = 3000.00;
+            let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
         if (service == "scaling") {
             cost = 3000.00;
-            let fcost = Number($('#cost').val()) + cost;
+            let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
         if (service == "masking") {
             cost = 2000.00;
-            let fcost = Number($('#cost').val()) + cost;
+            let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
         if (service == "filling") {
             cost = 2000.00;
-            let fcost = Number($('#cost').val()) + cost;
+            let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
         if (service == "replacement") {
             cost = 2500.00;
-            let fcost = Number($('#cost').val()) + cost;
+            let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
         if (service == "splinting") {
             cost = 3000.00;
-            let fcost = Number($('#cost').val()) + cost;
+            let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
         if (service == "I&D") {
             cost = 1500.00;
-            let fcost = Number($('#cost').val()) + cost;
+            let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
         if (service == "disimpaction") {
             cost = 1500.00;
-            let fcost = Number($('#cost').val()) + cost;
+            let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
         if (service == "toothbuilding") {
             cost = 3000.00;
-            let fcost = Number($('#cost').val()) + cost;
+            let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
         if (service == "drysocket") {
             cost = 1000.00;
-            let fcost = Number($('#cost').val()) + cost;
+            let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
         let pa = document.createElement("div");
@@ -374,22 +383,9 @@ $(document).ready(() => {
     });
 
 
-    //hide and show forms
-    $('#btn0').click(() => {
-        $('#default').css("display", "block");
-        $('#f1').css("display", "none");
-        $('#f2').css("display", "none");
-        $('#f3').css("display", "none");
-        $('.rappers').css("display", "none");
-    });
+
 
     $('#btn1').click(() => {
-        $('#default').css("display", "none");
-        $('#f1').css("display", "block");
-        $('#f2').css("display", "none");
-        $('#f3').css("display", "none");
-        $('.rappers').css("display", "none");
-
         //get the last patient to be added to the table
         $.ajax({
             url: 'last-patient/',
@@ -402,31 +398,5 @@ $(document).ready(() => {
             }
         });
     });
-
-
-    $('#btn2').click(() => {
-        $('.rappers').css("display", "none");
-        $('#default').css("display", "none");
-        $('#f1').css("display", "none");
-        $('#f3').css("display", "none");
-        $('#f2').css("display", "block");
-    });
-    $('#search').click(() => {
-        $('#f3').css("display", "block");
-        $('.rappers').css("display", "none");
-        $('#default').css("display", "none");
-        $('#f1').css("display", "none");
-        $('#f2').css("display", "none");
-    });
-
-    $('#btn6').click(() => {
-        window.location.href = '/';
-    });
-
-    $('#btn7').click(() => {
-        $('#section-two').css("background-color", "#282c34")
-    });
-
-
 });
 

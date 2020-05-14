@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="2col-layout.css">
     <link rel="stylesheet" href="form.css">
     <script src="jquery-3.4.1.min.js"></script>
+    <script src="navigationbuttons.js"></script>
     <script src="dash.js"></script>
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
     <script src="interact.js"></script>
-    <script src="routing.js"></script>
 
     <script>
- if (window.history.replaceState){
-     window.history.replaceState(null,null,window.location.href);
- }
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
     </script>
 
 </head>
@@ -28,18 +28,21 @@
         <div class="sidebar" id="dash_sidebar">
             <button onclick="closeSidebar('dash_section1')" id="close" class="close">x</button>
             <br>
-            <div id="title1"><i class="fas fa-tooth fa-4x" style="float: left; color: teal;"></i><h1 id="title" style="color: teal;">title</h1></div>
+            <div id="title1"><i class="fas fa-tooth fa-4x" style="float: left; color: teal;"></i>
+                <h1 id="title" style="color: teal;">title</h1>
+            </div>
             <hr>
             <button class="largeBtn" id="btn0"><i class="fas fa-home fa-2x"></i>Dashboard</button>
             <button class="largeBtn" id="search"><i class="fas fa-search fa-2x"></i>search</button>
-            <button class="largeBtn" id="btn1"><i class="fas fa-stethoscope fa-2x"></i> Treatment</button>
             <button class="largeBtn" id="btn2"><i class="fas fa-user-plus fa-2x"></i> New Patient</button>
+            <button class="largeBtn" id="btn1"><i class="fas fa-stethoscope fa-2x"></i> Treatment</button>
             <button class="largeBtn" id="btn3"><i class="fas fa-edit fa-2x"></i>Reviews Appointment</button>
             <button class="largeBtn" id="btn4"><i class="fas fa-book fa-2x"></i>Today Client Records</button>
             <button class="largeBtn" id="btn6"><i class="fas fa-cog fa-2x"></i>Advanced</button>
             <button class="largeBtn" id="btn7"><i class="fas fa-moon fa-2x"></i>Dark theme</button>
             <a href="contact"><button class="largeBtn" id="btn5"><i class="fas fa-question fa-2x"></i> Help</button></a>
-            <button onclick="openquitBox('quitBox')" class="largeBtn" id="logout_btn" ><i class="fas fa-sign-out-alt fa-2x"></i>Log out</button>
+            <button onclick="openquitBox('quitBox')" class="largeBtn" id="logout_btn"><i
+                    class="fas fa-sign-out-alt fa-2x"></i>Log out</button>
             <!--div>
                 <p style="color: white;">clinicsystems@webwalker</p>
                 <p>@2020</p>
@@ -47,24 +50,30 @@
         </div>
 
     </section>
-    <!--section two--->
-    <section class="section-two" id="section-two">
-        <header id="main_header">
 
+    <!--+++++++++++++section two++++++++++++++++++++--->
+    <section class="section-two" id="section-two">
+
+        <header id="main_header">
             <div class="bars" id="menu" onclick="showSidebar('dash_section1')">
                 <div class="strokes"></div>
                 <div class="strokes"></div>
-                <div class="strokes"></div>   
+                <div class="strokes"></div>
             </div>
             <br>
-            <div id="title2"><i class="fas fa-tooth fa-4x" style="float: left;"></i><h1 id="Header_title">title</h1></div>
+            <div id="title2"><i class="fas fa-tooth fa-4x" style="float: left;"></i>
+                <h1 id="Header_title">title</h1>
+            </div>
             <br>
-
             <div id="time-box">time</div>
             <div class="" id="appointmentButton" onclick="callAppointment()">Appointment</div>
-            <div class="" id ="total">OvTotal</div>
+            <div class="" id="total">OvTotal</div>
         </header>
+
+
         <main class="dashboard" id="D001">
+
+<!--========================dashboard icons==========================-->        
                 <div class="container" id="default">
                 <div class="icons" id="clients_served"><i class="fas fa-user fa-4x"></i></div>
                 <div class="icons" id="all_appointment"><i class="fas fa-book fa-4x"></i></div>
@@ -74,7 +83,10 @@
 
             </div>
 
-            <!---service form-->
+
+
+
+<!--======================service form===================================================-->
             <div class="container" id="f1">
                 <form class="smart" action="submit_service " method="POST">
                     <div class="form-head">
@@ -82,18 +94,22 @@
                     </div>
                     <label for="">patient id</label><input type="text" id="last_patient" name="patient_id"
                         placeholder="ID">
-                    <label for="">position</label><select name="tooth_position" id="tooth_position">
-                        <option value="upper_right">upper_right</option>
-                        <option value="upper_left">upper_left</option>
-                        <option value="lower_right">lower_right</option>
-                        <option value="lower_left">lower_left</option>
-                        <option value="totoUpper_right">totoUpper_right</option>
-                        <option value="totoLower_right">totoLower_right</option>
-                        <option value="totoUpper_left">totoUpper_left</option>
-                        <option value="totoLower_left">totoLower_left</option>
+                    <label for="">position</label>
+                    <select name="tooth_position" id="tooth_position">
+                        <option value="none">none</option>
+                        <option value="upper_right">upper_right 1</option>
+                        <option value="lower_right">lower_right 4</option>
+                        <option value="upper_left">upper_left 2</option>                        
+                        <option value="lower_left">lower_left 3</option>
+                        <option value="totoUpper_right">totoUpper_right 5</option>
+                        <option value="totoLower_right">totoLower_right 8</option>
+                        <option value="totoUpper_left">totoUpper_left 6</option>
+                        <option value="totoLower_left">totoLower_left 7</opti5on>
 
                     </select>
-                    <label for="">service: </label><select id="droplist3" name="service" required>
+                    <label for="">service: </label>
+                    <select id="droplist3" name="service" required>
+                        <option value="none">none</option>
                         <option value="extraction">extraction </option>
                         <option value="rootcanal">rootcanal </option>
                         <option value="scaling">scaling </option>
@@ -106,12 +122,13 @@
                         <option value="toothbuilding">toothbuilding</option>
                         <option value="drysocket">drysocket </option>
                     </select>
-                    <label for="">DX: </label><select id="droplist2" name="tooth_name" required>
+                    <label for="">RX: </label><select id="droplist2" name="tooth_name" required>
                     </select>
                     <label>Description</label>
                     <input type="text" id="service_description" name="service_description"
                         placeholder="service description">
-                    <label for="">Total cost</label><input type="text" id="cost" name="cost" placeholder="Cost">
+                    <label for="">Total cost</label><input type="text" id="cost" name="cost" placeholder="Cost" value="0">
+                    <label for="">consaltation</label><input type="text" id="cost" name="consaltation" value="200" placeholder="consaltation">
                     <label for="">dentist:</label><select id="Cdentist" name="cdentist"></select>
                     <label for="">assistant:</label><select id="Cassistant" name="cassistant"></select>
                     <div id="add_service" class="btn">add service</div>
@@ -120,7 +137,11 @@
                 <!--button class="btn" id="btn_save">save</button-->
                 <div id="teeth_selected" class="selected_items"></div>
             </div>
-            <!--patients form-->
+
+
+
+
+<!--===============================patients form=============================================-->
             <div class="container" id="f2">
                 <form class="smart" action="submit_patient" method="POST">
                     <div class="form-head">
@@ -144,11 +165,18 @@
                 </form>
                 <a href="#f1"><button onclick="showFOMS(this.id)" class="btn" id="next">NEXT</button></a>
             </div>
-            <!--appointment pop ups-->
+
+
+
+
+
+            <!--=======================appointment pop ups===================================-->
             <div class="pops" id="p1">
                 <div class="header" style="display: flex;justify-content: flex-end;">
                     <div onclick="closeModal()" class="far fa-window-close fa-2x"
-                        style="color: rebeccapurple; font-size: 20px;"><!--close--></div>
+                        style="color: rebeccapurple; font-size: 20px;">
+                        <!--close-->
+                    </div>
                 </div>
                 <h1>Add your details</h1>
                 <hr>
@@ -164,7 +192,9 @@
                 </div>
 
             </div>
-            <!--search display area-->
+
+
+            <!--====================================search display area================================-->
             <div class="container" id="f3">
                 <div class="smart1">
                     <div class="form-head">
@@ -181,16 +211,18 @@
                     <div class="list" id="search_results">results should come here</div>
                 </div>
             </div>
-        <!--Alert box for confirming quit-->
-        <div class="confirm_quit" id="quitBox">
-            <h2>Alert!</h2>
-            <hr><br><br>
-            <p>Are you sure you want to exit?</p>
-            <div class="btn_group">
-                <button class="btn ok" onclick="redirect('login','quitBox')">OK</button>
-                <button class="btn cancel" onclick="cancel('quitBox')">CANCEL</button>
+
+
+            <!--==============================Alert box for confirming quit====================-->
+            <div class="confirm_quit" id="quitBox">
+                <h2>Alert!</h2>
+                <hr><br><br>
+                <p>Are you sure you want to exit?</p>
+                <div class="btn_group">
+                    <button class="btn ok" onclick="redirect('login','quitBox')">OK</button>
+                    <button class="btn cancel" onclick="cancel('quitBox')">CANCEL</button>
+                </div>
             </div>
-        </div>
         </main>
     </section>
 </body>

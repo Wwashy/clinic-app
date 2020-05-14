@@ -60,6 +60,7 @@ function getRoute(params) {
         } else {
             res.send("Authentication failed:EMPTY make sure you type the correct usernames and password");
         }
+        res.sendFile(__dirname + '/login.html'); 
     });
 
 
@@ -67,9 +68,11 @@ function getRoute(params) {
         if (user == true && passcode == true) {
             res.sendFile(__dirname + '/dash.html')
         } else {
-            res.send("error");
+            //res.send("authentication failed");
+           res.sendFile(__dirname + '/login.html');
         }
     });
+    
     route.get('/admin', (req, res) => {
         if (user == true && passcode == true) {
             res.sendFile(__dirname + '/clinicInfo.html');
@@ -135,6 +138,10 @@ function sendData() {
         let today = new Date();
         let date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
         let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        let charge = Number(req.body.cost)
+        let consaltation = Number(req.body.consaltation);
+        let cost =charge+consaltation;
+
         let sql = "INSERT INTO service \
         (patient_id,\
         service,\
@@ -152,7 +159,7 @@ function sendData() {
         '"+ req.body.tooth_position + "',\
         '"+ req.body.tooth_name + "',\
         '"+ req.body.service_description + "',\
-        '"+ req.body.cost + "',\
+        '"+ cost + "',\
         '"+ req.body.cdentist + "',\
         '"+ req.body.cassistant + "',\
         '"+ date + "',\

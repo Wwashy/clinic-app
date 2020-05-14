@@ -11,7 +11,7 @@ body{
     grid-column-start: 2;
     grid-column-end: 3;
 }
-@media screen and (max-width:480px){
+@media screen and (max-width:600px){
     body{
         display: block;
     }

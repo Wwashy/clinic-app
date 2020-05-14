@@ -384,7 +384,7 @@ tr:nth-child(even) {
         display: none;
     }
 
-    @media screen and (max-width:480px){
+    @media screen and (max-width:600px){
         .section-one{
             left:-10000px;
             width: 50%;

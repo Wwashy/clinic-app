@@ -1,4 +1,5 @@
 //sidebar events
+closeBar();
 function showSidebar(elem) {
     document.getElementById(elem).style.left = "0px";
     document.getElementById("close").innerHTML = "X";
@@ -38,22 +39,8 @@ function callAppointment() {
 function closeModal() {
     document.getElementById("p1").style.left = "-10000px"
 }
-//still not working
-function closeBar() {
-    var allButtons = document.querySelectorAll('.largeBtn');
-    let mq =window.matchMedia("max-width:480px");
-    if(mq.matches){
-        for (let i = 0; i < allButtons.length; i++) {
-            allButtons[i].addEventListener("click",()=>{
-            allButtons.forEach(element => {
-                document.getElementById("dash_sidebar").style.left = "-10000px";
-                });
-                
-            });            
-        }
-    }   
-}
-window.onload = closeBar();
+
+
 
 
 
