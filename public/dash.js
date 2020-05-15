@@ -325,7 +325,17 @@ $(document).ready(() => {
             $('#cost').val(fcost);
         }
         if (service == "rootcanal") {
-            cost = 3000.00;
+            cost = 2000.00;
+            let fcost = initialCost + cost;
+            $('#cost').val(fcost);
+        }
+        if (service == "rootcanalLM") {
+            cost = 4000.00;
+            let fcost = initialCost + cost;
+            $('#cost').val(fcost);
+        }
+        if (service == "rootcanalUM") {
+            cost = 6000.00;
             let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
@@ -344,8 +354,13 @@ $(document).ready(() => {
             let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
-        if (service == "replacement") {
-            cost = 2500.00;
+        if (service == "replacement temp") {
+            cost = 4000.00;
+            let fcost = initialCost + cost;
+            $('#cost').val(fcost);
+        }
+        if (service == "replacement perm") {
+            cost = 10000.00;
             let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }

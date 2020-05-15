@@ -96,7 +96,7 @@
                         placeholder="ID">
                     <label for="">position</label>
                     <select name="tooth_position" id="tooth_position">
-                        <option value="none">none</option>
+                        <option value="">none</option>
                         <option value="upper_right">upper_right 1</option>
                         <option value="lower_right">lower_right 4</option>
                         <option value="upper_left">upper_left 2</option>                        
@@ -109,13 +109,16 @@
                     </select>
                     <label for="">service: </label>
                     <select id="droplist3" name="service" required>
-                        <option value="none">none</option>
+                        <option value="">none</option>
                         <option value="extraction">extraction </option>
                         <option value="rootcanal">rootcanal </option>
+                        <option value="rootcanalLM">rootcanal-LM </option>
+                        <option value="rootcanalUM">rootcanal-UM </option>
                         <option value="scaling">scaling </option>
                         <option value="masking">masking </option>
                         <option value="filling">filling </option>
-                        <option value="replacement">replacement </option>
+                        <option value="replacement perm">replacement perm</option>
+                        <option value="replacement temp">replacement temp</option>
                         <option value="splinting">splinting </option>
                         <option value="I&D">I&D </option>
                         <option value="disimpaction">disimpaction </option>
@@ -128,7 +131,7 @@
                     <input type="text" id="service_description" name="service_description"
                         placeholder="service description">
                     <label for="">Total cost</label><input type="text" id="cost" name="cost" placeholder="Cost" value="0">
-                    <label for="">consaltation</label><input type="text" id="cost" name="consaltation" value="200" placeholder="consaltation">
+                    <label for="">consaltation</label><input type="text" id="co" name="consaltation" value="200" placeholder="consaltation">
                     <label for="">dentist:</label><select id="Cdentist" name="cdentist"></select>
                     <label for="">assistant:</label><select id="Cassistant" name="cassistant"></select>
                     <div id="add_service" class="btn">add service</div>
@@ -147,8 +150,8 @@
                     <div class="form-head">
                         <h1>add new patient details</h1>
                     </div>
-                    <label for=""> name:</label> <input id="tb1" type="text" name="firstname" placeholder="Firstname">
-                    <label for="">Lastname:</label><input id="tb2" type="text" name="lastname" placeholder="Lastname">
+                    <label for=""> name:</label> <input id="tb1" type="text" name="firstname" placeholder="Firstname" required>
+                    <label for="">Lastname:</label><input id="tb2" type="text" name="lastname" placeholder="Lastname" required>
                     <label for="">Surname:</label><input id="tb3" type="text" name="sirname" placeholder="Surname">
                     <label for="">DOB:</label><input id="tb4" type="date" name="date" placeholder="date of birth">
                     <label for="">email:</label><input id="tb5" type="email" name="email"

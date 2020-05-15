@@ -1,5 +1,4 @@
 //sidebar events
-closeBar();
 function showSidebar(elem) {
     document.getElementById(elem).style.left = "0px";
     document.getElementById("close").innerHTML = "X";
