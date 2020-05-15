@@ -108,6 +108,7 @@ $(document).ready(() => {
                     let div1 = document.createElement("div");
                     let div2 = document.createElement("div");
                     let div3 = document.createElement("div");
+                    let consaltation = document.createElement("div");
                     let div4 = document.createElement("div");
                     let div5 = document.createElement("div");
                     let div6 = document.createElement("div");
@@ -115,6 +116,7 @@ $(document).ready(() => {
                     div1.setAttribute("class", "sub_rapper sub_patient_id")
                     div2.setAttribute("class", "sub_rapper sub_service_description")
                     div3.setAttribute("class", "sub_rapper sub_cost")
+                    consaltation.setAttribute("class","sub_rapper sub_cost");
                     div4.setAttribute("class", "sub_rapper sub_service_date")
                     div5.setAttribute("class", "sub_rapper sub_service_time")
                     div6.setAttribute("class", "sub_rapper sub_patient_name")
@@ -122,6 +124,7 @@ $(document).ready(() => {
 
                     div1.append("PatientId:" + " " + data[row].patient_id + " " + "serviceID:" + data[row].service_id);
                     div2.append("Description:" + data[row].service_description);
+                    consaltation.append("consaltation:"+" "+$('#consaltation').val());
                     div3.append("Charge:" + data[row].cost);
                     div4.append("date:" + data[row].service_date);
                     div5.append("time:" + data[row].service_time);
@@ -130,6 +133,7 @@ $(document).ready(() => {
                     rapper1.appendChild(div6)
                     rapper1.appendChild(div1)
                     rapper1.appendChild(div2)
+                    rapper1.appendChild(consaltation)                    
                     rapper1.appendChild(div3)
                     rapper1.appendChild(div4)
                     rapper1.appendChild(div5)
