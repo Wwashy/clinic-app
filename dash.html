@@ -43,16 +43,29 @@
             <a href="contact"><button class="largeBtn" id="btn5"><i class="fas fa-question fa-2x"></i> Help</button></a>
             <button onclick="openquitBox('quitBox')" class="largeBtn" id="logout_btn"><i
                     class="fas fa-sign-out-alt fa-2x"></i>Log out</button>
-            <!--div>
-                <p style="color: white;">clinicsystems@webwalker</p>
-                <p>@2020</p>
-            </div-->
         </div>
-
+        <footer>
+            <p style="color: white;">clinicsystems @webwalker</p>
+            <p>@2020</p>
+        </footer>
     </section>
 
     <!--+++++++++++++section two++++++++++++++++++++--->
     <section class="section-two" id="section-two">
+        <div class="session-head">
+
+            <div class="left section">
+                <div>&RightTriangleBar;</div>
+                <div><a href="/welcome">welcome</a></div>
+                <div id="time-box">time</div>
+            </div>
+
+            <div class="right section">
+                <div class="profile">
+                    <i class="fas fa-user fa-2x" style="transform: translate(10px, 10px);color:gray;"></i>
+                </div>
+            </div>
+        </div>
 
         <header id="main_header">
             <div class="bars" id="menu" onclick="showSidebar('dash_section1')">
@@ -65,19 +78,22 @@
                 <h1 id="Header_title">title</h1>
             </div>
             <br>
-            <div id="time-box">time</div>
             <div class="" id="appointmentButton" onclick="callAppointment()">Appointment</div>
             <div class="" id="total">OvTotal</div>
+
         </header>
 
 
         <main class="dashboard" id="D001">
 
-<!--========================dashboard icons==========================-->        
-                <div class="container" id="default">
-                <div class="icons" id="clients_served"><i class="fas fa-user fa-4x"></i></div>
-                <div class="icons" id="all_appointment"><i class="fas fa-book fa-4x"></i></div>
-                <div class="icons" id="all_client"><i class="fas fa-user fa-4x"></i></div>
+            <!--========================dashboard icons==========================-->
+            <div class="container" id="default">
+                <div class="icons" id="clients_served" style="color:green;"><i class="fas fa-user fa-4x"
+                        style="color:green;"></i></div>
+                <div class="icons" id="all_client" style="color:red;"><i class="fas fa-user fa-4x"
+                        style="color:red;"></i></div>
+                <div class="icons" id="all_appointment" style="color:blue;"><i class="fas fa-book fa-4x"
+                        style="color:blue;"></i></div>
                 <div class="icons" id="av_dentist"><i class="fas fa-user-md fa-4x"></i></div>
                 <div class="icons" id="av_assistant"><i class="fas fa-user-nurse fa-4x"></i></div>
 
@@ -86,7 +102,7 @@
 
 
 
-<!--======================service form===================================================-->
+            <!--======================service form===================================================-->
             <div class="container" id="f1">
                 <form class="smart" action="submit_service " method="POST">
                     <div class="form-head">
@@ -99,7 +115,7 @@
                         <option value="">none</option>
                         <option value="upper_right">upper_right 1</option>
                         <option value="lower_right">lower_right 4</option>
-                        <option value="upper_left">upper_left 2</option>                        
+                        <option value="upper_left">upper_left 2</option>
                         <option value="lower_left">lower_left 3</option>
                         <option value="totoUpper_right">totoUpper_right 5</option>
                         <option value="totoLower_right">totoLower_right 8</option>
@@ -109,7 +125,7 @@
                     </select>
                     <label for="">service: </label>
                     <select id="droplist3" name="service" required>
-                        <option value="">none</option>
+                        <option value="none">none</option>
                         <option value="extraction">extraction </option>
                         <option value="rootcanal">rootcanal </option>
                         <option value="rootcanalLM">rootcanal-LM </option>
@@ -130,8 +146,10 @@
                     <label>Description</label>
                     <input type="text" id="service_description" name="service_description"
                         placeholder="service description">
-                    <label for="">Total cost</label><input type="text" id="cost" name="cost" placeholder="Cost" value="0">
-                    <label for="">consaltation</label><input type="text" id="consaltation" name="consaltation" value="200" placeholder="consaltation">
+                    <label for="">Total cost</label><input type="text" id="cost" name="cost" placeholder="Cost"
+                        value="0">
+                    <label for="">consaltation</label><input type="text" id="consaltation" name="consaltation"
+                        value="200" placeholder="consaltation">
                     <label for="">dentist:</label><select id="Cdentist" name="cdentist"></select>
                     <label for="">assistant:</label><select id="Cassistant" name="cassistant"></select>
                     <div id="add_service" class="btn">add service</div>
@@ -144,14 +162,16 @@
 
 
 
-<!--===============================patients form=============================================-->
+            <!--===============================patients form=============================================-->
             <div class="container" id="f2">
                 <form class="smart" action="submit_patient" method="POST">
                     <div class="form-head">
                         <h1>add new patient details</h1>
                     </div>
-                    <label for=""> name:</label> <input id="tb1" type="text" name="firstname" placeholder="Firstname" required>
-                    <label for="">Lastname:</label><input id="tb2" type="text" name="lastname" placeholder="Lastname" required>
+                    <label for=""> name:</label> <input id="tb1" type="text" name="firstname" placeholder="Firstname"
+                        required>
+                    <label for="">Lastname:</label><input id="tb2" type="text" name="lastname" placeholder="Lastname"
+                        required>
                     <label for="">Surname:</label><input id="tb3" type="text" name="sirname" placeholder="Surname">
                     <label for="">DOB:</label><input id="tb4" type="date" name="date" placeholder="date of birth">
                     <label for="">email:</label><input id="tb5" type="email" name="email"
@@ -210,7 +230,7 @@
                     </select>
 
                     <input type="text" placeholder="search ..." name="" id="searched">
-                     
+
                 </div>
                 <div class="list" id="search_results">results should come here</div>
             </div>

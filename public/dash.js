@@ -5,8 +5,8 @@ $(document).ready(() => {
         type: 'GET',
         dataType: 'json',
         success: (data) => {
-                $('#clients_served').append("Patient Served:"+" "+data.service);
-                $('#all_appointment').append("appointments:"+" "+data.appointment);
+                $('#clients_served').append("Served:"+" "+data.service);
+                $('#all_appointment').append("App/review:"+" "+data.appointment);
                 $('#all_client').append("patients:"+" "+data.patient);
                 $('#av_dentist').append("dentist:"+" "+data.dentist);
                 $('#av_assistant').append("assistant:"+" "+data.assistant);
@@ -46,16 +46,17 @@ $(document).ready(() => {
                 $('#search_results').empty();
                 for (row in result) {
                     let newDiv = document.createElement("div");
+                    newDiv.setAttribute("class","rappers")
                     if (result[row].message == "empty") {
                         newDiv.append("type something to search");
                     } else {
-                        newDiv.append(result[row].id+" "+result[row].firstname+" "+result[row].lastname+"----"+result[row].phone);
+                        newDiv.append(result[row].id+" "+result[row].firstname+" "+result[row].lastname+" "+result[row].phone+" "+"MH:"+result[row].service_description+" "+"PAID:"+result[row].cost);
                     }
                     $('#search_results').append(newDiv);
                 }
             }
         });
-    });
+    }) ;
 
     //appointment form valiadation
     $('#closeModal').click(() => {
@@ -91,7 +92,6 @@ $(document).ready(() => {
             dataType: 'json',
             success: (data) => {
                 if (data == "") {
-
                     $('#D001').append("No patient served !!");
                 }else{
                     //$('all').css("display","block");
@@ -323,13 +323,18 @@ $(document).ready(() => {
         let service = $('#droplist3').val();
         let initialCost = Number($('#cost').val());
 
+        if (service == "none") {
+            cost = 0.00;
+            let fcost = initialCost + cost;
+            $('#cost').val(fcost);
+        }
         if (service == "extraction") {
             cost = 500.00;
             let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }
         if (service == "rootcanal") {
-            cost = 2000.00;
+            cost = 3000.00;
             let fcost = initialCost + cost;
             $('#cost').val(fcost);
         }

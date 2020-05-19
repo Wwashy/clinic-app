@@ -4,7 +4,7 @@ let mysql = require('mysql');
 
 let route = express();
 
-route.set('port',(process.env.PORT || 4000));
+route.set('port', (process.env.PORT || 4000));
 
 
 route.use(express.static('public'));
@@ -14,10 +14,10 @@ route.use(bodyparser.urlencoded({ extended: true }))
 //mysql://b06a5a9cc3bfb2:3a7c6e6c@us-cdbr-iron-east-01.cleardb.net/heroku_7185d4f190fa775?reconnect=true
 let connection = mysql.createPool({
     connectionLimit: 100,
-    host: 'us-cdbr-iron-east-01.cleardb.net' ,
-    user: 'b06a5a9cc3bfb2',
-    password: '3a7c6e6c',
-    database: 'heroku_7185d4f190fa775' ,
+    host: 'localhost',  //'us-cdbr-iron-east-01.cleardb.net' ,
+    user: 'washy',    //'b06a5a9cc3bfb2',
+    password: 'Hellen@1999',//'3a7c6e6c',
+    database: 'clinic',//'heroku_7185d4f190fa775' ,
     debug: false,
     multipleStatements: true
 });
@@ -60,7 +60,7 @@ function getRoute(params) {
         } else {
             res.send("Authentication failed:EMPTY make sure you type the correct usernames and password");
         }
-        res.sendFile(__dirname + '/login.html'); 
+        res.sendFile(__dirname + '/login.html');
     });
 
 
@@ -69,10 +69,10 @@ function getRoute(params) {
             res.sendFile(__dirname + '/dash.html')
         } else {
             //res.send("authentication failed");
-           res.sendFile(__dirname + '/login.html');
+            res.sendFile(__dirname + '/login.html');
         }
     });
-    
+
     route.get('/admin', (req, res) => {
         if (user == true && passcode == true) {
             res.sendFile(__dirname + '/clinicInfo.html');
@@ -102,7 +102,11 @@ function sendData() {
             console.log("type something to search");
         } else {
             if (req.query.who == "patient") {
-                var sql = "SELECT * FROM patient WHERE firstname LIKE '%" + req.query.searched + "%' OR phone LIKE '%" + req.query.searched + "%';"
+                var sql = "SELECT patient.id,patient.firstname,patient.lastname,patient.phone,\
+                            service.service_description,service.cost \
+                            FROM patient INNER JOIN service on patient.id = service.patient_id\
+                            AND (patient.firstname LIKE '%" + req.query.searched + "%' OR patient.phone LIKE '%" + req.query.searched + "%');"
+            //    var sql = "SELECT * FROM patient WHERE firstname LIKE '%" + req.query.searched + "%' OR phone LIKE '%" + req.query.searched + "%';"
             }
             if (req.query.who == "dentist") {
                 var sql = "SELECT * FROM dentist WHERE firstname LIKE '%" + req.query.searched + "%';"
@@ -113,6 +117,7 @@ function sendData() {
             connection.query(sql, (err, result) => {
                 if (err) throw err;
                 res.send(result);
+                console.log(result);
             });
         }
     })
@@ -140,7 +145,7 @@ function sendData() {
         let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         let charge = Number(req.body.cost)
         let consaltation = Number(req.body.consaltation);
-        let cost =charge+consaltation;
+        let cost = charge + consaltation;
 
         let sql = "INSERT INTO service \
         (patient_id,\
@@ -331,5 +336,5 @@ route.on('listening', () => {
 });
 route.listen(route.get('port'), (err) => {
     if (err) throw err;
-    console.log('listenning to port 4000',route.get('port'));
+    console.log('listenning to port 4000', route.get('port'));
 });

@@ -10,17 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="jquery-3.4.1.min.js"></script>
     <script src="https://kit.fontawesome.com/fdf798d12c.js" crossorigin="anonymous"></script>
-     <script>
-        $(document).ready(() => {
-            $('#checkbox1').change(() => {
-               if (this.checked) {
-                    textBox2_password.setAttribute("type", "text")
-                } else {
-                    textBox2_password.setAttribute("type", "password")
-                }
-            });
-        });
-    </script>
+
 </head>
 
 <body>
@@ -44,13 +34,33 @@
                     <br>
                     <input type="password" id="textBox2_password" placeholder="password" name="password"><br><br>
                     <label for="">Show password</label><input type="checkbox" id="checkbox1" checked.>
-                    <br>
+                    <br> 
                     <br>
                     <button type="submit" class="btn" id="login_button" value="submit">Login</button>
                 </form>
             </div>
         </div>
     </main>
+    <script>
+        //  function showpassword(elementid) {
+        //      let s = document.getElementById(elementid)
+        //      if (s.type === 'password') {
+        //          s.type = 'text';
+        //      } else {
+        //          s.type = 'password';
+        //      }
+        //  }
+        $(document).ready(()=>{
+          let s = document.getElementById('textBox2_password');          
+            $('#checkbox1').click(()=>{            
+              if (s.type === 'text') {                 
+                  s.type = 'password';
+              } else{
+                s.type = 'text';
+              }
+            });
+        });
+      </script>
 </body>
 
 </html>
